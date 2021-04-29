@@ -1,4 +1,4 @@
-# grupo_11
+# grupo_11_hardcommerce
 
 Tematica del sitio:
 Venta de hardware para computadoras, tanto componentes de PC como perifericos, notebooks y PC armadas.

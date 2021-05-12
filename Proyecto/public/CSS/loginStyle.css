@@ -1,5 +1,127 @@
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body{
+    background-color: white;
+    font-size: 16px;
+    background-color:rgb(74, 74, 211);
+}
+.main-header{
+    width: 90%;
+    margin:auto;
+}
+.caja1{
+    border:solid 3px black;
+    display:flex;
+}
+.caja1-main{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:auto;
+}
+.logo{
+    width: 120px;
+    margin: 0 20px;
+}
+.columnar{
+    flex-direction: column;
+    margin: 10px 15px;
+    /*border:solid 2px black;  */
+}
+.columna1{
+    list-style: none;
+    margin:15px 0;
+    padding:0;
+    display:flex;
+    /*border:solid 2px black;*/
+    flex-direction: column;
+}
+.columna1 .top{
+    display:flex;
+}
+.columna1 .top li{
+    margin:auto;
+}
+.columna2{
+    list-style: none;
+    margin: 5px 0;
+    padding:0;
+    display:flex;
+    /*border:solid 2px black;*/
+    flex-direction:column;
+}
+/*.columna2 ul{
+    border:solid 2px black;
+}*/
+.columna3{
+    list-style: none;
+    margin:15px 0;
+    padding:0;
+    display:flex;
+    /*border:solid 2px black;*/
+    flex-direction:column;
+}
+.columna3-bottom{
+    list-style:none;
+    display:flex;
+    /*border:solid 2px black;*/
+    margin:0 5px;
+}
+.columna3-bottom li{
+    margin:0 5px;
+   /* border:solid 2px black;*/
+}
+.columna4{
+    list-style: none;
+    margin:15px 0;
+    padding:0;
+    display:flex;
+    /*border:solid 2px black;*/
+    flex-direction:column;
+    
+}
+.carrito{
+    font-size:50px;
+    display:flex;
+}
+.columna4 ul{
+    /*border:solid 2px black;*/
+    margin: 5px 0;
+}
+/*.boton{
+    border:solid 2px black;
+}*/
+/*.barra-busqueda{
+    border:solid 3px black;
+    background-color: white;
+}*/
+
+.caja2{
+    border:solid 3px black;
+    display:flex;
+    justify-content: space-around;
+    
+}
+.mainCaja2{
+    display:flex;
+    font-size: 25px;
+    
+}
+.mainCaja2 a{
+    text-decoration: none;
+    color:#222222;
+    display:inline-block;
+    padding:5px 0;
+    
+}
+.mainCaja2 a{
+    margin:0 30px 0 0;
+    border:solid 1px black;
+    background-color:grey;
+    
 }

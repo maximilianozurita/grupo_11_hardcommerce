@@ -3,3 +3,144 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+main{
+    background-color: rgb(233, 233, 233);
+    padding: 0.5%;
+}
+.carrusel-productos{
+    padding: 1%;
+    margin: 1px;
+    position: relative;
+}
+
+.boton-carrusel{
+    font-size: 26px;
+    background-color: white;
+    padding: 1px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 17px;
+    color: blue;
+}
+
+.boton-carrusel--RH{
+    position: absolute;
+    top: 40%;
+    Right: 2%;
+}
+.boton-carrusel--LH{
+    position: absolute;
+    top: 40%;
+    Left: 2%;
+}
+
+
+
+
+.ofertas{
+    padding: 0.5%;
+    border-top: solid 1px rgb(175, 175, 175);
+}
+.ofertas__titulo{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+.contenedor-productos{
+    display: flex;
+    position: relative;
+}
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    margin: 1%;
+    background-color: #fff;
+    justify-content: space-around;
+    border: 1px solid rgb(151, 150, 150);
+    border-radius: 6px;
+}
+.producto--oferta{
+    flex-basis: 33.3%;
+}
+.producto--destacados{
+    flex-basis: 22%;
+}
+
+.producto__descripcion{
+    padding: 1%;
+}
+.producto__precio{
+    color: rgb(151, 151, 151);
+    opacity: 0.9;
+}
+.button{
+    display: flex;
+    border:rgb(105, 116, 148) solid 1px;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.button__contenedor-imagen{
+    padding-right: 10px;
+    color: rgb(0, 167, 22);
+}
+.button__body{
+    color: rgb(33, 35, 61);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.contacto{
+    padding: 0.5%;
+    border-top: solid 1px rgb(175, 175, 175);
+}
+.contacto__titulo{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+.contenedor-contacto{
+    display: flex;
+}
+
+.forma-contacto{
+    flex-basis: 33.3%;
+    padding: 0.5%;
+    position: relative;
+}
+.forma-contacto__imagen{
+    border-radius: 6px;
+    border: solid 1px rgb(156, 156, 156);
+}
+
+.forma-contacto__descripcion{
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    padding: 2px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    background-color: rgba(10,10,10,0.7);
+    max-width: 13em;
+    font-size: 0.62em;
+}
+
+.destacados{
+    padding: 0.5%;
+    border-top: solid 1px rgb(175, 175, 175);
+}
+.destacados__titulo{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}

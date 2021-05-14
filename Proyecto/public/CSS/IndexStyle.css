@@ -13,8 +13,7 @@ main{
     margin: 1px;
     position: relative;
 }
-
-.boton-carrusel{
+.button-carrusel{
     font-size: 26px;
     background-color: white;
     padding: 1px;
@@ -24,13 +23,12 @@ main{
     border-radius: 17px;
     color: blue;
 }
-
-.boton-carrusel--RH{
+.button-carrusel--RH{
     position: absolute;
     top: 40%;
     Right: 2%;
 }
-.boton-carrusel--LH{
+.button-carrusel--LH{
     position: absolute;
     top: 40%;
     Left: 2%;
@@ -41,9 +39,9 @@ main{
 
 .ofertas{
     padding: 0.5%;
-    border-top: solid 1px rgb(175, 175, 175);
+    margin-top: 10px;
 }
-.ofertas__titulo{
+.titulos-home{
     font-size: larger;
     font-weight: bold;
     color: rgb(105, 105, 105);
@@ -52,8 +50,9 @@ main{
 .contenedor-productos{
     display: flex;
     position: relative;
+    border-top: solid 1px rgb(218, 218, 218);
+    border-bottom: solid 1px rgb(179, 179, 179);
 }
-
 .producto{
     display: flex;
     flex-direction: column;
@@ -70,28 +69,28 @@ main{
 .producto--destacados{
     flex-basis: 22%;
 }
-
 .producto__descripcion{
     padding: 1%;
+    color: rgba(0,0,0,0.7);
 }
 .producto__precio{
     color: rgb(151, 151, 151);
     opacity: 0.9;
 }
-.button{
+.producto__button-producto{
+    text-decoration: none;
+}
+.button-agregar{
     display: flex;
-    border:rgb(105, 116, 148) solid 1px;
-    border-radius: 6px;
-    justify-content: center;
     align-items: center;
     align-self: center;
+    text-decoration: none;
 }
-
-.button__contenedor-imagen{
+.button-agregar__contenedor-imagen{
     padding-right: 10px;
     color: rgb(0, 167, 22);
 }
-.button__body{
+.button-agregar__body{
     color: rgb(33, 35, 61);
     font-size: 12px;
     font-weight: bold;
@@ -100,17 +99,13 @@ main{
 
 .contacto{
     padding: 0.5%;
-    border-top: solid 1px rgb(175, 175, 175);
-}
-.contacto__titulo{
-    font-size: larger;
-    font-weight: bold;
-    color: rgb(105, 105, 105);
+    margin-top: 10px;
 }
 .contenedor-contacto{
     display: flex;
+    border-top: solid 1px rgb(219, 218, 218);
+    border-bottom: solid 1px rgb(179, 179, 179);
 }
-
 .forma-contacto{
     flex-basis: 33.3%;
     padding: 0.5%;
@@ -120,7 +115,6 @@ main{
     border-radius: 6px;
     border: solid 1px rgb(156, 156, 156);
 }
-
 .forma-contacto__descripcion{
     position: absolute;
     bottom: 10%;
@@ -137,10 +131,52 @@ main{
 
 .destacados{
     padding: 0.5%;
-    border-top: solid 1px rgb(175, 175, 175);
+    margin-top: 10px;
 }
-.destacados__titulo{
-    font-size: larger;
-    font-weight: bold;
-    color: rgb(105, 105, 105);
+
+.clasificacion{
+    padding: 0.5%;
+    margin-top: 10px;
 }
+.contenedor-clasificacion{
+    display: flex;
+    flex-wrap: wrap;
+}
+.columna-button{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+.button-clasificacion{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding: 10px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    border-radius: 1px;
+    text-decoration: none;
+}
+.button-clasificacion__contenedor-img{
+    background-color: white;
+    width: 38px;
+    height: 38px;
+}
+.button-clasificacion__descripcion{
+    flex-basis: 70%;
+    color: rgba(10,10,10,0.7);
+}
+
+
+/*Tablet*/
+@media (min-width: 480px){
+
+}
+
+/*desktop*/
+@media (min-width: 768px){
+
+}
+

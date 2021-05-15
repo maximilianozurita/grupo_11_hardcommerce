@@ -3,135 +3,174 @@
     margin: 0;
     box-sizing: border-box;
 }
-/*-------------------------------------------------HEADER/*-------------------------------------------------*/
 body{
-    background-color: white;
-    font-size: 16px;
-    background-color:rgb(74, 74, 211);
+    background-color: black;
 }
+/*                           GENERALES                  */
+.link a{
+    color:white;
+    text-decoration: none;
+}
+/*                          FIN GENERALES                  */
+/*                          HEADER                  */
 .main-header{
-    width: 90%;
-    margin:auto;
+    padding:0;
+    background-color:#ebebeb;
 }
+
 .caja1{
-    border:solid 3px black;
+    border:solid 3px transparent;
     display:flex;
-}
-.caja1-main{
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin:auto;
+    flex-direction: row;
+    color:white;
+    background-color: black;
+    
 }
 .logo{
-    width: 120px;
-    margin: 0 20px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border:solid 3px transparent;
 }
-.columnar{
-    flex-direction: column;
-    margin: 10px 15px;
-    /*border:solid 2px black;  */
+.menu{
+    border:solid 3px transparent;
+    margin:auto;
+    text-align:center;
 }
 .columna1{
-    list-style: none;
-    margin:15px 0;
-    padding:0;
-    display:flex;
-    /*border:solid 2px black;*/
-    flex-direction: column;
+    border:solid 3px transparent;
 }
-.columna1 .top{
-    display:flex;
+.top1{
+    display: flex;
+    justify-content: space-between;
 }
-.columna1 .top li{
-    margin:auto;
-}
+
 .columna2{
-    list-style: none;
-    margin: 5px 0;
-    padding:0;
-    display:flex;
-    /*border:solid 2px black;*/
-    flex-direction:column;
+    border:solid 3px transparent;
 }
-/*.columna2 ul{
-    border:solid 2px black;
-}*/
+.top2{
+    text-align:center;
+}
+.bottom2{
+    text-align:center;
+}
+.caja-items #uno{
+    color:rgb(92, 238, 8);
+}
+.caja-items #dos{
+    color:rgb(22, 142, 197);
+}
+.caja-items #cuatro{
+    color:rgb(22, 142, 197);
+}
 .columna3{
-    list-style: none;
-    margin:15px 0;
-    padding:0;
     display:flex;
-    /*border:solid 2px black;*/
-    flex-direction:column;
+    justify-content: center;
 }
-.columna3-bottom{
-    list-style:none;
+.columna3 .bottom3{
     display:flex;
-    /*border:solid 2px black;*/
-    margin:0 5px;
+    color:white;
+    justify-content: space-between;
 }
-.columna3-bottom li{
-    margin:0 5px;
-   /* border:solid 2px black;*/
-}
-.columna4{
-    list-style: none;
-    margin:15px 0;
-    padding:0;
-    display:flex;
-    /*border:solid 2px black;*/
-    flex-direction:column;
-    
-}
-.carrito{
-    font-size:50px;
-    display:flex;
-}
-.columna4 ul{
-    /*border:solid 2px black;*/
-    margin: 5px 0;
-}
-/*.boton{
-    border:solid 2px black;
-}*/
-/*.barra-busqueda{
-    border:solid 3px black;
-    background-color: white;
-}*/
 
+.right{
+    border:solid 3px transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left{
+    border:solid 3px transparent;
+}
 .caja2{
-    border:solid 3px black;
-    display:flex;
-    justify-content: space-around;
-    
+    display:none;
+    border:solid 3px rgb(79, 79, 202);   
 }
-.mainCaja2{
-    display:flex;
-    font-size: 25px;
-    
+.hamburguer-button{
+    text-align: center;
 }
-.mainCaja2 a{
-    text-decoration: none;
-    color:#222222;
-    display:inline-block;
-    padding:5px 0;
-    
-}
-.mainCaja2 a{
-    margin:0 30px 0 0;
-    border:solid 1px black;
-    background-color:grey;
-    
-}
-/*-------------------------------------------------FIN HEADER/*-------------------------------------------------*/
-/*-------------------------------------------------MAIN/*-------------------------------------------------*/
-/*-------------------------------------------------FIN MAIN/*-------------------------------------------------*/
 
-/*-------------------------------------------------FOOTER/*-------------------------------------------------*/
+@media(min-width:481px)
+{
+    .caja2
+    {
+        display:block;
+        border:solid 3px rgb(79, 79, 202);
+    }
+    .mainCaja2
+    {
+        display:flex;
+        justify-content: space-between;
+    }
+    .mainCaja2 a
+    {
+        text-decoration: none;
+    }
+    .hamburguer-button{
+        display:none;
+    }
+}
+/*                          FIN HEADER                  */
+/*--------------------------------MAIN--------------------------------*/
+.main_main{
+    background-color: rgba(255, 255, 255, 0.514);
+    max-width: 420px;
+    max-height: 560px;
+    margin: auto;
+}
+.main_header_login {
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    padding: 70px 30px;
+    margin: auto;
+    max-width: 320px;
+    align-items: center;
+  }
+  
+  .main_header_login h1 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  .main_header_login label {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .main_header_login input{
+    width: 100%;
+    margin-bottom: 20px;
+    background: white;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border:solid 2px black;
+  }
+  
+  .main_header_login input[type="submit"] {
+    background: blue;
+    color: white;
+    outline: none;
+    height: 40px;
+    font-size: 21px;
+    border-radius: 20px;
+  }
+  .main_header_login a {
+    text-decoration: none;
+    font-size: 15px;
+    color: grey;
+  }
+/*--------------------------------FIN MAIN--------------------------------*/
+/*--------------------------------FOOTER--------------------------------*/
 .container{
     display:flex;
+    flex-direction: column;
     margin:auto;
     border:solid 3px black;
     background-color:white;
@@ -163,5 +202,12 @@ body{
 }
 .icono4 i{
     color:red;
+}
+@media(min-width:481px)
+{
+    .container
+    {
+        flex-direction: row;
+    }
 }
 /*-------------------------------------------------FIN FOOTER/*-------------------------------------------------*/

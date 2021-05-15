@@ -3,3 +3,206 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: black;
+}
+/*                           GENERALES                  */
+.link a{
+    color:white;
+    text-decoration: none;
+}
+/*                          FIN GENERALES                  */
+/*                          HEADER                  */
+.main-header{
+    padding:0;
+    background-color:#ebebeb;
+}
+
+.caja1{
+    border:solid 3px transparent;
+    display:flex;
+    flex-direction: row;
+    color:white;
+    background-color: black;
+    
+}
+.logo{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border:solid 3px transparent;
+}
+.menu{
+    border:solid 3px transparent;
+    margin:auto;
+    text-align:center;
+}
+.columna1{
+    border:solid 3px transparent;
+}
+.top1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.columna2{
+    border:solid 3px transparent;
+}
+.top2{
+    text-align:center;
+}
+.bottom2{
+    text-align:center;
+}
+.caja-items #uno{
+    color:rgb(92, 238, 8);
+}
+.caja-items #dos{
+    color:rgb(22, 142, 197);
+}
+.caja-items #cuatro{
+    color:rgb(22, 142, 197);
+}
+.columna3{
+    display:flex;
+    justify-content: center;
+}
+.columna3 .bottom3{
+    display:flex;
+    color:white;
+    justify-content: space-between;
+}
+
+.right{
+    border:solid 3px transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left{
+    border:solid 3px transparent;
+}
+.caja2{
+    display:none;
+    border:solid 3px rgb(79, 79, 202);   
+}
+.hamburguer-button{
+    text-align: center;
+}
+
+@media(min-width:481px)
+{
+    .caja2
+    {
+        display:block;
+        border:solid 3px rgb(79, 79, 202);
+    }
+    .mainCaja2
+    {
+        display:flex;
+        justify-content: space-between;
+    }
+    .mainCaja2 a
+    {
+        text-decoration: none;
+    }
+    .hamburguer-button{
+        display:none;
+    }
+}
+/*                          FIN HEADER                  */
+/*--------------------------------MAIN--------------------------------*/
+.main_main_register{
+    background-color: rgba(255, 255, 255, 0.514);
+    max-width: 420px;
+    max-height: 560px;
+    margin: auto;
+}
+.main_main_register{
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    padding: 70px 30px;
+    margin: auto;
+    max-width: 320px;
+    align-items: center;
+  }
+  
+  .main_main_register h1 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  .main_main_register label {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .main_main_register input{
+    width: 100%;
+    margin-bottom: 20px;
+    background: white;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border:solid 2px black;
+  }
+  
+  .main_main_register input[type="submit"]{
+    background: blue;
+    color: white;
+    outline: none;
+    height: 40px;
+    font-size: 21px;
+    border-radius: 20px;
+  }
+ 
+/*--------------------------------FIN MAIN--------------------------------*/
+/*--------------------------------FOOTER--------------------------------*/
+.container{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    border:solid 3px black;
+    background-color:white;
+    text-align: center;
+    padding: 10px;
+}
+.linea{
+    margin-bottom:10px;
+}
+.colum1{
+    margin:auto;
+    margin-bottom:2px;
+}
+
+.colum2{
+    margin:auto;
+}
+.colum3{
+    margin:auto;
+}
+.icono1 i{
+    color:green;
+}
+.icono2 i{
+    color:green;
+}
+.icono3 i{
+    color:blue;
+}
+.icono4 i{
+    color:red;
+}
+@media(min-width:481px)
+{
+    .container
+    {
+        flex-direction: row;
+    }
+}

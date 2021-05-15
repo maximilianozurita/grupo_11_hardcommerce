@@ -3,6 +3,107 @@
     margin: 0;
     box-sizing: border-box;
 }
+/*                          HEADER                  */
+.main-header{
+    padding:0;
+    background-color:#ebebeb
+}
+
+.caja1{
+    border:solid 3px transparent;
+    display:flex;
+    flex-direction: row;
+    color:white;
+    background-color: black;
+    
+}
+.logo{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border:solid 3px transparent;
+}
+.menu{
+    border:solid 3px transparent;
+    margin:auto;
+    text-align:center;
+}
+.columna1{
+    border:solid 3px transparent;
+}
+.top1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.columna2{
+    border:solid 3px transparent;
+}
+.top2{
+    text-align:center;
+}
+.bottom2{
+    text-align:center;
+}
+.caja-items #uno{
+    color:rgb(92, 238, 8);
+}
+.caja-items #dos{
+    color:rgb(22, 142, 197);
+}
+.caja-items #cuatro{
+    color:rgb(22, 142, 197);
+}
+.columna3{
+    display:flex;
+    justify-content: center;
+}
+.columna3 .bottom3{
+    display:flex;
+    color:white;
+    justify-content: space-between;
+}
+
+.right{
+    border:solid 3px transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left{
+    border:solid 3px transparent;
+}
+.caja2{
+    display:none;
+    border:solid 3px rgb(79, 79, 202);   
+}
+.hamburguer-button{
+    text-align: center;
+}
+
+@media(min-width:481px)
+{
+    .caja2
+    {
+        display:block;
+        border:solid 3px rgb(79, 79, 202);
+    }
+    .mainCaja2
+    {
+        display:flex;
+        justify-content: space-between;
+    }
+    .mainCaja2 a
+    {
+        text-decoration: none;
+    }
+    .hamburguer-button{
+        display:none;
+    }
+}
+/*                          FIN HEADER                  */
 
 main{
     background-color: rgb(233, 233, 233);
@@ -234,4 +335,47 @@ main{
         font-size: 16px;
     }
 }
+/*--------------------------------FOOTER--------------------------------*/
+.container{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    border:solid 3px black;
+    background-color:white;
+    text-align: center;
+    padding: 10px;
+}
+.linea{
+    margin-bottom:10px;
+}
+.colum1{
+    margin:auto;
+    margin-bottom:2px;
+}
 
+.colum2{
+    margin:auto;
+}
+.colum3{
+    margin:auto;
+}
+.icono1 i{
+    color:green;
+}
+.icono2 i{
+    color:green;
+}
+.icono3 i{
+    color:blue;
+}
+.icono4 i{
+    color:red;
+}
+@media(min-width:481px)
+{
+    .container
+    {
+        flex-direction: row;
+    }
+}
+/*--------------------------------FOOTER--------------------------------*/

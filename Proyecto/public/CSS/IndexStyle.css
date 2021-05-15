@@ -6,12 +6,12 @@
 
 main{
     background-color: rgb(233, 233, 233);
-    padding: 0.5%;
 }
-.carrusel-productos{
+.contenedor-main-carrusel{
     padding: 1%;
-    margin: 1px;
     position: relative;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 .button-carrusel{
     font-size: 26px;
@@ -22,25 +22,31 @@ main{
     text-align: center;
     border-radius: 17px;
     color: blue;
+    display: none;
+    transition: all 450ms;
 }
+.button-carrusel:hover{
+    box-shadow: 1px 1px 1px 1px rgba(0, 36, 241, 0.5);
+    border: solid 1px rgba(0, 36, 241, 0.7);
+}
+
 .button-carrusel--RH{
     position: absolute;
     top: 40%;
-    Right: 2%;
+    Right: 0%;
 }
 .button-carrusel--LH{
     position: absolute;
     top: 40%;
-    Left: 2%;
+    Left: 0%;
 }
 
-
-
-
-.ofertas{
-    padding: 0.5%;
+.contenedor-seccion{
     margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
+
 .titulos-home{
     font-size: larger;
     font-weight: bold;
@@ -49,6 +55,7 @@ main{
 
 .contenedor-productos{
     display: flex;
+    justify-content: space-around;
     position: relative;
     border-top: solid 1px rgb(218, 218, 218);
     border-bottom: solid 1px rgb(179, 179, 179);
@@ -62,6 +69,7 @@ main{
     justify-content: space-around;
     border: 1px solid rgb(151, 150, 150);
     border-radius: 6px;
+    max-width: 210px;
 }
 .producto--oferta{
     flex-basis: 33.3%;
@@ -85,7 +93,17 @@ main{
     align-items: center;
     align-self: center;
     text-decoration: none;
+    border: 1px solid rgba(39, 33, 61, 0.3);
+    background-color: rgba(4, 0, 255, 0.01);
+    padding: 2px;
+    border-radius: 8px;
+    transition: 600ms;
 }
+.button-agregar:hover{
+    border: 1px solid rgba(39, 33, 61, 0.9);
+    background-color: rgba(4, 0, 255, 0.1);
+}
+
 .button-agregar__contenedor-imagen{
     padding-right: 10px;
     color: rgb(0, 167, 22);
@@ -96,11 +114,6 @@ main{
     font-weight: bold;
 }
 
-
-.contacto{
-    padding: 0.5%;
-    margin-top: 10px;
-}
 .contenedor-contacto{
     display: flex;
     border-top: solid 1px rgb(219, 218, 218);
@@ -117,27 +130,24 @@ main{
 }
 .forma-contacto__descripcion{
     position: absolute;
+    display: none;
     bottom: 10%;
-    left: 10%;
+    left: 5%;
+    right:5%;
     padding: 2px;
     border-radius: 6px;
     color: white;
     font-weight: bolder;
     text-align: center;
     background-color: rgba(10,10,10,0.7);
-    max-width: 13em;
-    font-size: 0.62em;
-}
-
-.destacados{
-    padding: 0.5%;
-    margin-top: 10px;
+    font-size: 14px;
 }
 
 .clasificacion{
     padding: 0.5%;
     margin-top: 10px;
 }
+
 .contenedor-clasificacion{
     display: flex;
     flex-wrap: wrap;
@@ -155,9 +165,16 @@ main{
     background-color: white;
     justify-content: center;
     align-items: center;
-    margin: 1px;
+    margin: 1.5px;
     border-radius: 1px;
     text-decoration: none;
+    transition: all 450ms;
+}
+.button-clasificacion:hover{
+    position: relative;
+    bottom: 3px;
+    left: 3px;
+    box-shadow: 0px 1px 1px 2px rgba(148, 148, 148,0.7);
 }
 .button-clasificacion__contenedor-img{
     background-color: white;
@@ -172,11 +189,49 @@ main{
 
 /*Tablet*/
 @media (min-width: 480px){
+    .clasificacion{
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 0;
+    }
 
 }
 
 /*desktop*/
 @media (min-width: 768px){
 
+    .forma-contacto__descripcion{
+        display:block;
+    }
+
+    .contenedor-clasificacion{
+        justify-content: center;
+    }
+    .columna-button{
+        flex-basis: 20%;
+    }
+    .button-carrusel{
+        display: block;
+    }
+    .contenedor-seccion{
+        margin-top: 33px;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .clasificacion{
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 0;
+    }
+    .clasificacion .titulos-home{
+        margin-left: 10%;
+    }
+    .button-agregar{
+        padding: 3px 5px 3px 5px;
+    }
+
+    .button-agregar__body{
+        font-size: 16px;
+    }
 }
 

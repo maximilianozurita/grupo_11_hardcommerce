@@ -105,7 +105,7 @@ body{
     .mainCaja2
     {
         display:flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .mainCaja2 a
     {
@@ -189,6 +189,7 @@ body{
 }
 .mainMain_containerBottom{
     display:none;
+
 }
 .mainMain_containerTop_left_top img{
         max-width: 550px;
@@ -197,6 +198,7 @@ body{
 {
     .mainMain_containerBottom{
         display:flex;
+        flex-direction: column;
     }
     .hamburguer-button{
         display:none;

@@ -102,7 +102,7 @@ body{
     .mainCaja2
     {
         display:flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .mainCaja2 a
     {

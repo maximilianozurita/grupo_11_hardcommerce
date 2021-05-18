@@ -74,15 +74,19 @@
     <main class="main_main">
         <div class="main_main_register">
             <h1>Registrarse</h1>
-            <form>
+            <form action="" method="GET">
               <label for="username">Nombre de usuario</label>
-              <input type="text" name="usuario">
+              <input type="text" name="username" required>
+
               <label for="email">Email</label>
-              <input type="text" name="usuario">
-              <label for="email">Contraseña</label>
-              <input type="password" name="usuario">
-              <label for="email">Repetir contraseña</label>
-              <input type="password" name="usuario">
+              <input type="text" name="email" required>
+
+              <label for="contraseña">Contraseña</label>
+              <input type="password" name="contraseña" required>
+
+              <label for="repetir">Repetir contraseña</label>
+              <input type="password" name="repetir" required>
+
               <input type="submit" value="Registrarse">
             </form>
         </div>

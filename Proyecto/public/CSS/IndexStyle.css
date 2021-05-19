@@ -1,12 +1,17 @@
 *{
-    padding: 0;
+    padding: 0px;
     margin: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 /*                          HEADER                  */
 .main-header{
     padding:0;
     background-color:#ebebeb
+}
+.bloque-superior{
+    height: 20px;
+    background-color: black;
 }
 
 .caja1{
@@ -14,21 +19,33 @@
     display:flex;
     flex-direction: row;
     color:white;
-    background-color: black;
+    background-color: rgb(77, 77, 77);
     
 }
 .logo{
-    width: 200px;
+    width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     align-content: center;
     border:solid 3px transparent;
+
 }
+.logo__imagen{
+    border: solid 2px rgb(0, 17, 255);
+    animation: barraLuminosaImagen 10s infinite;
+}
+
 .menu{
+    display: flex;
+    flex-direction: column;
     border:solid 3px transparent;
     margin:auto;
     text-align:center;
+}
+.menu a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 .columna1{
     border:solid 3px transparent;
@@ -76,33 +93,67 @@
     border:solid 3px transparent;
 }
 .caja2{
-    display:none;
-    border:solid 3px rgb(79, 79, 202);   
+    background-color: black;
+    border-bottom: solid 3px rgb(0, 17, 255);
+    border-top: solid 3px rgb(0, 17, 255);
+    animation: barraLuminosa 10s infinite;
 }
-.hamburguer-button{
-    text-align: center;
+@keyframes barraLuminosa{
+    0%{border-top: solid 3px rgb(79, 79, 202);
+        border-bottom: solid 3px rgb(79, 79, 202);
+    }
+    25%{border-top: solid 3px rgb(0, 17, 255);
+        border-bottom: solid 3px rgb(0, 17, 255);
+    }
+    50%{border-top: solid 3px rgb(0, 255, 21);
+        border-bottom: solid 3px rgb(0, 255, 21);
+    }
+    75%{border-top: solid 3px rgb(255, 11, 3);
+        border-bottom: solid 3px rgb(255, 11, 3);
+    }
+    100%{borde-top: solid 3px rgb(115, 8, 255);
+        borde-bottom: solid 3px rgb(115, 8, 255);
+    }
 }
 
-@media(min-width:481px)
-{
-    .caja2
-    {
-        display:block;
-        border:solid 3px rgb(79, 79, 202);
-    }
-    .mainCaja2
-    {
+
+.hamburguer-button{
+    text-align: center;
+    
+}
+.hamburguer-button a{
+    color: white;
+}
+
+.mainCaja2{
+    display: none;
+    
+}
+.mainCaja2 a{
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    font-weight: small;
+}
+
+@media(min-width:481px){
+    
+    
+    .mainCaja2{
         display:flex;
         justify-content: space-around;
     }
-    .mainCaja2 a
-    {
-        text-decoration: none;
-    }
+
     .hamburguer-button{
         display:none;
     }
 }
+@media (min-width: 768px) {
+    .menu{
+        flex-direction: row;
+    }
+}
+
 /*                          FIN HEADER                  */
 
 main{
@@ -114,14 +165,28 @@ main{
     margin-left: 2%;
     margin-right: 2%;
 }
+.carrusel-productos__imagen{
+    border: solid 2px rgb(0, 17, 255);
+    animation: barraLuminosaImagen 10s infinite;
+}
+
+@keyframes barraLuminosaImagen{
+    0%{border: solid 2px rgb(79, 79, 202);}
+    25%{border: solid 2px rgb(0, 17, 255);}
+    50%{border: solid 2px rgb(0, 255, 21);}
+    75%{border: solid 2px rgb(255, 11, 3);}
+    100%{borde: solid 2px rgb(115, 8, 255);}
+}
+
+
 .button-carrusel{
     font-size: 26px;
     background-color: white;
     padding: 1px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     text-align: center;
-    border-radius: 17px;
+    border-radius: 50%;
     color: blue;
     display: none;
     transition: all 450ms;
@@ -300,6 +365,7 @@ main{
 
 /*desktop*/
 @media (min-width: 768px){
+
 
     .forma-contacto__descripcion{
         display:block;

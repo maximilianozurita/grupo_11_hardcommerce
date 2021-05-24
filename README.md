@@ -20,4 +20,4 @@ www.mexx.com.ar
 www.compragamer.com
 
 Trello:
-https://trello.com/b/MEtgCUUd/grupo11ec
+https://trello.com/proyectointegradordh7

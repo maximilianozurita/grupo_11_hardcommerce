@@ -1,113 +1,121 @@
-*{
-    padding: 0;
+*
+{
+    padding: 0px;
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
+    font-family: 'Lato' , italic;
 }
-body{
-    background-color: black;
-}
-/*                           GENERALES                  */
-.link a{
-    color:white;
-    text-decoration: none;
-}
-/*                          FIN GENERALES                  */
-/*                          HEADER                  */
-.main-header{
+/* ----------------------------------- HEADER ----------------------------------- */
+.main-header
+{
     padding:0;
     background-color:#ebebeb
 }
-.bloque-superior{
+.bloque-superior
+{
     height: 20px;
     background-color: black;
 }
-
-.caja1{
+.caja1
+{
     border:solid 3px transparent;
     display:flex;
     flex-direction: row;
     color:white;
     background-color: rgb(77, 77, 77);
-    
 }
-.logo{
+.logo
+{
     width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     align-content: center;
     border:solid 3px transparent;
-
 }
-.logo__imagen{
+.logo__imagen
+{
     border: solid 2px rgb(0, 17, 255);
     animation: barraLuminosaImagen 10s infinite;
 }
-
-.menu{
+.menu
+{
     display: flex;
     flex-direction: column;
     border:solid 3px transparent;
     margin:auto;
     text-align:center;
 }
-.menu a{
+.menu a
+{
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
-.columna1{
+.columna1
+{
     border:solid 3px transparent;
 }
-.top1{
+.top1
+{
     display: flex;
     justify-content: space-between;
 }
-
-.columna2{
+.columna2
+{
     border:solid 3px transparent;
 }
-.top2{
+.top2
+{
     text-align:center;
 }
-.bottom2{
+.bottom2
+{
     text-align:center;
 }
-.caja-items #uno{
+.caja-items #uno
+{
     color:rgb(92, 238, 8);
 }
-.caja-items #dos{
+.caja-items #dos
+{
     color:rgb(22, 142, 197);
 }
-.caja-items #cuatro{
+.caja-items #cuatro
+{
     color:rgb(22, 142, 197);
 }
-.columna3{
+.columna3
+{
     display:flex;
     justify-content: center;
 }
-.columna3 .bottom3{
+.columna3 .bottom3
+{
     display:flex;
     color:white;
     justify-content: space-between;
 }
-
-.right{
+.right
+{
     border:solid 3px transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.left{
+.left
+{
     border:solid 3px transparent;
 }
-.caja2{
+.caja2
+{
     background-color: black;
     border-bottom: solid 3px rgb(0, 17, 255);
     border-top: solid 3px rgb(0, 17, 255);
     animation: barraLuminosa 10s infinite;
 }
-@keyframes barraLuminosa{
+@keyframes barraLuminosa
+{
     0%{border-top: solid 3px rgb(79, 79, 202);
         border-bottom: solid 3px rgb(79, 79, 202);
     }
@@ -124,35 +132,30 @@ body{
         borde-bottom: solid 3px rgb(115, 8, 255);
     }
 }
-
-
-.hamburguer-button{
+.hamburguer-button
+{
     text-align: center;
-    
 }
-.hamburguer-button a{
+.hamburguer-button a
+{
     color: white;
 }
-
-.mainCaja2{
-    display: none;
-    
+.mainCaja2
+{
+    display: none;  
 }
-.mainCaja2 a{
+.mainCaja2 a
+{
     text-decoration: none;
     color: white;
     font-size: medium;
     font-weight: small;
 }
-
-@media(min-width:481px){
-    
-    
+/*@media(min-width:481px){
     .mainCaja2{
         display:flex;
         justify-content: space-around;
     }
-
     .hamburguer-button{
         display:none;
     }
@@ -161,64 +164,11 @@ body{
     .menu{
         flex-direction: row;
     }
-}
-/*                          FIN HEADER                  */
-/*--------------------------------MAIN--------------------------------*/
-.main_main{
-    background-color: rgba(255, 255, 255, 0.514);
-    max-width: 420px;
-    max-height: 560px;
-    margin: auto;
-}
-.main_header_login {
-    background: white;
-    color: black;
-    box-sizing: border-box;
-    padding: 70px 30px;
-    margin: auto;
-    max-width: 320px;
-    align-items: center;
-  }
-  
-  .main_header_login h1 {
-    margin: 0;
-    padding: 0 0 20px 0;
-    text-align: center;
-    font-size: 22px;
-  }
-  
-  .main_header_login label {
-    margin: 0;
-    padding: 0;
-    display: block;
-  }
-  .main_header_login input{
-    width: 100%;
-    margin-bottom: 20px;
-    background: white;
-    outline: none;
-    height: 40px;
-    color: black;
-    font-size: 16px;
-    border:solid 2px black;
-  }
-  
-  .main_header_login input[type="submit"] {
-    background: blue;
-    color: white;
-    outline: none;
-    height: 40px;
-    font-size: 21px;
-    border-radius: 20px;
-  }
-  .main_header_login a {
-    text-decoration: none;
-    font-size: 15px;
-    color: grey;
-  }
-/*--------------------------------FIN MAIN--------------------------------*/
-/*--------------------------------FOOTER--------------------------------*/
-.container{
+}*/
+/* -----------------------------------FIN HEADER ----------------------------------- */
+/* ----------------------------------- FOOTER ----------------------------------- */
+.container
+{
     display:flex;
     flex-direction: column;
     margin:auto;
@@ -227,32 +177,62 @@ body{
     text-align: center;
     padding: 10px;
 }
-.linea{
+.linea
+{
     margin-bottom:10px;
 }
 .colum1{
     margin:auto;
     margin-bottom:2px;
 }
-
-.colum2{
+.colum2
+{
     margin:auto;
 }
-.colum3{
+.colum3
+{
     margin:auto;
 }
-.icono1 i{
+.icono1 i
+{
     color:green;
 }
-.icono2 i{
+.icono2 i
+{
     color:green;
 }
-.icono3 i{
+.icono3 i
+{
     color:blue;
 }
-.icono4 i{
+.icono4 i
+{
     color:red;
 }
+/* ----------------------------------- FIN FOOTER ----------------------------------- */
+/*--------------------------------HEADER QUERIES--------------------------------*/
+@media(min-width:481px)
+{
+    .mainCaja2
+    {
+        display:flex;
+        justify-content: space-around;
+    }
+
+    .hamburguer-button
+    {
+        display:none;
+    }
+}
+@media (min-width: 768px) 
+{
+    .menu
+    {
+        flex-direction: row;
+    }
+}
+/*--------------------------------FIN HEADER QUERIES--------------------------------*/
+/*--------------------------------FOOTER QUERIES--------------------------------*/
 @media(min-width:481px)
 {
     .container
@@ -260,4 +240,4 @@ body{
         flex-direction: row;
     }
 }
-/*-------------------------------------------------FIN FOOTER/*-------------------------------------------------*/
+/*--------------------------------FIN FOOTER QUERIES--------------------------------*/

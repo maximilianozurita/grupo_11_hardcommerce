@@ -4,172 +4,18 @@
     box-sizing: border-box;
     font-size: 16px;
 }
-
 body{
     background-color: white;
 }
-/*                           GENERALES                  */
 .link a{
     color:white;
     text-decoration: none;
 }
-/*                          FIN GENERALES                  */
-/*                          HEADER                  */
-.main-header{
-    padding:0;
-    background-color:#ebebeb
-}
-.bloque-superior{
-    height: 20px;
-    background-color: black;
-}
-
-.caja1{
-    border:solid 3px transparent;
-    display:flex;
-    flex-direction: row;
-    color:white;
-    background-color: rgb(77, 77, 77);
-    
-}
-.logo{
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    border:solid 3px transparent;
-
-}
-.logo__imagen{
-    border: solid 2px rgb(0, 17, 255);
-    animation: barraLuminosaImagen 10s infinite;
-}
-
-.menu{
-    display: flex;
-    flex-direction: column;
-    border:solid 3px transparent;
-    margin:auto;
-    text-align:center;
-}
-.menu a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-.columna1{
-    border:solid 3px transparent;
-}
-.top1{
-    display: flex;
-    justify-content: space-between;
-}
-
-.columna2{
-    border:solid 3px transparent;
-}
-.top2{
-    text-align:center;
-}
-.bottom2{
-    text-align:center;
-}
-.caja-items #uno{
-    color:rgb(92, 238, 8);
-}
-.caja-items #dos{
-    color:rgb(22, 142, 197);
-}
-.caja-items #cuatro{
-    color:rgb(22, 142, 197);
-}
-.columna3{
-    display:flex;
-    justify-content: center;
-}
-.columna3 .bottom3{
-    display:flex;
-    color:white;
-    justify-content: space-between;
-}
-
-.right{
-    border:solid 3px transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.left{
-    border:solid 3px transparent;
-}
-.caja2{
-    background-color: black;
-    border-bottom: solid 3px rgb(0, 17, 255);
-    border-top: solid 3px rgb(0, 17, 255);
-    animation: barraLuminosa 10s infinite;
-}
-@keyframes barraLuminosa{
-    0%{border-top: solid 3px rgb(79, 79, 202);
-        border-bottom: solid 3px rgb(79, 79, 202);
-    }
-    25%{border-top: solid 3px rgb(0, 17, 255);
-        border-bottom: solid 3px rgb(0, 17, 255);
-    }
-    50%{border-top: solid 3px rgb(0, 255, 21);
-        border-bottom: solid 3px rgb(0, 255, 21);
-    }
-    75%{border-top: solid 3px rgb(255, 11, 3);
-        border-bottom: solid 3px rgb(255, 11, 3);
-    }
-    100%{borde-top: solid 3px rgb(115, 8, 255);
-        borde-bottom: solid 3px rgb(115, 8, 255);
-    }
-}
-
-
-.hamburguer-button{
-    text-align: center;
-    
-}
-.hamburguer-button a{
-    color: white;
-}
-
-.mainCaja2{
-    display: none;
-    
-}
-.mainCaja2 a{
-    text-decoration: none;
-    color: white;
-    font-size: medium;
-    font-weight: small;
-}
-
-@media(min-width:481px){
-    
-    
-    .mainCaja2{
-        display:flex;
-        justify-content: space-around;
-    }
-
-    .hamburguer-button{
-        display:none;
-    }
-}
-@media (min-width: 768px) {
-    .menu{
-        flex-direction: row;
-    }
-}
-
-/*                          FIN HEADER                  */
 /* --------------------------------MAIN--------------------------------*/
 .mainMain_containerTop   /* 1 */
 {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 .mainMain_containerTop_left_bottom
 {
@@ -251,59 +97,5 @@ body{
     }
     .hamburguer-button{
         display:none;
-    }
-}
-
-/*--------------------------------FOOTER--------------------------------*/
-.container{
-    display:flex;
-    flex-direction: column;
-    margin:auto;
-    border:solid 3px black;
-    background-color:white;
-    text-align: center;
-    padding: 10px;
-}
-.linea{
-    margin-bottom:10px;
-}
-.colum1{
-    margin:auto;
-    margin-bottom:2px;
-}
-
-.colum2{
-    margin:auto;
-}
-.colum3{
-    margin:auto;
-}
-.icono1 i{
-    color:green;
-}
-.icono2 i{
-    color:green;
-}
-.icono3 i{
-    color:blue;
-}
-.icono4 i{
-    color:red;
-}
-@media(min-width:481px)
-{
-    body{
-        font-size:25px;
-    }
-    .container
-    {
-        flex-direction: row;
-    }
-}
-@media(min-width:769px)
-{
-    .mainMain_containerTop {
-        display: flex;
-        flex-direction: row;
     }
 }

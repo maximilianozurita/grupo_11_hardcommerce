@@ -1,0 +1,64 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato' , italic;
+}
+.link a{
+    color:white;
+    text-decoration: none;
+}
+/*--------------------------------MAIN--------------------------------*/
+.main_main_register
+{
+    background-color: rgba(255, 255, 255, 0.514);
+    max-width: 420px;
+    max-height: 560px;
+    margin: auto;
+}
+.main_main_register
+{
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    padding: 70px 30px;
+    margin: auto;
+    max-width: 320px;
+    align-items: center;
+}
+.main_main_register h1 
+{
+    margin: 0;
+    padding: 0 0 20px 0;
+    text-align: center;
+    font-size: 22px;
+}
+.main_main_register label 
+{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.main_main_register input
+{
+    width: 100%;
+    margin-bottom: 20px;
+    background: white;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 16px;
+    border:solid 2px black;
+}
+.main_main_register input[type="submit"]
+{
+    background: blue;
+    color: white;
+    outline: none;
+    height: 40px;
+    font-size: 21px;
+    border-radius: 20px;
+}
+/*--------------------------------FIN MAIN--------------------------------*/

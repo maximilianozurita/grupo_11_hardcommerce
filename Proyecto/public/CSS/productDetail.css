@@ -3,11 +3,14 @@
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
+    font-family: 'Lato' , italic;
 }
-body{
+body
+{
     background-color: white;
 }
-.link a{
+.link a
+{
     color:white;
     text-decoration: none;
 }
@@ -34,13 +37,15 @@ body{
 .imagen,.imagen img{
     width:100%;
 }
-.mainMain_container_right{
+.mainMain_container_right
+{
     border:solid 3px transparent;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.mainMain_container_right_top{
+.mainMain_container_right_top
+{
     border:solid 2px transparent;
     margin:12px 12px;
     text-align: left;
@@ -49,14 +54,17 @@ body{
 {
     display:none;
 }
-.formasDePago{
+.formasDePago
+{
     width:12%;
 }
-.mainMain_container_right_bot{
+.mainMain_container_right_bot
+{
     border:solid 2px transparent;
     background-color: black;
 }
-.mainMain_container_right_bot .botones{
+.mainMain_container_right_bot .botones
+{
     color:white;
     display: flex;
     align-items: center;
@@ -68,11 +76,13 @@ body{
     border-radius: 8px;
     transition: 600ms;
 }
-.mainMain_container_right_bot{
+.mainMain_container_right_bot
+{
     display:flex;
     justify-content: space-evenly;
 }
-.mainMain_container_right_bot .botones{
+.mainMain_container_right_bot .botones
+{
     border:solid 2px white;
     margin: 10px 10px;
     justify-content: center;
@@ -82,20 +92,23 @@ body{
     border:solid 2px transparent;
     padding: 12px 20px;
 }
-.mainMain_containerBottom{
+.mainMain_containerBottom
+{
     display:none;
-
 }
-.mainMain_containerTop_left_top img{
-        max-width: 550px;
+.mainMain_containerTop_left_top img
+{
+    max-width: 550px;
 }
 @media(min-width:481px)
 {
-    .mainMain_containerBottom{
+    .mainMain_containerBottom
+    {
         display:flex;
         flex-direction: column;
     }
-    .hamburguer-button{
+    .hamburguer-button
+    {
         display:none;
     }
 }

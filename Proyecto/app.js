@@ -8,6 +8,9 @@ app.use(express.static('public'));
 
 
 
+/*app.get ("/",(req,res)=>{
+    res.sendFile(path.resolve('views/index.html'))
+})*/
 app.get ("/",(req,res)=>{
     res.sendFile(path.resolve('views/index.html'))
 })

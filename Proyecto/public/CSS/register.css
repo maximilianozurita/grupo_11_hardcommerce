@@ -1,18 +1,18 @@
-*{
+*
+{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
-}
-body{
-    background-color: black;
+    font-family: 'Lato' , italic;
 }
 .link a{
     color:white;
     text-decoration: none;
 }
 /*--------------------------------MAIN--------------------------------*/
-.main_main_register{
+.main_main_register
+{
     background-color: rgba(255, 255, 255, 0.514);
     max-width: 420px;
     max-height: 560px;
@@ -36,7 +36,6 @@ body{
     font-size: 22px;
 }
 .main_main_register label 
-  
 {
     margin: 0;
     padding: 0;

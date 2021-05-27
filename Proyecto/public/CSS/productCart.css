@@ -1,15 +1,16 @@
-*{
+*
+{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
+    font-family: 'Lato' , italic;
 }
 /* --------------------------------MAIN--------------------------------*/
 .mainProductCart
 {
     background-color: rgb(233, 233, 233);
 }
-
 .contenedor-titulo-carrito 
 {
     padding: 1%;
@@ -17,7 +18,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 .header-carrito 
 {
     position: relative;
@@ -25,7 +25,6 @@
     padding: 10;
     border: 2px darkblue;
 }
-
 .contenedor-listado-items 
 {
     padding: 1%;
@@ -33,7 +32,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 .items-carrito
 {
     display: flex;
@@ -42,13 +40,11 @@
     justify-content: space-around;
     padding: 4px;
 }
-
 .nombre-prod-carrito
 {
     width: 200px;
     text-align: justify;
 }
-
 .imagen-en-carrito 
 {
     display: flex;
@@ -56,13 +52,10 @@
     align-content: center;
     justify-content: space-around;
 }
-
 .boton-inc-dec
 {
     display: block;
-    
 }
-
 .tabla
 {
     margin-left: 20px;
@@ -73,7 +66,6 @@
     margin-right: 20px;
 }
 /* Desde cero <p>$39,99</p>*/
-
 .articulo
 {
     display: flex;
@@ -88,10 +80,8 @@
 }
 .carrito-img
 {
-    
     display: flex;
 }   
-    
 .carrito-desc
 {
     display: flex;
@@ -100,7 +90,6 @@
 {
     display: inline-block;
     width: 130px;
-    
 }
 .carrito-precio-span
 {
@@ -108,7 +97,6 @@
     width: 130px;
     text-align: right;
 }
-
 .quita-agrega
 {
     display: inline-block;
@@ -126,7 +114,8 @@
 }
 @media(min-width:481px)
 {
-    body{
+    body
+    {
         font-size:25px;
     }
     .container
@@ -136,7 +125,8 @@
 }
 @media(min-width:769px)
 {
-    .mainMain_containerTop {
+    .mainMain_containerTop 
+    {
         display: flex;
         flex-direction: row;
     }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registro</title>
+    <link rel="stylesheet" href="/CSS/register.css">
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    <main class="main_main">
+        <div class="main_main_register">
+            <h1>Registrarse</h1>
+            <form action="" method="GET">
+              <label for="username">Nombre de usuario</label>
+              <input type="text" name="username" required>
+
+              <label for="email">Email</label>
+              <input type="text" name="email" required>
+
+              <label for="contraseña">Contraseña</label>
+              <input type="password" name="contraseña" required>
+
+              <label for="repetir">Repetir contraseña</label>
+              <input type="password" name="repetir" required>
+
+              <input type="submit" value="Registrarse">
+            </form>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

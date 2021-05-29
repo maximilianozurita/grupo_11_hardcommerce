@@ -4,10 +4,13 @@ const productsController =
 {
     listaDeArticulos: (req, res) => {
         //res.sendFile(path.resolve('views/products/listaDeArticulos.html'))
-        res.render('products/listDeArticulos')
+        res.render('products/listOfArticles')
     },
     detail: (req, res) => {
-        res.render('products/product-detail')
+        res.render('products/productDetail')
+    },
+    cart: (req,res)=>{
+        res.render('products/productCart')
     },
 }
 

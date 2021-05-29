@@ -12,27 +12,28 @@ app.set('views', './views')
 app.use(express.static('public'));
 
 
-
+//TRAER HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)
 /*app.get ("/",(req,res)=>{
     res.sendFile(path.resolve('views/index.html'))
-})
-app.get ("/",(req,res)=>{
-    res.sendFile(path.resolve('views/index.html'))
-})*/ 
-app.get('/', (req, res) => 
-{
-    res.render('main/index')
-})
-app.get ("/login",(req,res)=>{res.sendFile(path.resolve("/views/login.html"))})
-app.get ("/register",(req,res)=>{res.sendFile(path.resolve("views/register.html"))})
-app.get ("/productCart",(req,res)=>{res.sendFile(path.resolve("views/productCart.html"))})
-
+})*/
+//app.get ("/login",(req,res)=>{res.sendFile(path.resolve("/views/login.html"))})
+//app.get ("/register",(req,res)=>{res.sendFile(path.resolve("views/register.html"))})
+//app.get ("/productCart",(req,res)=>{res.sendFile(path.resolve("views/productCart.html"))})
 //app.get ("/productDetail",(req,res)=>{res.sendFile(path.resolve(__dirname, "./views/productDetail.html"))})
 
-//productos
-const productsRoutes = require('./routes/productsRoutes');
 
+//Render del HOME
+app.get('/', (req, res) => {res.render('main/index')})
+
+//Render de productos
+const productsRoutes = require('./routes/productsRoutes');
 app.use('/products', productsRoutes)
+
+//Render de users
+const userRoutes = require('./routes/userRoutes');
+app.use('/user', userRoutes)
+
+
 
 app.listen(3000,()=>{
     console.log('Servidor ejecutado');

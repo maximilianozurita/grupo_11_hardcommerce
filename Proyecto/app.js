@@ -24,7 +24,8 @@ app.use(express.static('public'));
 
 //Render del HOME
 app.get('/', (req, res) => {res.render('main/index')})
-
+//Render de carga y edicion de productos
+app.get('/productEdition', (req, res) => {res.render('main/productEdition')})
 //Render de productos
 const productsRoutes = require('./routes/productsRoutes');
 app.use('/products', productsRoutes)

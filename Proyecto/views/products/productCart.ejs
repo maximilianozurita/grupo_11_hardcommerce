@@ -1,76 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="/CSS/productCart.css">
-    <link rel="stylesheet" href="/CSS/HeaderFooter.css">
-    <link rel="stylesheet" href="/CSS/normalize.css">
+    <%- include('../partials/head') %>
 </head>
 <body>
     <header>
-        <div class="main-header">
-            <div class="bloque-superior"></div>
-            <div class="caja1">
-                <section class="logo"><img src="/images/LOGO.jpg" class="logo__imagen" width="100%"></section>
-                <section class="menu">
-                    <div class="columna1">
-                            <div class="top1">
-                                <div class="link"><a href='#'>AMD</a></div>
-                                <div class="link"><a href='#'>Intel</a></div>
-                                <div class="link"><a href='#'>nVidia</a></div>
-                                <div class="link"><a href='#'>AsRock</a></div>
-                            </div>
-                            <div class="bottom1">
-                                <form action="boton">
-                                    <input type="text" /><button>Buscar</button>
-                                </form> 
-                            </div>
-                    </div>    
-                    <div class="columna2">
-                            <div class="top2">
-                                <div><a><i class="fas fa-phone"></i>(011)43454343</a></div>
-                            </div>
-
-                            <div class="bottom2">
-                                <div class="caja-items">Nuestras redes <i id="uno" class="fab fa-whatsapp"></i> <i id="dos" class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i id="cuatro" class="fab fa-facebook-square"></i></div>
-                            </div>       
-                    </div>
-                    <div class="columna3">
-                        <div class="left">
-                            <div class="top3">
-                                <div><a><i class="fas fa-envelope-square"></i>ventas@grupo11.com</a></div>
-                            </div>
-                            <div class="bottom3">
-                                <div class="link"><a href='/login'>Ingresar</a></div>
-                                <div class="link"><a href='/register'>Registrarse</a></div>
-                            </div>
-                        </div>
-
-                        <div class="right">
-                            <div class="link"><a href='#'>Contacto</a></div>
-                            <div class="carrito"><i class="fas fa-shopping-cart"></i></div>                               
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="caja2">               
-                <ul class="mainCaja2">
-                    <a href='#'>Armá tu pc</a>
-                    <a href='#'>PC armada</a>
-                    <a href='#'>Hardware</a>
-                    <a href='#'>Periféricos</a>
-                    <a href='#'>Ver todo</a>
-                </ul> 
-                <div class="hamburguer-button">
-                    <a href="#">
-                        <i class="fas fa-bars"></i>
-                    </a> 
-                </div>
-            </div>
-        </div>
+        <%- include ('../partials/header') %>
     </header>
     <main class="mainProductCart">
         
@@ -192,26 +129,7 @@
         <br><hr><br>
     </main>
     <footer class="main-footer">
-        <div class="container">
-            <div class="colum1">
-                <div class="linea"><p>Cabildo 1 CABA</p></div>
-                <div class="linea"><p class="icono1"><i class="fab fa-whatsapp"></i>Whatapp +54 911 4777 0001</p></div>
-                <div class="linea"><p>Servicio al cliente</p></div>
-                <div class="linea"><p>Contáctenos</p></div>
-            </div>
-            <div class="colum2">
-                <div class="linea"><p>Políticas de garantía</p></div>
-                <div class="linea"><p class="icono2"><i class="fas fa-phone"></i>(54 11)43454343 </p></div>
-                <div class="linea"><p>Condiciones de uso</p></div>
-                <div class="linea"><p>¿Cómo comprar?</p></div>
-            </div>
-            <div class="colum3">
-                <div class="linea"><p>Políticas de privacidad</p></div>
-                <div class="linea"><p>Preguntas frecuentes</p></div>
-                <div class="linea"><p class="icono3"><i class="fab fa-facebook"></i> Facebook</p></div>
-                <div class="linea"><p class="icono4"><i class="fab fa-youtube"></i>Youtube</p></div>
-            </div>
-        </div>
+        <%- include("../partials/footer") %>
     </footer>
 </body>
 </html>

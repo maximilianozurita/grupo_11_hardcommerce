@@ -24,24 +24,98 @@ header
 .navBar
 {
     display:flex;
-    height: 90px;
+    justify-content: space-evenly;
+    height: 145px;
 }
+.informacion
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.informacion .bottomBar li
+{
+    list-style: none;
+    margin: 10px 5px;
+    text-align: center;
+}
+.informacion .bottomBar li a
+{
+    text-decoration: none;
+    font-size:16px;
+    color:black;
+    transition: all 2s;
+}
+.informacion .bottomBar li a:hover
+{
+    background-color:rgb(11, 64, 145);
+    text-decoration: underline;
+    border-radius:50px;
+    color:white;
+}
+.hamburguer-button i
+{
+    font-size:30px;
+}
+
 .hamburguer-button
 {
     margin: auto;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(11, 64, 145);
+    width: 80px;
+    transition: all 1s;
 }
+.hamburguer-button:hover
+{
+    color:white;
+    background-color: rgb(11, 64, 145);
+    border-radius: 80px;
+}
+
 .columnas
 {
     flex-basis:80%;
     border:solid 2px transparent;
     display:flex;
     text-align: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin:auto;
 }
-.hamburguer-button i
+.columnas div
 {
-    color:black;
+    margin:0 3px;
+}
+.columnas div i
+{
+    font-size:20px;
+}
+.columnas div .iHome
+{
+    margin:12px 30px
+}
+.iHome i
+{
+    font-size:30px;
+    color:rgb(11, 64, 145);
+}
+.iHome
+{
+    display: flex;
+    align-items: center;
+    color:rgb(11, 64, 145);
+    margin: 0 20px;
+}
+.iHome i
+{
+    transition: all 1s;
+}
+.iHome i:hover
+{
+    color:white;
+    background-color: rgb(11, 64, 145);
+    border-radius: 80px;
 }
 .navBar .columnas div .logosHeader
 {
@@ -50,6 +124,10 @@ header
 .logocentral
 {
     width:150px;
+    margin: 0 30px;
+    display:flex;
+    text-align:center;
+    width:450px;
 }
 .caja2
 {
@@ -57,6 +135,10 @@ header
     border-bottom: solid 3px rgb(0, 17, 255);
     border-top: solid 3px rgb(0, 17, 255);
     animation: barraLuminosa 10s infinite;
+}
+.marcas
+{
+    display:none
 }
 @keyframes barraLuminosa
 {
@@ -76,14 +158,6 @@ header
         borde-bottom: solid 3px rgb(115, 8, 255);
     }
 }
-.hamburguer-button
-{
-    text-align: center;
-}
-.hamburguer-button a
-{
-    color: white;
-}
 .mainCaja2
 {
     display: none;  
@@ -99,20 +173,51 @@ header
 /*--------------------------------HEADER QUERIES--------------------------------*/
 @media(min-width:481px)
 {
+    .hamburguer-button
+    {
+        display:none;
+    }
     .mainCaja2
     {
         display: flex;
         justify-content: space-evenly;
         height: 40px;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
+        list-style: none;
+        overflow: hidden;
     }
-    .mainCaja2 a
+    .mainCaja2 li a
     {  
         font-size: 20px;
         margin: 0 8px;
+        
     }
+    .mainCaja2 li
+    {
+        transition: all 1s;
+    }
+    .mainCaja2 li:hover
+    {
+        border:solid 2px white;
+        border-radius: 20%;
+        background-color:rgb(11, 64, 145);
+    }
+    .contactoBar
+    {
+        margin-top:10px;
+        display:block;
+    }
+    .contactoBar .cajita1
+    {
+        display:flex;
+        justify-content: space-between;
+    }
+    .contactoBar .cajita1 div a
+    {
+        color:rgb(10, 72, 165);
+    };
 }
 @media (min-width: 768px) 
 {
@@ -120,14 +225,21 @@ header
     {
         flex-direction: row;
     }
-    .contactoBar
+    .marcas
     {
-        display:block;
-    }
-    .contactoBar .cajita1
-    {
-        display:flex;
+        border-right:solid 4px rgb(10, 72, 165);
+        border-left:solid 4px rgb(10, 72, 165);
+        margin:15px 0;
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        align-content: center;
         justify-content: space-around;
+    }
+    .marcas h2
+    {
+        font-size: 25px;
+        color:rgb(10, 72, 165);
     }
     .navBar .columnas div .logosHeader
     {

@@ -1,8 +1,67 @@
-*
-{
-    padding: 0px;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-family: 'Lato' , italic;
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Lato", italic;
+}
+
+/*------------ FORMULARIO ---------------*/
+
+H3 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+.input-container {
+  width: 90%;
+  margin: auto;
+  max-width: 400px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.input-container label {
+  display: block;
+}
+
+.input-container input {
+  width: 100%;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.input-container input[type="checkbox"],
+.input-container input[type="radio"] {
+  width: initial;
+}
+
+.login-sobrante {
+  height: 200px;
+}
+
+.input-container button {
+  height: 35px;
+  width: 70px;
+  background-color: #ebebeb;
+  color: black;
+  transition: 980ms;
+}
+
+.input-container button:hover {
+  background-color: rgb(83, 86, 248);
+  color: #fff;
+}
+
+.formulario {
+  background-color: white;
+}
+
+.category {
+  background-color: aqua;
 }

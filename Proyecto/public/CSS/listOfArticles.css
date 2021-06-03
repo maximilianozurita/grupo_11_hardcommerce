@@ -6,6 +6,9 @@
     font-size: 16px;
     font-family: 'Lato' , italic;
 }
+body{
+    background-color: rgb(233, 233, 233);
+}
 /*-------------------------------BARRA SUPERIOR-------------------------*/
 .topBar
 {

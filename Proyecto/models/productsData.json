@@ -19,6 +19,12 @@
             "image": "/images/imgProducts/RTX 2080ti.jpg",
             "description": "RTX 2080TI 11gb VRAM",
             "precio": "$406.000"
+        },
+        {
+            "id": 4,
+            "image": "/images/imgProducts/RTX 2080ti.jpg",
+            "description": "RTX 2080TI 11gb VRAM",
+            "precio": "$406.000"
         }
 ]
 }

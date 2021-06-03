@@ -123,11 +123,12 @@ header
 }
 .logocentral
 {
-    width:150px;
     margin: 0 30px;
-    display:flex;
     text-align:center;
-    width:450px;
+    margin: auto;
+}
+.img__logocentral{
+    width: 70%;
 }
 .caja2
 {
@@ -218,6 +219,9 @@ header
     {
         color:rgb(10, 72, 165);
     };
+    .img__logocentral{
+        width: 100%;
+    }
 }
 @media (min-width: 768px) 
 {

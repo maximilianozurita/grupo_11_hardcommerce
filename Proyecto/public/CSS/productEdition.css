@@ -5,6 +5,12 @@ HEAD * {
   font-size: 16px;
   font-family: "Lato", italic;
 }
+body
+{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(233, 233, 233);
+}
 
 /*------------ FORMULARIO ---------------*/
 
@@ -13,8 +19,12 @@ H3 {
   margin-top: 10px;
 }
 
-form {
+.formulario {
   margin-top: 10px;
+  background-color:white;
+  width: 400px;
+  margin:auto;
+  border: solid 1px rgb(189, 189, 189);
 }
 
 .input-container {
@@ -23,6 +33,7 @@ form {
   max-width: 400px;
   margin-bottom: 20px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .input-container label {
@@ -58,9 +69,6 @@ form {
   color: #fff;
 }
 
-.formulario {
-  background-color: white;
-}
 
 .category {
   background-color: aqua;

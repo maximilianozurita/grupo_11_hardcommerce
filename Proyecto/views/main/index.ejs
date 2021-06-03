@@ -31,63 +31,29 @@
         <section class="contenedor-seccion">
             <p class="titulos-home">Ofertas</p>
             <div class="contenedor-productos">
-                <article class="producto producto--oferta">
-                        <a href="/products/detail/1" class="producto__button-producto">
-                            <div class="producto__contenedor-imagen">
-                                <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                            </div>
-                            <p class="producto__descripcion">
-                                Intel core I7 9700k
-                            </p>
-                            <p class="producto__precio">
-                                $39.999
-                            </p>
-                        </a>
-                        <a href="/products/Cart" class="button-agregar">
-                            <div class="button-agregar__contenedor-imagen">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <span class="button-agregar__body">Agregar</span>
-                        </a>
-                </article>
-                <article class="producto producto--oferta">
-                        <a href="/products/detail/2" class="producto__button-producto">
-                            <div class="producto__contenedor-imagen">
-                                <img src="/images/micro-amd-ryzen-5-5600x-0.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                            </div>
-                            <p class="producto__descripcion">
-                                amd ryzen 5 5600x
-                            </p>
-                            <p class="producto__precio">
-                                $42.795
-                            </p>
-                        </a>
-                        <a href="/products/Cart" class="button-agregar">
-                            <div class="button-agregar__contenedor-imagen">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <span class="button-agregar__body">Agregar</span>
-                        </a>
-                </article>
-                <article class="producto producto--oferta">
-                        <a href="/products/detail/3" class="producto__button-producto">
-                            <div class="producto__contenedor-imagen">
-                                <img src="/images/RTX 2080ti.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                            </div>
-                            <p class="producto__descripcion">
-                                RTX 2080TI 11gb VRAM
-                            </p>
-                            <p class="producto__precio">
-                                $406.000
-                            </p>
-                        </a>
-                        <a href="/products/Cart" class="button-agregar">
-                            <div class="button-agregar__contenedor-imagen">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <span class="button-agregar__body">Agregar</span>
-                        </a>
-                </article>
+                
+                <% productList.forEach((products)=>{%>  
+                    <article class="producto producto--oferta">
+                            <a href="/products/detail/<%= products.id %>" class="producto__button-producto">
+                                <div class="producto__contenedor-imagen">
+                                    <img src="<%= products.image %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                </div>
+                                <p class="producto__descripcion">
+                                    <%= products.description  %> 
+                                </p>
+                                <p class="producto__precio">
+                                    <%= products.precio %>
+                                </p>
+                            </a>
+                            <a href="/products/Cart" class="button-agregar">
+                                <div class="button-agregar__contenedor-imagen">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <span class="button-agregar__body">Agregar</span>
+                            </a>
+                    </article>
+                 <% }) %> 
+                 
             </div>
         </section>
         <!--SECCION CONTACTO-->
@@ -125,106 +91,29 @@
         <section class="contenedor-seccion">
             <p class="titulos-home"> Destacados </p>
             <div class="contenedor-productos">
-                <article class="producto producto--destacados">
-                    <a href="#" class="producto__button-producto">
-                        <div class="producto__contenedor-imagen">
-                            <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                        </div>
-                        <p class="producto__descripcion">
-                            Intel core I7 9700k
-                        </p>
-                        <p class="producto__precio">
-                            $39.999
-                        </p>
-                    </a>
-                    <a href="/products/Cart" class="button-agregar">
-                        <div class="button-agregar__contenedor-imagen">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>                            <span class="button-agregar__body">Agregar</span>
-                    </a>
-                </article>
-                <article class="producto producto--destacados">
-                    <a href="#" class="producto__button-producto">
-                        <div class="producto__contenedor-imagen">
-                            <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                        </div>
-                        <p class="producto__descripcion">
-                            Intel core I7 9700k
-                        </p>
-                        <p class="producto__precio">
-                            $39.999
-                        </p>
-                    </a>
-                    <a href="/products/Cart" class="button-agregar">
-                        <div class="button-agregar__contenedor-imagen">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <span class="button-agregar__body">Agregar</span>
-                    </a>
-                </article>
-                <article class="producto producto--destacados">
-                    <a href="#" class="producto__button-producto">
-                        <div class="producto__contenedor-imagen">
-                            <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                        </div>
-                        <p class="producto__descripcion">
-                            Intel core I7 9700k
-                        </p>
-                        <p class="producto__precio">
-                            $39.999
-                        </p>
-                    </a>
-                    <a href="/products/Cart" class="button-agregar">
-                        <div class="button-agregar__contenedor-imagen">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <span class="button-agregar__body">Agregar</span>
-                    </a>
-                </article>
-                <article class="producto producto--destacados">
-                    <a href="#" class="producto__button-producto">
-                        <div class="producto__contenedor-imagen">
-                            <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                        </div>
-                        <p class="producto__descripcion">
-                            Intel core I7 9700k
-                        </p>
-                        <p class="producto__precio">
-                            $39.999
-                        </p>
-                    </a>
-                    <a href="/products/Cart" class="button-agregar">
-                        <div class="button-agregar__contenedor-imagen">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <span class="button-agregar__body">Agregar</span>
-                    </a>
-                </article>
-                <article class="producto producto--destacados">
-                    <a href="#" class="producto__button-producto">
-                        <div class="producto__contenedor-imagen">
-                            <img src="/images/38094.jpg" alt="imagen-oferta" class="producto__imagen" width="100%">
-                        </div>
-                        <p class="producto__descripcion">
-                            Intel core I7 9700k
-                        </p>
-                        <p class="producto__precio">
-                            $39.999
-                        </p>
-                    </a>
-                    <a href="/products/Cart" class="button-agregar">
-                        <div class="button-agregar__contenedor-imagen">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <span class="button-agregar__body">Agregar</span>
-                    </a>
-                </article>
-                <a href="#" class="button-carrusel button-carrusel--RH">
-                    <i class="fas fa-angle-right"></i>
-                </a>
-                <a href="#"  class="button-carrusel button-carrusel--LH">
-                    <i class="fas fa-angle-left"></i>
-                </a>
+
+                <% productList.forEach((products)=>{%>  
+                    <article class="producto producto--oferta">
+                            <a href="/products/detail/<%= products.id %>" class="producto__button-producto">
+                                <div class="producto__contenedor-imagen">
+                                    <img src="<%= products.image %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                </div>
+                                <p class="producto__descripcion">
+                                    <%= products.description  %> 
+                                </p>
+                                <p class="producto__precio">
+                                    <%= products.precio %>
+                                </p>
+                            </a>
+                            <a href="/products/Cart" class="button-agregar">
+                                <div class="button-agregar__contenedor-imagen">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <span class="button-agregar__body">Agregar</span>
+                            </a>
+                    </article>
+                 <% }) %> 
+
             </div>
         </section>
         <!--SECCION CLASIFICACION-->

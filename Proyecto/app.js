@@ -11,7 +11,7 @@ app.set('views', './views')
 //app.use(express.static(publicPath));
 app.use(express.static('public'));
 
-
+const productModel=require ("./models/productsModels")
 //TRAER HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)
 /*app.get ("/",(req,res)=>{
     res.sendFile(path.resolve('views/index.html'))
@@ -21,9 +21,10 @@ app.use(express.static('public'));
 //app.get ("/productCart",(req,res)=>{res.sendFile(path.resolve("views/productCart.html"))})
 //app.get ("/productDetail",(req,res)=>{res.sendFile(path.resolve(__dirname, "./views/productDetail.html"))})
 
-
 //Render del HOME
-app.get('/', (req, res) => {res.render('main/index')})
+app.get('/', (req, res) => {
+    const productList=productModel.findAll();
+    res.render('main/index',{productList: productList})})
 //Render de carga y edicion de productos
 app.get('/productEdition', (req, res) => {res.render('main/productEdition')})
 //Render de productos

@@ -1,4 +1,4 @@
-* {
+HEAD * {
   padding: 0px;
   margin: 0;
   box-sizing: border-box;
@@ -64,4 +64,8 @@ form {
 
 .category {
   background-color: aqua;
+}
+
+#descripcion {
+  width: 100%;
 }

@@ -4,7 +4,7 @@ const productsController =
 {
     listaDeArticulos: (req, res) => {
         //res.sendFile(path.resolve('views/products/listaDeArticulos.html'))
-        res.render('products/listOfArticles')
+        res.render('products/listOfArticles',)
     },
     detail: (req, res) => {
         res.render('products/productDetail')

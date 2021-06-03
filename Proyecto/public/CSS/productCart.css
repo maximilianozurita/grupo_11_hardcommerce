@@ -6,9 +6,11 @@
     font-size: 16px;
     font-family: 'Lato' , italic;
 }
-body{
+body
+{
+    width: 90%;
+    margin: auto;
     background-color: rgb(233, 233, 233);
-
 }
 /* --------------------------------MAIN--------------------------------*/
 .mainProductCart

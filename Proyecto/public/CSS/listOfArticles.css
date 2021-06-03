@@ -6,30 +6,18 @@
     font-size: 16px;
     font-family: 'Lato' , italic;
 }
-body{
+body
+{
+    width: 90%;
+    margin: auto;
     background-color: rgb(233, 233, 233);
 }
 /*-------------------------------BARRA SUPERIOR-------------------------*/
-.topBar
-{
-    transition: all 1s;
-    text-align:center;
-    color:rgb(0, 17, 255);
-}
-.topBar .tittle h1
-{
 
-    transition: all 1s;
-}
-.topBar .tittle h1:hover
-{
-    background-color:rgb(0, 17, 255);
-    color:white;
-}
 .lista
 {
     border:transparent;
-    
+    display: flex;
 }
 /*-------------------------------FIN BARRA SUPERIOR-------------------------*/
 /*-------------------------------BARRA MEDIA-------------------------*/

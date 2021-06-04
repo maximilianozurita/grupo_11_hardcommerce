@@ -9,23 +9,30 @@
     <header>
         <%- include ('../partials/header') %>
     </header>
-    <main class="main_main">
-        <div class="main_main_register">
+    <main >
+        <div>
             <h1>Registrarse</h1>
-            <form action="" method="GET">
-              <label for="username">Nombre de usuario</label>
-              <input type="text" name="username" required>
-
-              <label for="email">Email</label>
-              <input type="text" name="email" required>
-
-              <label for="contraseña">Contraseña</label>
-              <input type="password" name="contraseña" required>
-
-              <label for="repetir">Repetir contraseña</label>
-              <input type="password" name="repetir" required>
-
-              <input type="submit" value="Registrarse">
+            <form class="formulario" action="" method="POST">
+                 <div class="input-container">
+                    <label for="username"></label>
+                    <input placeholder="Usuario" name="username" required>
+                </div>
+                <div class="input-container">
+                    <label for="email"></label>
+                    <input placeholder="Email" name="email" required>
+                </div>
+                <div class="input-container">
+                    <label for="contraseña"></label>
+                    <input placeholder="Contraseña" name="contraseña" required>
+                </div>
+                <div class="input-container">
+                    <label for="repetir"></label>
+                    <input placeholder="Repetir contraseña" name="repetir" required>
+                </div>
+                <div class="input-container">
+                    <input class="boton" type="summit" value="Registrarse">
+                </div>
+              
             </form>
         </div>
     </main>

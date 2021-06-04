@@ -13,7 +13,12 @@ body
 }
 
 /*------------ FORMULARIO ---------------*/
-
+main
+{
+  display: block;
+  margin: auto;
+  padding-bottom: 50px;
+}
 H3 {
   text-align: center;
   margin-top: 10px;
@@ -57,21 +62,21 @@ H3 {
 }
 
 .input-container button {
-  height: 35px;
-  width: 70px;
-  background-color: #ebebeb;
-  color: black;
-  transition: 980ms;
+  width: 100%;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 3px;
+  transition :all 1s;
 }
 
 .input-container button:hover {
-  background-color: rgb(83, 86, 248);
-  color: #fff;
+  background-color: rgb(11,64,145);
+  color: white;
 }
 
 
 .category {
-  background-color: aqua;
+  background-color: white;
 }
 
 #descripcion {

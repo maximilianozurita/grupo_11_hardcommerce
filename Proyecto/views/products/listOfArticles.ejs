@@ -13,7 +13,7 @@
     <main>
         <div class="lista">
             <div class="barra-de-clasificacion">
-                <div class="caja-clasificacion">
+                <div class="titulo-clasificacion">
                     <p>Ordenar por:</p>
                 </div>
                 <div class="caja-clasificacion">
@@ -65,16 +65,22 @@
                             </div>
                             <div class="comprarAgregar">
                                 <p class="producto__descripcion">
-                                    Intel core I7 9700k
+                                    RTX 2080TI 11gb VRAM
                                 </p>
                                 <p class="producto__precio">
-                                    $39.999
+                                    $406.000
                                 </p>
-                                <div class="button-agregar__contenedor-imagen">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <span class="button-agregar__body">Comprar</span>
-                                <span class="button-agregar__body">Agregar</span>
+                                <a href="/products/Cart" class="button-agregar">
+                                   <div class="button-agregar__contenedor-imagen">
+                                       <i class="fas fa-shopping-cart"></i>
+                                   </div>
+                                   <div class="button-agregar__body">Agregar</div>
+                               </a>
+                               <a href="#" class="button-agregar">
+                                    <div class="button-agregar__contenedor-imagen">
+                                    </div>
+                                    <div class="button-agregar__body">Comprar</div>
+                                </a>
                             </div>
                     </article>
                     <article class="separar">
@@ -86,18 +92,24 @@
                                 </a>
                            </div>
                            <div class="comprarAgregar">
-                                <p class="producto__descripcion">
-                                    amd ryzen 5 5600x
-                                </p>
-                                <p class="producto__precio">
-                                    $42.795
-                                </p>
-                                <div class="button-agregar__contenedor-imagen">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <span class="button-agregar__body">Comprar</span>
-                                <span class="button-agregar__body">Agregar</span>
+                            <p class="producto__descripcion">
+                                RTX 2080TI 11gb VRAM
+                            </p>
+                            <p class="producto__precio">
+                                $406.000
+                            </p>
+                            <a href="/products/Cart" class="button-agregar">
+                               <div class="button-agregar__contenedor-imagen">
+                                   <i class="fas fa-shopping-cart"></i>
+                               </div>
+                               <span class="button-agregar__body">Agregar</span>
+                           </a>
+                           <a href="#" class="button-agregar">
+                            <div class="button-agregar__contenedor-imagen">
                             </div>
+                            <div class="button-agregar__body">Comprar</div>
+                        </a>
+                        </div>
                     </article>
                     </article>
                     <article class="separar">
@@ -115,36 +127,23 @@
                              <p class="producto__precio">
                                  $406.000
                              </p>
-                             <div class="button-agregar__contenedor-imagen">
-                                 <i class="fas fa-shopping-cart"></i>
-                             </div>
-                             <span class="button-agregar__body">Comprar</span>
-                             <span class="button-agregar__body">Agregar</span>
+                             <a href="/products/Cart" class="button-agregar">
+                                <div class="button-agregar__contenedor-imagen">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <span class="button-agregar__body">Agregar</span>
+                            </a>
+                            <a href="#" class="button-agregar">
+                                <div class="button-agregar__contenedor-imagen">
+                                </div>
+                                <div class="button-agregar__body">Comprar</div>
+                            </a>
                          </div>
-                 </article>
+                    </article>
                 </div>
             </section>
-                <div class="botBar">
-                    <div class="box1">
-                        <h2>HardCommerce</h2>
-                    </div>
-                    <div class="search">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="shop">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="contact">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="hamburguer">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
-
     <footer class="main-footer">
         <%- include("../partials/footer") %>
     </footer>

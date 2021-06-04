@@ -17,54 +17,54 @@ body
     text-decoration: none;
 }
 /*--------------------------------MAIN--------------------------------*/
-.main_main_register
+main
 {
-    background-color: rgba(255, 255, 255, 0.514);
-    max-width: 420px;
-    max-height: 560px;
+    display: block;
     margin: auto;
+    padding-bottom: 50px;
 }
-.main_main_register
+H1 
 {
-    background: white;
-    color: black;
-    box-sizing: border-box;
-    padding: 70px 30px;
-    margin: auto;
-    max-width: 320px;
-    align-items: center;
-}
-.main_main_register h1 
-{
-    margin: 0;
-    padding: 0 0 20px 0;
     text-align: center;
-    font-size: 22px;
+    margin-top: 10px;
 }
-.main_main_register label 
+.formulario 
 {
-    margin: 0;
-    padding: 0;
+    margin-top: 10px;
+    background-color:white;
+    width: 400px;
+    margin:auto;
+    border: solid 1px rgb(189, 189, 189);
+}
+.input-container 
+{
+    width: 90%;
+    margin: auto;
+    max-width: 400px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+.input-container label 
+{
     display: block;
 }
-.main_main_register input
+.input-container input 
 {
     width: 100%;
-    margin-bottom: 20px;
-    background: white;
-    outline: none;
-    height: 40px;
-    color: black;
-    font-size: 16px;
-    border:solid 2px black;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 3px;
 }
-.main_main_register input[type="submit"]
-{
-    background: blue;
-    color: white;
-    outline: none;
-    height: 40px;
-    font-size: 21px;
-    border-radius: 20px;
-}
+.input-container .boton
+  {
+    text-align:center;
+    margin:auto;
+    transition: all 1s;
+  }
+  .input-container .boton:hover
+  {
+    background-color: rgb(11,64,145);
+    color:white;
+  }
 /*--------------------------------FIN MAIN--------------------------------*/

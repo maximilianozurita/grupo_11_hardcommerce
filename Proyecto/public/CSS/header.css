@@ -161,13 +161,6 @@ header
 {
     display: none;  
 }
-.mainCaja2 a
-{
-    text-decoration: none;
-    color: white;
-    font-size: medium;
-    font-weight: small;
-}
 /* -----------------------------------FIN HEADER ----------------------------------- */
 /*--------------------------------HEADER QUERIES--------------------------------*/
 @media(min-width:481px)

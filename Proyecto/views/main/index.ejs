@@ -31,18 +31,17 @@
         <section class="contenedor-seccion">
             <p class="titulos-home">Ofertas</p>
             <div class="contenedor-productos">
-                
-                <% productList.forEach((products)=>{%>  
+                <% for(let i=0; i<3; i++) {%> 
                     <article class="producto producto--oferta">
-                            <a href="/products/detail/<%= products.id %>" class="producto__button-producto">
+                            <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
-                                    <img src="<%= products.image %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                    <img src="<%= productList[i].image1 %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= products.description  %> 
+                                    <%= productList[i].description  %> 
                                 </p>
                                 <p class="producto__precio">
-                                    <%= products.precio %>
+                                    <%= productList[i].precio %>
                                 </p>
                             </a>
                             <a href="/products/Cart" class="button-agregar">
@@ -52,7 +51,7 @@
                                 <span class="button-agregar__body">Agregar</span>
                             </a>
                     </article>
-                 <% }) %> 
+                 <% } %> 
                  
             </div>
         </section>
@@ -92,17 +91,17 @@
             <p class="titulos-home"> Destacados </p>
             <div class="contenedor-productos">
 
-                <% productList.forEach((products)=>{%>  
+                <% for(let i=0; i<3; i++) {%>  
                     <article class="producto producto--oferta">
-                            <a href="/products/detail/<%= products.id %>" class="producto__button-producto">
+                            <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
-                                    <img src="<%= products.image %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                    <img src="<%= productList[i].image1 %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= products.description  %> 
+                                    <%= productList[i].description  %> 
                                 </p>
                                 <p class="producto__precio">
-                                    <%= products.precio %>
+                                    <%= productList[i].precio %>
                                 </p>
                             </a>
                             <a href="/products/Cart" class="button-agregar">
@@ -112,7 +111,7 @@
                                 <span class="button-agregar__body">Agregar</span>
                             </a>
                     </article>
-                 <% }) %> 
+                 <% } %> 
 
             </div>
         </section>

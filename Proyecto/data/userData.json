@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "Name": "Juan",
+        "LastNmae": "Perez",
+        "Email": "Jperez@jmail.com",
+        "Password": "1234",
+        "Imagen": "/images/imgUser/1.jpg",
+        "Cell": "151232454"
+    },
+    {
+        "id": 2,
+        "Name": "Juan",
+        "LastNmae": "Perez2",
+        "Email": "Jperez2@jmail.com",
+        "Password": "12345",
+        "Imagen": "/images/imgUser/1.jpg",
+        "Cell": "112332454"
+    },
+    {
+        "id": 3,
+        "Name": "Hecto",
+        "LastNmae": "Gonzales",
+        "Email": "Hgonzales@jmail.com",
+        "Password": "123456",
+        "Imagen": "/images/imgUser/1.jpg",
+        "Cell": "13211232454"
+    }
+]

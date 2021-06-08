@@ -1,17 +1,16 @@
 const path = require('path')
-
-const productsController = 
-{
-    listaDeArticulos: (req, res) => {
+const productsModels = require("../models/productsModels")
+const productsController = {
+    listOfProducts: (req, res) => {
+        const productList = productsModels.findAll();
         //res.sendFile(path.resolve('views/products/listaDeArticulos.html'))
-        res.render('products/listOfArticles',)
+        res.render('products/listOfProducts',{productList});
     },
     detail: (req, res) => {
-        res.render('products/productDetail')
+        res.render('products/productsDetail')
     },
     cart: (req,res)=>{
-        res.render('products/productCart')
-    },
+        res.render('products/productsCart')
+    }
 }
-
 module.exports = productsController

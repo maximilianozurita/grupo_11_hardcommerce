@@ -1,4 +1,4 @@
-const { json } = require('express');
+//const { json } = require('express');
 const fs=require('fs');
 const path=require ("path");
 
@@ -14,4 +14,5 @@ module.exports={
         const users = this.readFile();
         return users;
     }
+    
 }

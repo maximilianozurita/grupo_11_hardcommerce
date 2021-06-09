@@ -1,8 +1,9 @@
 const express=require('express');
+const app=express();
 const path=require('path');
 const productModels=require ("./models/productsModels")
 app.set("view engine", "ejs");
-app.set('views', './views');
+app.set("views", "./views");
 
 app.use(express.static('public'));
 

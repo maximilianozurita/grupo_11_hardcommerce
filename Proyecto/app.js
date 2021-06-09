@@ -1,5 +1,4 @@
 const express=require('express');
-const app=express();
 const path=require('path');
 const productModels=require ("./models/productsModels")
 app.set("view engine", "ejs");
@@ -23,8 +22,17 @@ app.use('/products', productsRoutes)
 
 //Render de users
 const userRoutes = require('./routes/userRoutes');
+const { dirname } = require('path');
 app.use('/user', userRoutes)
 
-app.listen(3001,()=>{
-    console.log('Servidor ejecutado en puerto 3001');
+
+//Si no encuentra la pagina porque el URL es incorrecto redirige a la pagina "not-found".
+app.use((req,res,next)=>{
+    res.status(404).render("./main/not-found");
+})
+
+
+//Abre el servidor
+app.listen(3000,()=>{
+    console.log('Servidor ejecutado');
 });

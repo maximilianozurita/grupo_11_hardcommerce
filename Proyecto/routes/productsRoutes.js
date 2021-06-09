@@ -1,10 +1,28 @@
 const express = require('express')
 const productsRoutes = express.Router()
+
 const productsController = require('../controllers/productsController')
 
-productsRoutes.get('/listOfProducts', productsController.listOfProducts)
-productsRoutes.get('/detail/:id', productsController.detail)
-productsRoutes.get('/cart',productsController.cart)
+//--------------------VISTA CLIENTES--------------------------------
+
+productsRoutes.get('/listOfArticles', productsController.listaDeArticulos) //-->>listado de productos
+productsRoutes.get('/detail/:id', productsController.detail)               //-->>Detalle de producto seleccionado.
+productsRoutes.get('/cart',productsController.cart)                        //-->>Carrito de compras.
+
+//-------------------VISTA ADMINISTRADOR------------------------------
+
+productsRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
+
+//Create:
+productsRoutes.get("/productCreate", productsController.formNew) //-->> Pagina de creacion.
+productsRoutes.post("/productCreate",productsController.store)
+//Edition
+productsRoutes.get("/productEdition/:id", productsController.edit)
+productsRoutes.put("/productEdition/:id", productsController.update)
+
+productsRoutes.delete("/:id", productsController.destroy)
+
+
 
 
 module.exports = productsRoutes

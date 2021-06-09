@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>productCreate</title>
+    <link rel="stylesheet" href="/CSS/productEdition.css">
+    <%- include('../partials/head') %>
+</head>
+<body>
+
+    <header>
+    <%- include ('../partials/header') %>
+    </header>
+
+    <main>
+        <form class="formulario" action="/products/productEdition/<%= productToEdit.id%>?_method=PUT" method="POST">  
+  
+            <div class="input-container">
+                <label for="nombre">Nombre</label>
+                <input placeholder="Nombre del producto" name="name" id="name" required value="<%= productToEdit.name%>">
+            </div>
+
+           <div class="input-container">
+                <label for="descripcion">Descripción del producto:</label>
+                <textarea name="description" id="descripcion"><%=productToEdit.description%></textarea>
+           </div>
+           
+           <div class="input-container">
+                <label for="category">Categoria del producto</label> 
+                <select class="category" id="category" name="category">
+                   <option value="<%= productToEdit.category%>" selected="selected"><%= productToEdit.category%></option>
+                   <option value="Discos Mecanicos">Discos mecanicos</option>
+                   <option value="Procesadores">Procesadores</option>
+                   <option value="Motherboards">Motherboards</option>
+                   <option value="Monitors">Monitors</option>
+                   <option value="SSD">SSD</option>
+                   <option value="placa De Video">Placa de video</option>
+                   <option value="MemoriasRam">Memorias ram</option>
+                   <option value="Perifericos">Perifericos</option>
+               </select>
+           </div>
+
+           <div class="input-container">
+               <label for="precio">Precio</label>
+               <input type="text" size="5" id="precio" name="price" required pattern="[0-9]+" required value="<%= productToEdit.precio %>"/>
+            </div>
+
+            <div>
+               <label for="cuotas">Cuotas</label>
+               <select id="cuotas" name="cuotas">
+                <option value="<%= productToEdit.cuotas%>" selected="selected"><%= productToEdit.cuotas%></option>
+                   <option value="0">0</option>
+                   <option value="3">3</option>
+                   <option value="6">6</option>
+                   <option value="9">9</option>
+                   <option value="12">12</option>
+               </select>                       
+            </div>
+           <div class="input-container">
+                <button type="submit">ENVIAR</button>
+                <button type="reset">BORRAR</button>
+           </div>
+        </form>
+    </main>
+
+<footer class="main-footer">
+    <%- include("../partials/footer") %>
+</footer>
+
+</body>
+</html>

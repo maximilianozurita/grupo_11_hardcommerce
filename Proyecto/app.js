@@ -1,7 +1,9 @@
 const express=require('express');
-const app=express();
 const path=require('path');
-const productModels=require ("./models/productsModels")
+const method = require('method-override');
+const app=express();
+const productModels=require ("./models/productsModels");
+var Router = require('router')
 app.set('view engine', 'ejs');
 app.set('views','./views');
 
@@ -14,7 +16,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => 
 {
     const productList=productModels.findAll();
-    res.render('main/index',{productList})
+    res.render('main/index',{productList});
 });
 //Render de carga y edicion de productos
 app.get('/productEdition', (req, res) => {res.render('main/productEdition')})

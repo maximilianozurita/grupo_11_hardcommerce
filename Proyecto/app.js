@@ -3,7 +3,6 @@ const path=require('path');
 const method = require('method-override');
 const productsModels=require(__dirname + "/models/productsModels");
 const productModel=require ("./models/productsModels");
-
 //Guarda los modulos de express en app.
 const app=express();
 

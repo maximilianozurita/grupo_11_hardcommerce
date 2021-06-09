@@ -2,7 +2,7 @@
     {
         "id": 1,
         "Name": "Juan",
-        "LastNmae": "Perez",
+        "LastName": "Perez",
         "Email": "Jperez@jmail.com",
         "Password": "1234",
         "Imagen": "/images/imgUser/1.jpg",
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "Name": "Juan",
-        "LastNmae": "Perez2",
+        "LastName": "Perez2",
         "Email": "Jperez2@jmail.com",
         "Password": "12345",
         "Imagen": "/images/imgUser/1.jpg",
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "Name": "Hecto",
-        "LastNmae": "Gonzales",
+        "LastName": "Gonzales",
         "Email": "Hgonzales@jmail.com",
         "Password": "123456",
         "Imagen": "/images/imgUser/1.jpg",

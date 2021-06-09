@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>listado</title>
+    <link rel="stylesheet" href="/CSS/listOfArticles.css">
+    <%- include('../partials/head') %>
+</head>
+
+    <header>
+        <%- include ('../partials/header') %>
+    </header> 
+
+    <main>
+        <div class="contenedor-usuarios">
+            <% for(let i=0; i<usersList.length; i++) {%> 
+                <section class="usarios">
+                            <div class="usuarioFoto">
+                                <img src="#" class="foto" width="100%">
+                            </div>
+                            <p class="informacionUsuario">
+                                <%= usersList[i].Name %> 
+                                <%= usersList[i].LastName %> 
+                                <%= usersList[i].Email %> 
+                                <%= usersList[i].Password %> 
+                                <%= usersList[i].Cell %> 
+                            </p> 
+                </section>
+            <% } %>      
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+
+</body>
+</html>

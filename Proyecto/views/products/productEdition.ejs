@@ -12,7 +12,8 @@
     </header>
 
     <main>
-        <form class="formulario" action="/products/productEdition/<%= productToEdit.id%>?_method=PUT" method="POST">  
+        <form class="formulario" action="/products/productEdition/<%= productToEdit.id%>?_method=PUT" 
+           enctype="multipart/form-data" method="POST">  
   
             <div class="input-container">
                 <label for="nombre">Nombre</label>
@@ -41,7 +42,7 @@
 
            <div class="input-container">
                <label for="precio">Precio</label>
-               <input type="text" size="5" id="precio" name="price" required pattern="[0-9]+" required value="<%= productToEdit.precio %>"/>
+               <input type="text" size="5" id="precio" name="price" required pattern="[0-9]+" required value="<%= productToEdit.price %>"/>
             </div>
 
             <div>
@@ -55,6 +56,11 @@
                    <option value="12">12</option>
                </select>                       
             </div>
+            <div class="input-container">
+                <label for="photo">Imagen principal</label>
+                <img src="/images/imgProducts/<%= productToEdit.image1 %>"  class="product__image">
+                <input type="file" name="productImage"/>
+           </div>
            <div class="input-container">
                 <button type="submit">ENVIAR</button>
                 <button type="reset">BORRAR</button>

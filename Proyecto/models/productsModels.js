@@ -64,6 +64,7 @@ module.exports={
     destroy(id) {
         const products = this.readFile();
 
+        ////fs.unlinkSync(path)
         const newProducts = products.filter(product => product.id!= id);
 
         this.writeFile(newProducts);

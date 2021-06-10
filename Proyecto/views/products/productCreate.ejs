@@ -13,7 +13,7 @@
 
     <main>
         <h3>Agregar producto nuevo</h3>
-        <form class="formulario" action="/products/productCreate" method="POST">                    
+        <form class="formulario" action="/products/productCreate" enctype="multipart/form-data" method="POST">                    
                     <div class="input-container">
                          <input placeholder="Nombre del producto" name="name" id="name">
                     </div>  
@@ -53,12 +53,11 @@
                             <option value="12">12</option>
                         </select>                       
                     </fieldset>
-                    <!---
+                    
                     <div class="input-container">
                          <label for="photo">Ingrese imagen del producto</label>
-                         <input multiple type="file" name="image" id="image" required accept="pdf,doc,jpg" />
+                         <input type="file" name="productImage"/>
                     </div>
-                    -->  
                     <div class="input-container">
                          <button type="submit">ENVIAR</button>
                          <button type="reset">BORRAR</button>

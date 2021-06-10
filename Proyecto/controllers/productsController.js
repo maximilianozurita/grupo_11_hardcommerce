@@ -25,8 +25,9 @@ const productsController = {
             "name": req.body.name,
             "description": req.body.description,
             "category": req.body.category,
-            "precio": req.body.price,
-            "cuotas": req.body.cuotas
+            "price": req.body.price,
+            "cuotas": req.body.cuotas,
+            "image1": req.file.filename
         }
         const productCreated=productsModels.create(product);
 
@@ -39,6 +40,17 @@ const productsController = {
     update: (req,res)=>{
         const data=req.body;
         const id=req.params.id;
+
+        const productOriginal=productsModels.findByPk(req.params.id);
+
+        let image=productOriginal.image1
+
+        if(req.file){
+            image= req.file.filename;
+        }
+
+        data.image1=image;
+
         productsModels.update(data,id);
         res.redirect("/products/");
     },

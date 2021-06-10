@@ -36,4 +36,5 @@ productsRoutes.put("/productEdition/:id",upload.single("productImage"), products
 productsRoutes.delete("/:id", productsController.destroy)
 
 
+
 module.exports = productsRoutes

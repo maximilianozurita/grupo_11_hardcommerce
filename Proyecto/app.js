@@ -2,11 +2,11 @@ const express=require('express');
 const path=require('path');
 const method = require('method-override');
 const app=express();
-const productModels=require ("./models/productsModels");
-var Router = require('router')
-app.set('view engine', 'ejs');
-app.set('views','./views');
 
+app.set('views','./views');
+app.set("view engine", "ejs");
+
+const productModels=require ("./models/productsModels")
 
 app.use(express.static('public'));
 

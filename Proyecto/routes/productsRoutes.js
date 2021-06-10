@@ -5,7 +5,7 @@ const productsController = require('../controllers/productsController')
 
 //--------------------VISTA CLIENTES--------------------------------
 
-productsRoutes.get('/listOfArticles', productsController.listaDeArticulos) //-->>listado de productos
+productsRoutes.get('/listOfArticles', productsController.listOfProducts) //-->>listado de productos
 productsRoutes.get('/detail/:id', productsController.detail)               //-->>Detalle de producto seleccionado.
 productsRoutes.get('/cart',productsController.cart)                        //-->>Carrito de compras.
 

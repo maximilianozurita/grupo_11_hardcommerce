@@ -30,6 +30,7 @@ app.use('/user', userRoutes)
 //Si no encuentra la pagina porque el URL es incorrecto redirige a la pagina "not-found".
 app.use((req,res,next)=>{
     res.status(404).render("./main/not-found");
+    next();
 })
 
 

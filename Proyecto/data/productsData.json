@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "intel I7",
     "description": "Intel core I7 9700k",
     "category": "Procesadores",
@@ -13,7 +13,7 @@
     "image5": "Micro intel i7 9700k.jpg"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "AMD Ryzen",
     "description": "amd ryzen 5 5600x",
     "category": "Procesadores",
@@ -26,7 +26,7 @@
     "image5": "micro-amd-ryzen-5-5600x.jpg"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "RTX 2080TI",
     "description": "RTX 2080TI 11gb VRAM",
     "category": "Placas de video",
@@ -39,12 +39,12 @@
     "image5": "RTX 2080ti.jpg"
   },
   {
-    "id": 4,
-    "name": "GTX 1060",
-    "description": "12345",
-    "category": "placa De Video",
-    "price": "163546",
+    "id": "4",
+    "name": "gtx 1060",
+    "description": "6vram",
+    "category": "Monitors",
+    "price": "250000",
     "cuotas": "3",
-    "image1": "product-1623288449485.jpg"
+    "image1": "product-1623462422947.jpg"
   }
 ]

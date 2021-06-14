@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Registro</title>
-    <link rel="stylesheet" href="/CSS/register.css">
-    <%- include('../partials/head') %>
-</head>
+<html lang="es">
+<%- include('../partials/head') %>
+
 <body>
-    <header>
-        <%- include ('../partials/header') %>
-    </header>
-    <main >
-        <div>
-            <h1>Registrarse</h1>
-            <form class="formulario" action="/user/register" method="POST">
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="formulario">
+            
+            <form action="/user/<%= userToEdit.id %>?_method=PUT" method="POST">
+
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
                     <input type="text" name="name" id="name" required/>
@@ -41,12 +39,12 @@
                 <div class="input-container">
                     <button type="submit">ENVIAR</button>
                 </div>
-              
+
             </form>
-        </div>
-    </main>
-    <footer class="main-footer">
-        <%- include("../partials/footer") %>
-    </footer>
+        </section>
+
+
+   </main>
+
 </body>
-</html>
+</html> 

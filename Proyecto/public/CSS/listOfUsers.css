@@ -1,0 +1,13 @@
+*
+{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato' , italic;
+}
+.contenedor-usuarios
+{
+    display:flex;
+    justify-content: column;
+}

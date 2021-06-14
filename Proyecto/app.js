@@ -3,9 +3,12 @@ const path=require('path');
 const method = require('method-override');
 const app=express();
 
+app.use(method('_method'));
 app.set('views','./views');
 app.set("view engine", "ejs");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 const productModels=require ("./models/productsModels")
 
 app.use(express.static('public'));
@@ -26,7 +29,7 @@ app.use('/products', productsRoutes)
 
 //Render de users
 const userRoutes = require('./routes/userRoutes');
-const { dirname } = require('path');
+//const { dirname } = require('path');
 app.use('/user', userRoutes)
 
 

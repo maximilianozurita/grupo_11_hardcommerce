@@ -1,6 +1,5 @@
 const path = require('path')
 const productsModels=require ("../models/productsModels")
-
 const productsController = {
     listaDeArticulos: (req, res) => {
         const productList=productsModels.findAll();
@@ -22,7 +21,7 @@ const productsController = {
     },
     store: (req,res)=>{
         const product={
-            "id": req.body.id,
+            
             "name": req.body.name,
             "description": req.body.description,
             "category": req.body.category,

@@ -9,7 +9,7 @@
        
         <section class="formulario">
             
-            <form action="/user/<%= userToEdit.id %>?_method=PUT" method="POST">
+            <form action="/user/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
@@ -34,6 +34,11 @@
                 <div class="input-container">
                     <label for="cell">Ingrese número de celular</label>
                     <input type="text" name="cell" id="cell" required/>
+                </div>
+
+                <div class="input-container">
+                    <label for="imagen">Imágen</label>
+                    <input type="file"  name="imagen" id="imagen" />
                 </div>
 
                 <div class="input-container">

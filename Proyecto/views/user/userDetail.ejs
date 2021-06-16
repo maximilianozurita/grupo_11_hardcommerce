@@ -16,12 +16,12 @@
              No existe el usuario :( 
             <%} else { %>
             
-             <h2><%= userDetail.Name %></h2>
-             <h3>Name: <%= userDetail.name %> </h3>
+             <h2><%= userDetail.name %></h2>
              <h3>Name: <%= userDetail.lastName %> </h3>
              <h3>Name: <%= userDetail.email %> </h3>
              <h3>Name: <%= userDetail.password %> </h3>
              <h3>Name: <%= userDetail.cell %> </h3>
+             <img src="<%= userDetail.imagen %>" width="20%"/>
             <% } %>
             <a href="/user/editUsers/<%= userDetail.id %>">
                 <button>Edit</button>

@@ -1,34 +1,29 @@
 [
   {
-    "id": 1,
-    "name": "Juan",
-    "lastName": "Perez",
-    "email": "Jperez@jmail.com",
-    "password": "1234",
-    "cell": "151232454"
+    "id": 4,
+    "name": "cambiando",
+    "lastName": "cambiandoc",
+    "email": "caca",
+    "password": "cacc",
+    "cell": "cac",
+    "imagen": "/images/imgUser/yellow.png"
   },
   {
-    "id": 3,
-    "name": "Hecto",
-    "lastName": "Gonzales",
-    "email": "Hgonzales@jmail.com",
-    "password": "123456",
-    "cell": "13211232454"
+    "id": 5,
+    "name": "rojo",
+    "lastName": "rojo",
+    "email": "rojo",
+    "password": "rojo",
+    "cell": "rojo",
+    "imagen": "/images/imgUser/1623724515649.png"
   },
   {
-    "id": 3,
-    "name": "Hecto",
-    "lastName": "Gonzales",
-    "email": "Hgonzales@jmail.com",
-    "password": "123456",
-    "cell": "13211232454"
-  },
-  {
-    "id": 3,
-    "name": "Hecto",
-    "lastName": "Gonzales",
-    "email": "Hgonzales@jmail.com",
-    "password": "123456",
-    "cell": "13211232454"
+    "id": 6,
+    "name": "verde",
+    "lastName": "verde",
+    "email": "verde",
+    "password": "verde",
+    "cell": "verde",
+    "imagen": "/images/imgUser/1623724494826.png"
   }
 ]

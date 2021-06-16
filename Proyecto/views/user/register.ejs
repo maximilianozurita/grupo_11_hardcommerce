@@ -12,7 +12,7 @@
     <main >
         <div>
             <h1>Registrarse</h1>
-            <form class="formulario" action="/user/register" method="POST">
+            <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
                     <input type="text" name="name" id="name" required/>
@@ -36,6 +36,11 @@
                 <div class="input-container">
                     <label for="cell">Ingrese número de celular</label>
                     <input type="text" name="cell" id="cell" required/>
+                </div>
+                
+                <div class="input-container">
+                    <label for="imagen">Imágen</label>
+                    <input type="file"  name="imagen" id="imagen" />
                 </div>
 
                 <div class="input-container">

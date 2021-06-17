@@ -9,15 +9,6 @@
     "imagen": "/images/imgUser/yellow.png"
   },
   {
-    "id": 5,
-    "name": "rojo",
-    "lastName": "rojo",
-    "email": "rojo",
-    "password": "rojo",
-    "cell": "rojo",
-    "imagen": "/images/imgUser/1623724515649.png"
-  },
-  {
     "id": 6,
     "name": "verde",
     "lastName": "verde",
@@ -25,5 +16,14 @@
     "password": "verde",
     "cell": "verde",
     "imagen": "/images/imgUser/1623724494826.png"
+  },
+  {
+    "id": 7,
+    "name": "blueyellow",
+    "lastName": "blueyellow",
+    "email": "blueyellow",
+    "password": "blueyellow",
+    "cell": "blueyellow",
+    "imagen": "/images/imgUser/1623887814504.png"
   }
 ]

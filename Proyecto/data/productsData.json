@@ -6,11 +6,11 @@
     "category": "Procesadores",
     "precio": "39999",
     "cuotas": "3",
-    "image1": "/images/imgProducts/Micro intel i7 9700k.jpg",
-    "image2": "/images/imgProducts/Micro intel i7 9700k.jpg",
-    "image3": "/images/imgProducts/Micro intel i7 9700k.jpg",
-    "image4": "/images/imgProducts/Micro intel i7 9700k.jpg",
-    "image5": "/images/imgProducts/Micro intel i7 9700k.jpg"
+    "image1": "Micro intel i7 9700k.jpg",
+    "image2": "Micro intel i7 9700k.jpg",
+    "image3": "Micro intel i7 9700k.jpg",
+    "image4": "Micro intel i7 9700k.jpg",
+    "image5": "Micro intel i7 9700k.jpg"
   },
   {
     "id": 2,
@@ -19,11 +19,11 @@
     "category": "Procesadores",
     "precio": "42795",
     "cuotas": "3",
-    "image1": "/images/imgProducts/micro-amd-ryzen-5-5600x.jpg",
-    "image2": "/images/imgProducts/micro-amd-ryzen-5-5600x.jpg",
-    "image3": "/images/imgProducts/micro-amd-ryzen-5-5600x.jpg",
-    "image4": "/images/imgProducts/micro-amd-ryzen-5-5600x.jpg",
-    "image5": "/images/imgProducts/micro-amd-ryzen-5-5600x.jpg"
+    "image1": "micro-amd-ryzen-5-5600x.jpg",
+    "image2": "micro-amd-ryzen-5-5600x.jpg",
+    "image3": "micro-amd-ryzen-5-5600x.jpg",
+    "image4": "micro-amd-ryzen-5-5600x.jpg",
+    "image5": "micro-amd-ryzen-5-5600x.jpg"
   },
   {
     "id": 3,
@@ -32,10 +32,19 @@
     "category": "Placas de video",
     "precio": "406000",
     "cuotas": "3",
-    "image1": "/images/imgProducts/RTX 2080ti.jpg",
-    "image2": "/images/imgProducts/RTX 2080ti.jpg",
-    "image3": "/images/imgProducts/RTX 2080ti.jpg",
-    "image4": "/images/imgProducts/RTX 2080ti.jpg",
-    "image5": "/images/imgProducts/RTX 2080ti.jpg"
+    "image1": "RTX 2080ti.jpg",
+    "image2": "RTX 2080ti.jpg",
+    "image3": "RTX 2080ti.jpg",
+    "image4": "RTX 2080ti.jpg",
+    "image5": "RTX 2080ti.jpg"
+  },
+  {
+    "id": 4,
+    "name": "GTX 1060",
+    "description": "12345",
+    "category": "placa De Video",
+    "price": "163546",
+    "cuotas": "3",
+    "image1": "product-1623288449485.jpg"
   }
 ]

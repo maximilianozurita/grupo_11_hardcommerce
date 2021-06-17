@@ -31,7 +31,7 @@
         <section class="contenedor-seccion">
             <p class="titulos-home">Ofertas</p>
             <div class="contenedor-productos">
-                <% for(let i=0; i<3; i++) {%> 
+                <% for(let i=0; i<productList.lenght; i++) {%> 
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
@@ -91,7 +91,7 @@
             <p class="titulos-home"> Destacados </p>
             <div class="contenedor-productos">
 
-                <% for(let i=0; i<3; i++) {%>  
+                <% for(let i=0; i<productList.lenght; i++) {%>  
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">

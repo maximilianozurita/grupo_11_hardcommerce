@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>listado</title>
-    <link rel="stylesheet" href="/CSS/listOfArticles.css">
+    <link rel="stylesheet" href="/CSS/listOfUsers.css">
     <%- include('../partials/head') %>
 </head>
 
@@ -11,22 +11,17 @@
     </header> 
 
     <main>
-        <div class="contenedor-usuarios">
-            <% for(let i=0; i<usersList.length; i++) {%> 
-                <section class="usarios">
-                            <div class="usuarioFoto">
-                                <img src="#" class="foto" width="100%">
-                            </div>
-                            <p class="informacionUsuario">
-                                <%= usersList[i].Name %> 
-                                <%= usersList[i].LastName %> 
-                                <%= usersList[i].Email %> 
-                                <%= usersList[i].Password %> 
-                                <%= usersList[i].Cell %> 
-                            </p> 
-                </section>
-            <% } %>      
-        </div>
+        <section class="contenedor-usuarios">
+            <h1>Lista de usuarios</h1>
+            <% usersList.forEach((user) => { %> 
+                <article class="usuarios">
+                    <h2 class="informacionUsuario">
+                        <a href="/user/userDetail/<%= user.id %>"> <%= user.name %>
+                    </h2>
+                    <img src="<%= user.imagen %>" alt="" width="100%">
+               </article> 
+           <% }) %> 
+            </section>
     </main>
 
     <footer class="main-footer">

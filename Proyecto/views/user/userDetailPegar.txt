@@ -1,0 +1,8 @@
+<div class="actions">
+                 <a href="/user/<%= userDetail.id %>/edit">
+                     <button>Edit</button>
+                 </a>
+                 <form action="/user/<%= userDetail.id %>?_method=DELETE" method="POST">
+                     <button type="submit">Delete</button>
+                 </form>
+             </div> 

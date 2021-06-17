@@ -1,18 +1,18 @@
 const express=require('express');
+const app=express();
 const path=require('path');
 const method = require('method-override');
-const productsModels=require(__dirname + "/models/productsModels");
+const productModels=require ("./models/productsModels");
 
-
+//const { dirname } = require('path');
 //Guarda los modulos de express en app.
-const app=express();
 
 //Ejecuta el metodo para utilizar method
 app.use(method('_method'));
 
 //Setea para utilizar EJS con una ruta en views
-app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views','./views');
+app.set("view engine", "ejs");
 
 // No olvidarse esto para que la data se envie correctamente desde un formulario
 app.use(express.json());
@@ -23,9 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 //const publicPath=path.resolve(__dirname, "./public");
 //app.use(express.static(publicPath));
 //app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static('public'));
 
-//TRAE EL HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)
+//TRAER HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)
 /*app.get ("/",(req,res)=>{
     res.sendFile(path.resolve('views/index.html'))
 })*/
@@ -34,11 +34,11 @@ app.use(express.static(path.join(__dirname, './public')));
 //app.get ("/productCart",(req,res)=>{res.sendFile(path.resolve("views/productCart.html"))})
 //app.get ("/productDetail",(req,res)=>{res.sendFile(path.resolve(__dirname, "./views/productDetail.html"))})
 
-//Render del HOME sin routes y controller.
+//Render del HOME
 app.get('/', (req, res) => {
-    const productList=productsModels.findAll();
-    res.render('main/index',{productList})
-})
+    const productList=productModels.findAll();
+    res.render('main/index',{productList});
+});
 
 //Render de productos
 const productsRoutes = require('./routes/productsRoutes');
@@ -46,7 +46,6 @@ app.use('/products', productsRoutes)
 
 //Render de users
 const userRoutes = require('./routes/userRoutes');
-const { dirname } = require('path');
 app.use('/user', userRoutes)
 
 

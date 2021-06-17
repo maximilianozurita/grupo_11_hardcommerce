@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>listado</title>
+    <link rel="stylesheet" href="/CSS/listOfUsers.css">
+    <%- include('../partials/head') %>
+</head>
+
+    <header>
+        <%- include ('../partials/header') %>
+    </header> 
+
+    <main>
+        <section class="contenedor-usuarios">
+            <h1>Lista de usuarios</h1>
+            <% usersList.forEach((user) => { %> 
+                <a href="/user/userDetail/<%= user.id %>">
+                     <article class="usuarios">
+                         <h2 class="informacionUsuario">
+                              <%= user.name %> 
+                         </h2>
+                         <img src="<%= user.imagen %>" alt="" width="100%">
+                    </article> 
+                </a>
+           <% }) %> 
+            </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+
+</body>
+</html>

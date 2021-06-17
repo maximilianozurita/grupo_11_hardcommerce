@@ -1,11 +1,11 @@
 const express=require('express');
+const app=express();
 const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
 
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
-const app=express();
 
 //Ejecuta el metodo para utilizar method
 app.use(method('_method'));
@@ -52,6 +52,7 @@ app.use('/user', userRoutes)
 //Si no encuentra la pagina porque el URL es incorrecto redirige a la pagina "not-found".
 app.use((req,res,next)=>{
     res.status(404).render("./main/not-found");
+    next();
 })
 
 

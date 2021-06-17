@@ -36,7 +36,7 @@ const userController = {
             imagen: "/images/imgUser/" + imagen,
         }
         const userCreated = usersModels.create(user);
-        res.redirect('/user/userDetail/' + userCreated.id);
+        res.redirect('/user/')
     },
     edit: (req, res) => {
         const userToEdit = usersModels.findByPk(req.params.id);
@@ -64,14 +64,14 @@ const userController = {
         data.imagen = imagen
 
         usersModels.update(data, id);
-        res.redirect('/user/listOfUsers');
+        res.redirect('/user/');
     },
     destroy: (req, res) => {
         const id = req.params.id;
         
         usersModels.destroy(id);
 
-        res.redirect('/user/listOfUsers');
+        res.redirect('/user/');
     }
 }
 

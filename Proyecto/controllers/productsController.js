@@ -1,5 +1,5 @@
 const path = require('path')
-const productsModels = require("../models/productsModels")
+const productsModels=require ("../models/productsModels")
 const productsController = {
     listOfProducts: (req, res) => {
         const productList = productsModels.findAll();
@@ -10,7 +10,7 @@ const productsController = {
         res.render('products/productsDetail')
     },
     cart: (req,res)=>{
-        res.render('products/productCart')
+        res.render('products/productsCart')
     },
     products:(req, res) => {
         const productList=productsModels.findAll()
@@ -21,7 +21,7 @@ const productsController = {
     },
     store: (req,res)=>{
         const product={
-            "id": req.body.id,
+            
             "name": req.body.name,
             "description": req.body.description,
             "category": req.body.category,

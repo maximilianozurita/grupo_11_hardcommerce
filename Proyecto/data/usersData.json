@@ -10,20 +10,11 @@
   },
   {
     "id": 6,
-    "name": "verde",
-    "lastName": "verde",
-    "email": "verde",
-    "password": "verde",
-    "cell": "verde",
-    "imagen": "/images/imgUser/1623724494826.png"
-  },
-  {
-    "id": 7,
-    "name": "blueyellow",
-    "lastName": "blueyellow",
-    "email": "blueyellow",
-    "password": "blueyellow",
-    "cell": "blueyellow",
-    "imagen": "/images/imgUser/1623887814504.png"
+    "name": "greenrojo",
+    "lastName": "greenrojo",
+    "email": "greenrojo",
+    "password": "greenrojo",
+    "cell": "greenrojo",
+    "imagen": "/images/imgUser/1623890544659.png"
   }
 ]

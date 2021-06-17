@@ -14,14 +14,17 @@
         <section class="contenedor-usuarios">
             <h1>Lista de usuarios</h1>
             <% usersList.forEach((user) => { %> 
-                <article class="usuarios">
-                    <h2 class="informacionUsuario">
-                        <a href="/user/userDetail/<%= user.id %>"> <%= user.name %>
-                    </h2>
-                    <img src="<%= user.imagen %>" alt="" width="100%">
-               </article> 
+                <a href="/user/userDetail/<%= user.id %>">
+                     <article class="usuarios">
+                         <h2 class="informacionUsuario">
+                              <%= user.name %> 
+                         </h2>
+                         <img src="<%= user.imagen %>" alt="" width="100%">
+                    </article> 
+                </a>
            <% }) %> 
             </section>
+        
     </main>
 
     <footer class="main-footer">

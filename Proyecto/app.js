@@ -6,7 +6,6 @@ const productModels=require ("./models/productsModels");
 
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
-const app=express();
 
 //Ejecuta el metodo para utilizar method
 app.use(method('_method'));

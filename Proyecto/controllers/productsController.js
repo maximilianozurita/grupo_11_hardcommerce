@@ -10,7 +10,7 @@ const productsController = {
         res.render('products/productsDetail')
     },
     cart: (req,res)=>{
-        res.render('products/productCart')
+        res.render('products/productsCart')
     },
     products:(req, res) => {
         const productList=productsModels.findAll()

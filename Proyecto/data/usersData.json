@@ -7,14 +7,5 @@
     "password": "cacc",
     "cell": "cac",
     "imagen": "/images/imgUser/yellow.png"
-  },
-  {
-    "id": 6,
-    "name": "greenrojo",
-    "lastName": "greenrojo",
-    "email": "greenrojo",
-    "password": "greenrojo",
-    "cell": "greenrojo",
-    "imagen": "/images/imgUser/1623890544659.png"
   }
 ]

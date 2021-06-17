@@ -32,7 +32,7 @@ const upload = multer({ storage })
 
 userRoutes.get('/login', userController.login);
 
-userRoutes.get('/listOfUsers',userController.listOfUsers);
+userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);
 
 userRoutes.get("/register", userController.formNew);

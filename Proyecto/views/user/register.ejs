@@ -15,22 +15,26 @@
             <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
-                    <input type="text" name="name" id="name" />
+                    <input type="text" name="name" id="name" value="<%= locals.oldValues && oldValues.name%>" />
+                    <span class= 'msg-error'><%= locals.errors && errors.name ? errors.name.msg : '' %> </span> 
                 </div>
 
                 <div class="input-container">
                     <label for="lastName">Ingrese apellido</label>
                     <input type="text" name="lastName" id="lastName" />
+                    <span class= 'msg-error'><%= locals.errors && errors.lastname ? errors.lastname.msg : '' %> </span> 
                 </div>
 
                 <div class="input-container">
                     <label for="email">Ingrese email</label>
                     <input type="text" name="email" id="email" />
+                    <span class= 'msg-error'><%= locals.errors && errors.email ? errors.email.msg : '' %> </span> 
                 </div>
                 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
                     <input type="text" name="password" id="password" />
+                    <span class= 'msg-error'><%= locals.errors && errors.password ? errors.password.msg : '' %> </span> 
                 </div>
 
                 <div class="input-container">

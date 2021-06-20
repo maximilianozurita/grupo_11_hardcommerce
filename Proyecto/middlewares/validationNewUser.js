@@ -2,7 +2,7 @@ const { body } = require ('express-validator');
 const path = require ('path');
 
 
-const validationNewPlanet = [
+const validationNewUser = [
 
     body('name')
         .notEmpty()
@@ -10,7 +10,7 @@ const validationNewPlanet = [
         .bail()
         //
         .isLength({ min:3 })
-        .withMessage('Por favor un nombre más largo'),
+        .withMessage('Por favor ingrese un nombre más largo'),
         //como es la ultima no usamos bail.
 
     body('lastname')
@@ -19,7 +19,7 @@ const validationNewPlanet = [
         .bail()
         //
         .isLength({ min:3 })
-        .withMessage('Por favor un apellido más largo'),
+        .withMessage('Por favor ingrese un apellido más largo'),
         //como es la ultima no usamos bail.
 
     body('email')
@@ -65,6 +65,6 @@ const validationNewPlanet = [
     
     ]
 
-module.exports = validationNewPlanet
+module.exports = validationNewUser
 
 

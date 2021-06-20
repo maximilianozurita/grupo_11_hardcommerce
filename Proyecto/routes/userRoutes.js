@@ -2,7 +2,9 @@ const express = require('express');
 const userRoutes = express.Router();
 const userController = require('../controllers/userController');
 const multer = require('multer')
-const path = require('path')
+const { body } = require('express-validator')
+const path = require('path');
+const validationNewUser = require('../middlewares/validationNewUser');
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -37,7 +39,7 @@ userRoutes.get('/userDetail/:id', userController.detail);
 
 userRoutes.get("/register", userController.formNew);
 //userRoutes.post('/register', userController.store);
-userRoutes.post('/register', upload.single('imagen'), userController.store);
+userRoutes.post('/register', upload.single('imagen'), validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
 

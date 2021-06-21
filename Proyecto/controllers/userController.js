@@ -25,6 +25,8 @@ const userController = {
     store: (req, res) => {
 
         const formValidation = validationResult(req)
+
+   
        
         /*si encuentra un error devuelve el formulario
          con los valores ya cargados y el msj de errores.*/

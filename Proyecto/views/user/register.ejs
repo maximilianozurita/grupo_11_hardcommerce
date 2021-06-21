@@ -13,6 +13,7 @@
         <div>
             <h1>Registrarse</h1>
             <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+                
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
                     <input type="text" name="name" id="name" value="<%= locals.oldValues && oldValues.name%>" />
@@ -21,30 +22,35 @@
 
                 <div class="input-container">
                     <label for="lastName">Ingrese apellido</label>
-                    <input type="text" name="lastName" id="lastName" />
-                    <span class= 'msg-error'><%= locals.errors && errors.lastname ? errors.lastname.msg : '' %> </span> 
+                    <input type="text" name="lastName" id="lastName" value="<%= locals.oldValues && oldValues.lastName%>" />
+                    <span class= 'msg-error'><%= locals.errors && errors.lastName ? errors.lastName.msg : '' %> </span> 
                 </div>
 
                 <div class="input-container">
                     <label for="email">Ingrese email</label>
-                    <input type="text" name="email" id="email" />
+                    <input type="text" name="email" id="email" value="<%= locals.oldValues && oldValues.email%>"  />
                     <span class= 'msg-error'><%= locals.errors && errors.email ? errors.email.msg : '' %> </span> 
                 </div>
                 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password" />
+                    <input type="text" name="password" id="password" value="<%= locals.oldValues && oldValues.password%>"  />
                     <span class= 'msg-error'><%= locals.errors && errors.password ? errors.password.msg : '' %> </span> 
                 </div>
 
                 <div class="input-container">
                     <label for="cell">Ingrese número de celular</label>
-                    <input type="text" name="cell" id="cell"  />
+                    <input type="text" name="cell" id="cell" value="<%= locals.oldValues && oldValues.cell%>" />
+                    <span class= 'msg-error'><%= locals.errors && errors.cell ? errors.cell.msg : '' %> </span> 
                 </div>
                 
                 <div class="input-container">
                     <label for="imagen">Imágen</label>
-                    <input type="file"  name="imagen" id="imagen" />
+                    <input type="file"  name="imagen" id="imagen" value="<%= locals.oldValues && oldValues.imagen%>"  />
+                    <% if (locals.errors && errors.imagen) { %>
+                        <p class ='msg-error'><%= errors.imagen.msg  %> </p>
+                         <% } %>
+
                 </div>
 
                 <div class="input-container">

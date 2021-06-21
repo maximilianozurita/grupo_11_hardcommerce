@@ -13,7 +13,7 @@ const validationNewUser = [
         .withMessage('Por favor ingrese un nombre más largo'),
         //como es la ultima no usamos bail.
 
-    body('lastname')
+    body('lastName')
         .notEmpty()
         .withMessage('Por favor ingrese su apellido')
         .bail()
@@ -37,33 +37,38 @@ const validationNewUser = [
         
         //como es la ultima no usamos bail.
 
+    body('cell')
+        .notEmpty()
+        .withMessage('Por favor ingrese un telefono '),    
+
     body('imagen').custom((value, { req }) => {
 
-        const { file } = req
+       const { file } = req
 
-        //chequea que haya cargado imagen
+       
+        // chequea que la extension sea la correcta
 
         if (!file) {
-            // esto es como si hicieramos .withMessage('Seleccione un archivo')
-            throw new Error('Por favor ingrese una imagen')
+            // esto es como si hicieramo .withMessage ('Seleccione un archivo')
+            throw new Error ('Por favor ingrese un archivo')
         }
 
         const AVIABLE_EXTENSIONS = ['.jpg', '.jpeg', '.gif', '.png']
-        //sacamos la extension
+                //sacamos la extension
         const extension = path.extname(file.originalname)
 
         if (!AVIABLE_EXTENSIONS.includes(extension)) {
-            //disparar error
-            throw new Error('Por favor ingrese un archivo que sea una imagen')
+            //dispara error
+            throw new Error ('Por favor ingrese un archivo que sea imagen')
         }
 
-        // chequea que la extension sea la correcta
+        return true
 
 
     })
     
     
-    ]
+]
 
 module.exports = validationNewUser
 

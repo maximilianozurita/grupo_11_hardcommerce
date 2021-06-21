@@ -2,8 +2,9 @@ const express = require('express');
 const userRoutes = express.Router();
 const userController = require('../controllers/userController');
 const multer = require('multer')
-const path = require('path')
-//const logDBMiddleware=require("../middlewares/logDBMiddleware"); //Prueba middleware
+const { body } = require('express-validator')
+const path = require('path');
+const validationNewUser = require('../middlewares/validationNewUser');
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -29,7 +30,50 @@ const storage = multer.diskStorage({
         cb(null, filename)
     },
 })
-const upload = multer({ storage })
+
+
+//fileFilter es un byPass para que multer guarde o no el archivo.
+const  fileFilter =(req, file, cb) => {
+
+        //cheque si hay archivo
+
+    if (!file) {
+       
+        // si no hay archivo, corta el procedimiento.
+        cb(null, false)
+        //corta validacion
+        return
+    }
+
+    // si hay archivo, busca la extension del mismo.
+
+    const AVIABLE_EXTENSIONS = ['.jpg', '.jpeg', '.gif', '.png']
+    //sacamos la extension
+    const extension = path.extname(file.originalname)
+
+    if (!AVIABLE_EXTENSIONS.includes(extension)) {
+
+        //gonza workaround para que llegue a express-validator el archivo.
+
+        //compara la extension del archivo que se intenta subir con los habilitados.
+        //si no hay coincidencia, lo corta y no admite que suba.
+
+        req.file = file
+        cb(null, false)
+
+        //corta validacion. 
+
+        return
+        
+}
+
+    //si hay archivo y ademas coinciden las extensiones entonces lo aceptamos.
+    cb(null, true)
+
+ 
+   }
+  
+const upload = multer({ storage, fileFilter })
 
 userRoutes.get('/login', userController.login);
 
@@ -38,7 +82,7 @@ userRoutes.get('/userDetail/:id', userController.detail);
 
 userRoutes.get("/register", userController.formNew);
 //userRoutes.post('/register', userController.store);
-userRoutes.post('/register', upload.single('imagen'), userController.store);
+userRoutes.post('/register', upload.single('imagen'), validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
 

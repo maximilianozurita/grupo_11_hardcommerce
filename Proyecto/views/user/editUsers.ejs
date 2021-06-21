@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
-<%- include('../partials/head') %>
-
+<html lang="en">
+<head>
+    <title>editUsers</title>
+    <link rel="stylesheet" href="/CSS/editUsers.css">
+    <%- include('../partials/head') %>
+</head>
 <body>
     
     <%- include('../partials/header') %>
@@ -42,14 +45,15 @@
                 </div>
 
                 <div class="input-container">
-                    <button type="submit">ENVIAR</button>
+                    <button type="submit"><p>ENVIAR</p></button>
                 </div>
 
             </form>
         </section>
 
-
    </main>
-
+   <footer class="main-footer">
+    <%- include("../partials/footer") %>
+</footer>
 </body>
 </html> 

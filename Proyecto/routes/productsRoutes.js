@@ -36,8 +36,7 @@ const fileFilter = (req, file, cb)  => {
    
     // Si aceptamos el archivo
     cb(null, true)
-
-  }
+}
 
 
 const upload=multer({storage:storage, fileFilter});

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>listado</title>
-    <link rel="stylesheet" href="/CSS/listOfArticles.css">
+    <link rel="stylesheet" href="/CSS/userDetail.css">
     <%- include('../partials/head') %>
 </head>
 
@@ -16,19 +16,23 @@
              No existe el usuario :( 
             <%} else { %>
             
-             <h2>Detalle:<%= userDetail.name %></h2>
-             <h3>Name: <%= userDetail.lastName %> </h3>
-             <h3>Email: <%= userDetail.email %> </h3>
-             <h3>password: <%= userDetail.password %> </h3>
-             <h3>cell: <%= userDetail.cell %> </h3>
-             <img src="<%= userDetail.imagen %>" width="20%"/>
+             <div class="info">
+                <h2><p>Name:<%= userDetail.name %></p></h2>
+                <h3><p>Last name: <%= userDetail.lastName %> </p></h3>
+                <h3><p>Email: <%= userDetail.email %></p></h3>
+                <h3><p>Password: <%= userDetail.password %></p></h3>
+                <h3><p>Cell: <%= userDetail.cell %></p></h3>
+                <img src="<%= userDetail.imagen %>" width="20%"/>
+             </div>
             <% } %>
-            <a href="/user/editUsers/<%= userDetail.id %>">
-                <button>Edit</button>
-            </a> 
-            <form action="/user/<%= userDetail.id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-            </form>
+            <div class="buttons">
+                <a href="/user/editUsers/<%= userDetail.id %>">
+                    <button>Edit</button>
+                </a> 
+                <form action="/user/<%= userDetail.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
        
              
          </section>

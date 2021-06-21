@@ -27,15 +27,6 @@
     "imagen": "/images/imgUser/user.png"
   },
   {
-    "id": 4,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
     "id": 5,
     "name": "usuario3",
     "lastName": "usuario3",

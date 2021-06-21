@@ -1,11 +1,20 @@
 [
   {
-    "id": 4,
-    "name": "cambiando",
-    "lastName": "cambiandoc",
-    "email": "caca",
-    "password": "cacc",
-    "cell": "cac",
-    "imagen": "/images/imgUser/yellow.png"
+    "name": "asdf",
+    "lastName": "asdfa",
+    "email": "asdfa",
+    "password": "1234",
+    "cell": "1234",
+    "imagen": "/images/imgUser/1624211715431.jpg",
+    "id": 3
+  },
+  {
+    "name": "1234",
+    "lastName": "1234",
+    "email": "1234",
+    "password": "1234",
+    "cell": "1234",
+    "imagen": "/images/imgUser/1624211850308.jpg",
+    "id": 4
   }
 ]

@@ -56,6 +56,11 @@ H3 {
   width: initial;
 }
 
+.msg-error {
+  color: red;
+  font-size: 9px;
+}
+
 .login-sobrante {
   height: 200px;
 }

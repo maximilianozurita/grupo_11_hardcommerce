@@ -3,6 +3,7 @@ const userRoutes = express.Router();
 const userController = require('../controllers/userController');
 const multer = require('multer')
 const path = require('path')
+//const logDBMiddleware=require("../middlewares/logDBMiddleware"); //Prueba middleware
 
 // destino donde guardar el archivo
 // nombre del archivo

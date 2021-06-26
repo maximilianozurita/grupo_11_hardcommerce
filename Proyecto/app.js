@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 //ESTABLECIENDO RUTAS ESTATICAS EN PUBLIC
 //const publicPath=path.resolve(__dirname, "./public");
 //app.use(express.static(publicPath));
-//app.use(express.static('public'));
+
 app.use(express.static('public'));
 
 //TRAER HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)

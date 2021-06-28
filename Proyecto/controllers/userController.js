@@ -1,4 +1,6 @@
 const usersModels=require("../models/usersModels");
+const {validationResult} = require("express-validator");
+const fs = require("fs");
 
 const userController = {
     login: (req, res) => {
@@ -20,7 +22,25 @@ const userController = {
         res.render('user/register');
     },
     store: (req, res) => {
+        
+        const formValidation = validationResult(req)
+        /* si encuentro un error devuelvo el formulario
+        con los valores ya cargados y los errores */
     
+        if (!formValidation.isEmpty()) {
+            // borrar imagen
+            if (req.file) {
+                // primero chequeamos que exista
+                fs.unlinkSync(req.file.path)
+            }
+            
+            // tenemos errores
+            const oldValues = req.body
+            res.render('user/register', { oldValues, errors: formValidation.mapped() })
+          return  
+        } 
+
+
         const {name, lastName, email, password, cell} = req.body;
         
         const { file } = req;

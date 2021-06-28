@@ -56,14 +56,21 @@ H1
     padding: 3px;
 }
 .input-container .boton
-  {
+{
     text-align:center;
     margin:auto;
     transition: all 1s;
-  }
-  .input-container .boton:hover
-  {
+}
+.input-container .boton:hover
+{
     background-color: rgb(11,64,145);
     color:white;
-  }
+}
+.msg-error{
+    color: red;
+}
+
+.input-error{
+    border: 2px solid red;
+}
 /*--------------------------------FIN MAIN--------------------------------*/

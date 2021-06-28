@@ -18,84 +18,21 @@
     "imagen": "/images/imgUser/user.png"
   },
   {
-    "id": 3,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
+    "name": "jeremias",
+    "lastName": "menacho",
+    "email": "gab.menacho@gmail.com",
+    "password": "123asse21",
+    "cell": "1139341085",
+    "imagen": "/images/imgUser/1624911953354.png",
+    "id": 3
   },
   {
     "id": 4,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 5,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 6,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 7,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 8,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 9,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 10,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 11,
-    "name": "usuario3",
-    "lastName": "usuario3",
-    "email": "usuario3@@gmail.com",
-    "password": "usuario3",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
+    "name": "gatafea",
+    "lastName": "fea",
+    "email": "gab.menacho@gmail.com",
+    "password": "213123as",
+    "cell": "111234232",
+    "imagen": "/images/imgUser/1624914083491.jpg"
   }
 ]

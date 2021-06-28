@@ -3,6 +3,10 @@ const app=express();
 const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
+//const cookieParser = require('cookie-parser');
+
+// middlewares
+const notFoundMiddleware = require('./middlewares/notFound')
 
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
@@ -49,11 +53,14 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/user', userRoutes)
 
 
+
+app.use(notFoundMiddleware)
+
 //Si no encuentra la pagina porque el URL es incorrecto redirige a la pagina "not-found".
-app.use((req,res,next)=>{
+/*app.use((req,res,next)=>{
     res.status(404).render("./main/not-found");
     next();
-})
+})*/
 
 
 //Abre el servidor

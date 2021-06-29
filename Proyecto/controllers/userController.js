@@ -1,6 +1,7 @@
 const usersModels=require("../models/usersModels");
 const {validationResult} = require("express-validator");
 const fs = require("fs");
+const bcrypt = require('bcryptjs')
 
 const userController = {
     login: (req, res) => {
@@ -45,13 +46,16 @@ const userController = {
         
         const { file } = req;
         const imagen = file.filename;
+        
+        // hashear el password
+        const hashPassword = bcrypt.hashSync(password)
 
         const user = 
         {
             name:name,
             lastName:lastName,
             email:email,
-            password:password,
+            password:hashPassword,
             cell:cell,
             imagen: "/images/imgUser/" + imagen,
         }

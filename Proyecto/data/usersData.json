@@ -9,39 +9,12 @@
     "imagen": "/images/imgUser/user.png"
   },
   {
-    "id": 2,
-    "name": "usuario2",
-    "lastName": "usuario2",
-    "email": "usuario2@gmail.com",
-    "password": "usuario2",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "id": 4,
-    "name": "ximena",
-    "lastName": "menacho gallegos",
-    "email": "gab.menacho@gmail.com",
-    "password": "",
-    "cell": "",
-    "imagen": "/images/imgUser/1624914083491.jpg"
-  },
-  {
-    "name": "soledad",
-    "lastName": "choque",
-    "email": "sol3127g@gmail.com",
-    "password": "$2a$10$RnyaFlwFl9oCYcV867Lg9edrPQAwcj5sk1yKiQNIiDuQj127b6Abi",
-    "cell": "1139341085",
-    "imagen": "/images/imgUser/1624936254787.jpg",
-    "id": 5
-  },
-  {
     "name": "jeremias",
     "lastName": "menacho",
-    "email": "gab.menacho1@gmail.com",
-    "password": "$2a$10$N2chGGxMYO6KOHoPNIORluNNJUp0rpfOVNN34jd7AmcfjruQSPGpa",
+    "email": "gab.menacho@gmail.com",
+    "password": "$2a$10$XicJALihbyh5xXVocbBDN.FQh9rvvpn5ozCXNiUxsc6zGjridP996",
     "cell": "1139341085",
-    "imagen": "/images/imgUser/1625081675397.jpg",
-    "id": 6
+    "imagen": "/images/imgUser/1625086782938.jpg",
+    "id": 2
   }
 ]

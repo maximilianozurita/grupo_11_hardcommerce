@@ -7,6 +7,21 @@ const userController = {
     login: (req, res) => {
         res.render('user/login')
     },
+    processLogin: (req, res) => {
+        const formValidation = validationResult(req)
+        const oldValues = req.body
+
+        if (!formValidation.isEmpty()) {
+            return res.render('user/login', { oldValues, errors: formValidation.mapped() })
+        } 
+
+        
+        // redirigimos al profile
+        res.redirect('/user/profile')
+    },
+    profile: (req, res) => {
+        res.render('user/profile')
+    },
     /*register: (req, res) => {
         res.render('user/register')
     },*/

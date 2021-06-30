@@ -12,10 +12,10 @@
     <main>
         <div>
             <h1>Ingresar</h1>
-            <form class="formulario" action="" method="POST">             
+            <form class="formulario" action="/user/login" method="POST">             
               <div class=input-container>
                 <label for="email"></label>
-                <input placeholder="email" name="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.email%>"/> 
+                <input placeholder="email" name="email" /> 
 
                 <% if (locals.errors && errors.email) { %>
                   <p class='msg-error'><%= errors.email.msg %></p>
@@ -24,7 +24,7 @@
              </div>
               <div class="input-container">
                 <label for="password"></label>
-                <input placeholder="Contraseña" name="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.password%>"/>
+                <input placeholder="Contraseña" name="password" />
 
                 <% if (locals.errors && errors.password) { %>
                   <p class='msg-error'><%= errors.password.msg %></p>
@@ -35,7 +35,7 @@
                 <input class="boton" type="submit" value="Ingresar">
                 <div class="recuperar">
                     <a href="#">¿Olvido su contraseña?</a>
-                    <a href="#">¿Nuevo usuario?</a>
+                    <a href="/user/register">¿Nuevo usuario?</a>
                 </div>
               </div>
             </form>

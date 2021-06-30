@@ -4,7 +4,8 @@ const userController = require('../controllers/userController');
 const multer = require('multer');
 const path = require('path');
 const validationNewUser = require("../middlewares/validationNewUser");
-const { isFileImage } = require('../helpers/file')
+const { isFileImage } = require('../helpers/file');
+const validationLogin = require('../middlewares/validationLogin');
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -56,9 +57,12 @@ const fileFilter = (req, file, cb)  => {
 }
 
 
-const upload = multer({ storage, fileFilter })
+const upload = multer({ storage, fileFilter });
 
-userRoutes.get('/login',validationNewUser, userController.login);
+userRoutes.get('/login', userController.login);
+userRoutes.post('/login', validationLogin, userController.processLogin);
+
+userRoutes.get('/profile', userController.profile);
 
 userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);

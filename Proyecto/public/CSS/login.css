@@ -78,10 +78,7 @@ H1 {
     color:green;
   }
   .msg-error{
-    color: red;
+    color: rgb(11,64,145);
   }
 
-.input-error{
-    border: 2px solid red;
-}
 /*--------------------------------FIN MAIN--------------------------------*/

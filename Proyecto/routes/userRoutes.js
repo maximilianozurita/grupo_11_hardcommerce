@@ -58,7 +58,7 @@ const fileFilter = (req, file, cb)  => {
 
 const upload = multer({ storage, fileFilter })
 
-userRoutes.get('/login', userController.login);
+userRoutes.get('/login',validationNewUser, userController.login);
 
 userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);

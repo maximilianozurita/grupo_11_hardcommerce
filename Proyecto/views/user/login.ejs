@@ -14,12 +14,22 @@
             <h1>Ingresar</h1>
             <form class="formulario" action="" method="POST">             
               <div class=input-container>
-                <label for="username"></label>
-                <input placeholder="Nombre de usuario" name="username" >
+                <label for="email"></label>
+                <input placeholder="email" name="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.email%>"/> 
+
+                <% if (locals.errors && errors.email) { %>
+                  <p class='msg-error'><%= errors.email.msg %></p>
+                <% } %>
+
              </div>
               <div class="input-container">
                 <label for="password"></label>
-                <input placeholder="Contraseña" name="password" >
+                <input placeholder="Contraseña" name="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.password%>"/>
+
+                <% if (locals.errors && errors.password) { %>
+                  <p class='msg-error'><%= errors.password.msg %></p>
+                <% } %>
+
               </div>
               <div class="input-container">
                 <input class="boton" type="submit" value="Ingresar">

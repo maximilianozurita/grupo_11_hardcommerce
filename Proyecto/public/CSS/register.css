@@ -51,7 +51,7 @@ H1
 .input-container input 
 {
     width: 100%;
-    border: solid 1px;
+    
     border-radius: 10px;
     padding: 3px;
 }
@@ -67,10 +67,10 @@ H1
     color:white;
 }
 .msg-error{
-    color: red;
+    color: rgb(11,64,145);
 }
 
 .input-error{
-    border: 2px solid red;
+    border: 2px solid rgb(11,64,145);
 }
 /*--------------------------------FIN MAIN--------------------------------*/

@@ -18,21 +18,12 @@
     "imagen": "/images/imgUser/user.png"
   },
   {
-    "name": "jeremias",
-    "lastName": "menacho",
-    "email": "gab.menacho@gmail.com",
-    "password": "123asse21",
-    "cell": "1139341085",
-    "imagen": "/images/imgUser/1624911953354.png",
-    "id": 3
-  },
-  {
     "id": 4,
-    "name": "gatafea",
-    "lastName": "fea",
+    "name": "ximena",
+    "lastName": "menacho gallegos",
     "email": "gab.menacho@gmail.com",
-    "password": "213123as",
-    "cell": "111234232",
+    "password": "",
+    "cell": "",
     "imagen": "/images/imgUser/1624914083491.jpg"
   },
   {
@@ -43,5 +34,14 @@
     "cell": "1139341085",
     "imagen": "/images/imgUser/1624936254787.jpg",
     "id": 5
+  },
+  {
+    "name": "jeremias",
+    "lastName": "menacho",
+    "email": "gab.menacho1@gmail.com",
+    "password": "$2a$10$N2chGGxMYO6KOHoPNIORluNNJUp0rpfOVNN34jd7AmcfjruQSPGpa",
+    "cell": "1139341085",
+    "imagen": "/images/imgUser/1625081675397.jpg",
+    "id": 6
   }
 ]

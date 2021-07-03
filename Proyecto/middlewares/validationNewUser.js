@@ -1,6 +1,7 @@
 const { body } = require ('express-validator');
 const path = require ('path');
-
+const usersModels = require('../models/usersModels');
+const isFileImage=require("../helpers/isFile");
 
 const validationNewUser = [
 
@@ -28,44 +29,44 @@ const validationNewUser = [
         .bail()
         //
         .isEmail()
-        .withMessage('Por favor ingrese una dirección correcta'),
-        //como es la ultima no usamos bail.
+        .withMessage('Por favor ingrese una dirección correcta')
+        .bail()
+        .custom((email)=>{
+            const userFound=usersModels.findByField("email",email);
+                
+            //Si encuentra userFound devuelve el usuario encontrado y si no lo encuentra devuelve undefine.
+            if(userFound){
+                return false;
+            }
+            return true;
+        })
+        .withMessage("El usuario ya existe"),
 
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese un password'),
         
-        //como es la ultima no usamos bail.
+        /*.isStrongPassword()
+        .withMessage("por favor ingrese una clave....")*/
 
     body('cell')
         .notEmpty()
         .withMessage('Por favor ingrese un telefono '),    
 
-    body('imagen').custom((value, { req }) => {
-
-       const { file } = req
-
-       
-        // chequea que la extension sea la correcta
-
-        if (!file) {
-            // esto es como si hicieramo .withMessage ('Seleccione un archivo')
-            throw new Error ('Por favor ingrese un archivo')
-        }
-
-        const AVIABLE_EXTENSIONS = ['.jpg', '.jpeg', '.gif', '.png']
-                //sacamos la extension
-        const extension = path.extname(file.originalname)
-
-        if (!AVIABLE_EXTENSIONS.includes(extension)) {
-            //dispara error
-            throw new Error ('Por favor ingrese un archivo que sea imagen')
-        }
-
-        return true
-
-
-    })
+    body('imagen')
+        .custom((value, { req }) => {
+            const { file } = req
+        
+            if (!file) {
+                // esto es como si hicieramos .withMessage('Seleccione un archivo')
+                throw new Error('Por favor ingrese una imagen')
+            }
+            if (!isFileImage(file.originalname)) {
+            
+                throw new Error('Por favor ingrese una archivo que sea una imagen')
+            }
+            return true
+        })
     
     
 ]

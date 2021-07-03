@@ -3,6 +3,7 @@ const app=express();
 const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
+const session=require ("express-session");
 
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
@@ -18,6 +19,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//Middleware de express session
+app.use(session({secret: "secret"}));
 
 //ESTABLECIENDO RUTAS ESTATICAS EN PUBLIC
 //const publicPath=path.resolve(__dirname, "./public");

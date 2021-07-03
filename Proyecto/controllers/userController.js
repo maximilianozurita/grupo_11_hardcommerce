@@ -2,14 +2,34 @@
 const { validationResult } = require('express-validator');
 
 const usersModels=require("../models/usersModels");
+const bcrypt=require("bcryptjs");
 
 const userController = {
     login: (req, res) => {
         res.render('user/login')
     },
-    /*register: (req, res) => {
-        res.render('user/register')
-    },*/
+    processLogin: (req,res)=>{
+        const formValidation=validationResult(req);
+        const oldValues=req.body;
+
+
+        if(!formValidation.isEmpty()){
+            return res.render ("user/login",{oldValues,errors: formValidation.mapped ()})
+        }
+        
+        const {email}=req.email;
+
+        //Encuentra el usuario a loguear
+        const userFound=usersModels.findByField("email",email);
+
+        //elimina el password del usuario logueado
+        delete userFound.password;
+        
+        req.session.logged=userFound;
+
+
+        res.redirect("/")
+    },
     listOfUsers: (req, res) =>{
         const usersList = usersModels.findAll()
         res.render('user/listOfUsers',{ usersList })
@@ -47,12 +67,14 @@ const userController = {
         const { file } = req;
         const imagen = file.filename;
 
-        const user = 
-        {
+        //hashear password y guardarla en la constante
+        const hashpassword=bcrypt.hashSync(password);
+
+        const user ={
             name:name,
             lastName:lastName,
             email:email,
-            password:password,
+            password:hashpassword,
             cell:cell,
             imagen: "/images/imgUser/" + imagen,
         }

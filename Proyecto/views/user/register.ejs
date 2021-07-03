@@ -34,7 +34,7 @@
                 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password" value="<%= locals.oldValues && oldValues.password%>"  />
+                    <input type="password" name="password" id="password" value="<%= locals.oldValues && oldValues.password%>"  />
                     <span class= 'msg-error'><%= locals.errors && errors.password ? errors.password.msg : '' %> </span> 
                 </div>
 

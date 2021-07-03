@@ -5,6 +5,8 @@ const multer = require('multer')
 const { body } = require('express-validator')
 const path = require('path');
 const validationNewUser = require('../middlewares/validationNewUser');
+const isFileImage=require("../helpers/isFile");
+const validationLoginUser=require('../middlewares/validationLoginUser');
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -45,37 +47,25 @@ const  fileFilter =(req, file, cb) => {
         return
     }
 
-    // si hay archivo, busca la extension del mismo.
-
-    const AVIABLE_EXTENSIONS = ['.jpg', '.jpeg', '.gif', '.png']
-    //sacamos la extension
-    const extension = path.extname(file.originalname)
-
-    if (!AVIABLE_EXTENSIONS.includes(extension)) {
-
-        //gonza workaround para que llegue a express-validator el archivo.
-
-        //compara la extension del archivo que se intenta subir con los habilitados.
-        //si no hay coincidencia, lo corta y no admite que suba.
-
+    if (!isFileImage(file.originalname)) {
+        //Para que llegue a express-validator el archivo
         req.file = file
+
         cb(null, false)
 
-        //corta validacion. 
-
+        // corta ejecución
         return
-        
-}
-
-    //si hay archivo y ademas coinciden las extensiones entonces lo aceptamos.
+    }
+   
+    // Si aceptamos el archivo
     cb(null, true)
-
  
    }
   
 const upload = multer({ storage, fileFilter })
 
 userRoutes.get('/login', userController.login);
+userRoutes.post("/login",validationLoginUser,userController.processLogin);
 
 userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);

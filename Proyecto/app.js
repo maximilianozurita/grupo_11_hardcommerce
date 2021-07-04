@@ -4,9 +4,22 @@ const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
 const session=require ("express-session");
+const {sessionSecret, cookiesSecret} =require("./config/config");
+const cookieParser=require ("cookie-parser");
 
+app.use(session({secret: "sessionSecret"}))
+app.use (cookieParser(cookiesSecret ))
+
+//Despues de cookie parser se debe requerir el cookies session
+const cookiesSessionMiddleware= require ("./middlewares/cookiesSessionMiddleware");
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
+
+//tiene que ir entre cookies sesion y las rutas.
+const sessionToLocals = require('./middlewares/sessionToLocals')
+
+app.use(cookiesSessionMiddleware)
+app.use(sessionToLocals)
 
 //Ejecuta el metodo para utilizar method
 app.use(method('_method'));
@@ -20,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Middleware de express session
-app.use(session({secret: "secret"}));
+
 
 //ESTABLECIENDO RUTAS ESTATICAS EN PUBLIC
 //const publicPath=path.resolve(__dirname, "./public");

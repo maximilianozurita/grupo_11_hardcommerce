@@ -7,6 +7,8 @@ const path = require('path');
 const validationNewUser = require('../middlewares/validationNewUser');
 const isFileImage=require("../helpers/isFile");
 const validationLoginUser=require('../middlewares/validationLoginUser');
+const guestMiddleware=require('../middlewares/guestMiddleware');
+const authMiddleware=require ('../middlewares/authMiddleware');
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -64,21 +66,23 @@ const  fileFilter =(req, file, cb) => {
   
 const upload = multer({ storage, fileFilter })
 
-userRoutes.get('/login', userController.login);
+userRoutes.get('/login',guestMiddleware, userController.login);
 userRoutes.post("/login",validationLoginUser,userController.processLogin);
 
+userRoutes.get("/logout",validationLoginUser,userController.logout);
+
 userRoutes.get('/',userController.listOfUsers);
+
 userRoutes.get('/userDetail/:id', userController.detail);
 
-userRoutes.get("/register", userController.formNew);
-//userRoutes.post('/register', userController.store);
+userRoutes.get("/register", guestMiddleware, userController.formNew);
 userRoutes.post('/register', upload.single('imagen'), validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
-
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('imagen'), userController.update);
-
 userRoutes.delete("/:id", userController.destroy);
+
+userRoutes.get('/profile',authMiddleware,userController.profile);
 
 module.exports = userRoutes

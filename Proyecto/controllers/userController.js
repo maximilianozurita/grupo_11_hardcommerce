@@ -2,11 +2,16 @@
 const { validationResult } = require('express-validator');
 
 const usersModels=require("../models/usersModels");
+const {maxAgeUserCookie}=require ("../config/config")
 const bcrypt=require("bcryptjs");
 
 const userController = {
     login: (req, res) => {
         res.render('user/login')
+    },
+    profile: (req, res)=> {
+        const user =req.session.logged
+        res.render("user/userProfile",{user})
     },
     processLogin: (req,res)=>{
         const formValidation=validationResult(req);
@@ -17,17 +22,31 @@ const userController = {
             return res.render ("user/login",{oldValues,errors: formValidation.mapped ()})
         }
         
-        const {email}=req.email;
+        const {email, remember}=req.body;
 
         //Encuentra el usuario a loguear
         const userFound=usersModels.findByField("email",email);
 
         //elimina el password del usuario logueado
         delete userFound.password;
-        
         req.session.logged=userFound;
 
+        //Guardar si hay un remember en la cookie "user"
+        if(remember){
+            res.cookie("user",userFound.id,
+            {maxAge: maxAgeUserCookie
+            
+            }
+            )
+        }
 
+        res.redirect("/")
+    },
+    logout:(req,res)=>{
+
+        req.session.destroy()
+        res.clearCookie('user')
+        
         res.redirect("/")
     },
     listOfUsers: (req, res) =>{

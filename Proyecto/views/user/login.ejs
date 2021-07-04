@@ -12,17 +12,22 @@
     <main>
         <div>
             <h1>Ingresar</h1>
-            <form class="formulario" action="" method="POST">             
+            <form class="formulario" action="" method="POST">
+            <span class= 'msg-error'><%= locals.errors && errors.password ? errors.password.msg : '' %> </span>              
               <div class=input-container>
                 <label for="username"></label>
                 <input placeholder="Nombre mail" name="email">
-             </div>
+              </div>
               <div class="input-container">
                 <label for="password"></label>
                 <input placeholder="Contraseña" name="password">
               </div>
               <div class="input-container">
                 <input class="boton" type="submit" value="Ingresar">
+                <div class="input-container checkbox"> 
+                  <input type="checkbox" name="remember" value="yes" id="remember" >
+                  <p>Recordar usuario?</p>
+                </div>
                 <div class="recuperar">
                     <a href="#">¿Olvido su contraseña?</a>
                     <a href="#">¿Nuevo usuario?</a>

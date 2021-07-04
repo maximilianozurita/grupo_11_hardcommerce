@@ -106,7 +106,7 @@ body
 {
     flex-basis: 22%;
 }
-.producto__descripcion
+.producto__name
 {
     padding: 1%;
     color: rgba(0,0,0,0.7);

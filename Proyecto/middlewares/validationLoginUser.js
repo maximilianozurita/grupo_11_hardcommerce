@@ -14,18 +14,6 @@ const validationLoginUser = [
         .isEmail()
         .withMessage('No es un formato de email')
         .bail(),
-        
-        /*.custom((email)=>{
-            const userFound=usersModels.findByField("email",email);
-                
-            //Si encuentra userFound devuelve el usuario encontrado y si no lo encuentra devuelve undefine.
-            if(userFound){
-                return false;
-            }
-            return true;
-        })
-        .withMessage("El usuario ya existe"),
-*/
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese un password')
@@ -39,7 +27,7 @@ const validationLoginUser = [
 
             if(userFound){
                 //comparar las contraseña
-                const passwordMatch=bcrypt.compareSync(password,userFound.password);
+                const passwordMatch = bcrypt.compareSync(password, userFound.password)
                 if (passwordMatch){
                     return true;
                 }
@@ -47,7 +35,7 @@ const validationLoginUser = [
             //Si bien passwordMatch es un booleano, se utiliza el if para cortar la funcion ahi.
             return false;
         })
-        .withMessage("usuario no encontrado"),
+        .withMessage("usuario o contraseña invalidos"),
 ]
 
 module.exports = validationLoginUser;

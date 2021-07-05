@@ -1,5 +1,5 @@
 
-const { validationResult } = require('express-validator');
+const { validationResult }=require('express-validator');
 
 const usersModels=require("../models/usersModels");
 const {maxAgeUserCookie}=require ("../config/config")
@@ -33,11 +33,12 @@ const userController = {
 
         //Guardar si hay un remember en la cookie "user"
         if(remember){
-            res.cookie("user",userFound.id,
-            {maxAge: maxAgeUserCookie
+            //hashear ID
+            const hashID=bcrypt.hashSync(''+userFound.id);
+
+            res.cookie("user",hashID,{maxAge: maxAgeUserCookie})
+
             
-            }
-            )
         }
 
         res.redirect("/")

@@ -8,10 +8,12 @@ module.exports=(req, res, next)=>{
     //Se verifica si existe cookie
     if (userIdCookie){
         //Se busca los datos del usuario con el ID hasheado
-        const users = usersModels.findAll();
-        //Se busca el modelo usuario
-        const user = users.find(user => bcrypt.compareSync('' + user.id, userIdCookie));
+        //const users = usersModels.findAll();
 
+        //Se busca el modelo usuario en lugar de buscar por ID se busca por fin con compareSync
+        //const user = users.find(user => bcrypt.compareSync('' + user.id, userIdCookie));
+
+        const user=usersModels.findByPk(userIdCookie)
         delete user.password;
 
         //Se guarda en session

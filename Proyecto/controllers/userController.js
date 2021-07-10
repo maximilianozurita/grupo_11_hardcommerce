@@ -33,12 +33,10 @@ const userController = {
 
         //Guardar si hay un remember en la cookie "user"
         if(remember){
-            //hashear ID
-            const hashID=bcrypt.hashSync(''+userFound.id);
 
-            res.cookie("user",hashID,{maxAge: maxAgeUserCookie})
-
-            
+            //PARA HASHEAR ID en el cookie
+            //const hashID=bcrypt.hashSync(''+userFound.id);
+            res.cookie("user",userFound.id,{maxAge: maxAgeUserCookie})
         }
 
         res.redirect("/")

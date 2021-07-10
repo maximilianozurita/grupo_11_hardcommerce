@@ -65,7 +65,7 @@ module.exports={
 
         const newProducts = products.filter(product => product.id!= id);
 
-        /*
+        
         //Eliminar imagen
         const deletedProduct=products.find(product=>{
             if(product.id==id){
@@ -74,7 +74,7 @@ module.exports={
         });
 
         fs.unlinkSync((__dirname, '../public/images/imgProducts/') + deletedProduct.image1); 
-    */
+    
         this.writeFile(newProducts);
     }
 

@@ -3,10 +3,14 @@ const userRoutes = express.Router();
 const userController = require('../controllers/userController');
 const multer = require('multer');
 const path = require('path');
-const validationNewUser = require("../middlewares/validationNewUser");
-const { isFileImage } = require('../helpers/file');
-const validationLogin = require('../middlewares/validationLogin');
 
+const { isFileImage } = require('../helpers/file');
+
+
+const validationLogin = require('../middlewares/validationLogin');
+const validationNewUser = require("../middlewares/validationNewUser");
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 // destino donde guardar el archivo
 // nombre del archivo
 const storage = multer.diskStorage({
@@ -59,15 +63,13 @@ const fileFilter = (req, file, cb)  => {
 
 const upload = multer({ storage, fileFilter });
 
-userRoutes.get('/login', userController.login);
+userRoutes.get('/login',guestMiddleware, userController.login);
 userRoutes.post('/login', validationLogin, userController.processLogin);
-
-userRoutes.get('/profile', userController.profile);
 
 userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);
 
-userRoutes.get("/register", userController.formNew);
+userRoutes.get("/register", guestMiddleware,userController.formNew);
 //userRoutes.post('/register', userController.store);
 // aca deberíamos pasar multer
 userRoutes.post('/register', upload.single('imagen'),validationNewUser, userController.store);
@@ -76,7 +78,9 @@ userRoutes.get('/editUsers/:id', userController.edit);
 
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('imagen'), userController.update);
-
 userRoutes.delete("/:id", userController.destroy);
+
+userRoutes.get('/profile', authMiddleware, userController.profile);
+userRoutes.get('/logout', authMiddleware, userController.logout)
 
 module.exports = userRoutes

@@ -1,13 +1,26 @@
 const express=require('express');
 const app=express();
-const path=require('path');
+//const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
-//const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
+
+const { sessionSecret, cookiesSecret} = require('./config/config')
 // middlewares
-const notFoundMiddleware = require('./middlewares/notFound')
 
+app.use(session({
+    secret: sessionSecret
+  }))
+
+app.use(cookieParser(cookiesSecret));
+const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware');
+const sessionToLocals = require('./middlewares/sessionToLocals');
+const notFoundMiddleware = require('./middlewares/notFound');
+
+app.use(cookiesSessionMiddleware);
+app.use(sessionToLocals);
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
 
@@ -51,8 +64,6 @@ app.use('/products', productsRoutes)
 //Render de users
 const userRoutes = require('./routes/userRoutes');
 app.use('/user', userRoutes)
-
-
 
 app.use(notFoundMiddleware)
 

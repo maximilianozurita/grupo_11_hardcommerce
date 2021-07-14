@@ -10,11 +10,20 @@
   },
   {
     "name": "jeremias",
+    "lastName": "mensad",
+    "email": "mgb256@outllok.com",
+    "password": "$2a$10$K940D2QOOSkqz3WpVNmST.2X2PVK2Ewv9vgbLn4TEZRthl4/tZmTu",
+    "cell": "1139341085",
+    "imagen": "/images/imgUser/1625274262843.jpg",
+    "id": 2
+  },
+  {
+    "name": "jeremias",
     "lastName": "menacho",
     "email": "gab.menacho@gmail.com",
-    "password": "$2a$10$XicJALihbyh5xXVocbBDN.FQh9rvvpn5ozCXNiUxsc6zGjridP996",
-    "cell": "1139341085",
-    "imagen": "/images/imgUser/1625086782938.jpg",
-    "id": 2
+    "password": "$2a$10$dBjvohjdp.pzqaAeCDGqGucnhL6MDG.Imb8xm44Js95bRtFIVVVsu",
+    "cell": "1231412312",
+    "imagen": "/images/imgUser/1625425222080.jpg",
+    "id": 3
   }
 ]

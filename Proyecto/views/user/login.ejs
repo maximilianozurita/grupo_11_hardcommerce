@@ -31,6 +31,11 @@
                 <% } %>
 
               </div>
+
+              <div class="input-container">
+                <input type="checkbox" name="remember" id="remember" value="yes" <%= (locals.oldValues && oldValues.remember === 'yes') ? 'checked' : '' %>/> Recordar usuario
+            </div>
+
               <div class="input-container">
                 <input class="boton" type="submit" value="Ingresar">
                 <div class="recuperar">

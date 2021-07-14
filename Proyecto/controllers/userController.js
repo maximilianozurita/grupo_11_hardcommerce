@@ -1,7 +1,10 @@
 const usersModels=require("../models/usersModels");
 const {validationResult} = require("express-validator");
 const fs = require("fs");
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const { maxAgeUserCookie } = require('../config/config');
+//const { user } = require("../database/models");
+
 
 const userController = {
     login: (req, res) => {
@@ -14,7 +17,27 @@ const userController = {
         if (!formValidation.isEmpty()) {
             return res.render('user/login', { oldValues, errors: formValidation.mapped() })
         } 
+        // lo que viene del login
+        const { email,remember } = req.body
+        // le pedimos al modelo el usuario
+        const user = usersModels.findByField('email', email)
+        //req.session = {}
+        // cargamos los datos del usuario en la sesión
 
+        // le sacamos el password
+        delete user.password
+        //delete user.password
+        // cargamos dentro de la sesión la propieda logged con el usuario (menos el password)
+        req.session.logged = user
+        // guardamos un dato de nuestro usuario en la sesión (email, user_id)
+        if (remember) {
+            // clave
+            res.cookie('user', user.id, {
+                maxAge: maxAgeUserCookie,
+                // pasamos esta propiedad para que firme la cookie
+                signed: true,    
+            })
+        }
         
         // redirigimos al profile
         res.redirect('/user/profile')
@@ -25,6 +48,12 @@ const userController = {
     /*register: (req, res) => {
         res.render('user/register')
     },*/
+    logout: (req, res) => {
+        // borrar session y cookie
+        req.session.destroy()
+        res.clearCookie('user')
+        res.redirect('/')
+    },
     listOfUsers: (req, res) =>{
         const usersList = usersModels.findAll()
         res.render('user/listOfUsers',{ usersList })
@@ -74,8 +103,12 @@ const userController = {
             cell:cell,
             imagen: "/images/imgUser/" + imagen,
         }
-        const userCreated = usersModels.create(user);
-        res.redirect('/user/')
+        usersModels.create(user);
+        res.redirect('/user/');
+       /* user.create({userr})
+        .then((userFound)=>{
+            res.redirect('/user/')
+        })*/
     },
     edit: (req, res) => {
         const userToEdit = usersModels.findByPk(req.params.id);
@@ -109,6 +142,7 @@ const userController = {
         const id = req.params.id;
         
         usersModels.destroy(id);
+        
 
         res.redirect('/user/');
     }

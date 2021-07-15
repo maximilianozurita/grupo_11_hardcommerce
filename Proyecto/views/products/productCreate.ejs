@@ -15,18 +15,20 @@
         <h3>Agregar producto nuevo</h3>
         <form class="formulario" action="/products/productCreate" enctype="multipart/form-data" method="POST">                    
                     <div class="input-container">
-                         <input placeholder="Nombre del producto" name="name" id="name">
+                         <input placeholder="Nombre del producto" name="name" id="name" value="<%= locals.oldValues? oldValues.name:null %>">
+                         <p class="msg-error"><%=locals.errors && errors.name? errors.name.msg: "" %></p>
                     </div>  
 
                     <div class="input-container">
                          <label for="descripcion">Descripción del producto:</label>
-                         <textarea name="description" id="descripcion" ></textarea>
+                         <textarea name="description" id="descripcion"><%= locals.oldValues? oldValues.description:null %></textarea>
+                         <p class="msg-error"><%=locals.errors && errors.description? errors.description.msg: "" %></p>
                     </div>
-                    
+
                     <div class="input-container">
                          <label for="category">Categoria del producto</label> 
                          <select class="category" id="category" name="category">
-                            <option value="" selected="selected">- selecciona -</option>
+                            <option value="<%= locals.oldValues? oldValues.category: null %>" ><%= locals.oldValues? oldValues.category: null %></option>
                             <option value="Discos Mecanicos">Discos mecanicos</option>
                             <option value="Procesadores">Procesadores</option>
                             <option value="Motherboards">Motherboards</option>
@@ -36,27 +38,32 @@
                             <option value="MemoriasRam">Memorias ram</option>
                             <option value="Perifericos">Perifericos</option>
                         </select>
+                        <p class="msg-error"><%=locals.errors && errors.category? errors.category.msg: ""%></p>
                     </div>
 
                     <fieldset class="input-container">
                         <legend>Datos económicos</legend>
                       
                         <label for="precio">Precio</label>
-                        <input type="text" size="5" id="precio" name="price" required pattern="[0-9]+" />
-                      
+                        <input type="text" size="5" id="precio" name="price" value="<%= locals.oldValues? oldValues.price: null %>"/>
+                        <p class="msg-error"><%=locals.errors && errors.price? errors.price.msg: "" %></p>
+
                         <label for="cuotas">Cuotas</label>
                         <select id="cuotas" name="cuotas">
+                            <option value="<%= locals.oldValues? oldValues.cuotas: null %>" ><%= locals.oldValues? oldValues.cuotas: null %></option>
                             <option value="0">0</option>
                             <option value="3">3</option>
                             <option value="6">6</option>
                             <option value="9">9</option>
                             <option value="12">12</option>
                         </select>                       
+                        <p class="msg-error"><%=locals.errors && errors.cuotas? errors.cuotas.msg: ""%></p>
                     </fieldset>
-                    
+
                     <div class="input-container">
                          <label for="photo">Ingrese imagen del producto</label>
                          <input type="file" name="productImage"/>
+                         <p class="msg-error"><%=locals.errors && errors.image? errors.image.msg: "" %></p>
                     </div>
                     <div class="input-container">
                          <button type="submit">ENVIAR</button>

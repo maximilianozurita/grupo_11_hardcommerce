@@ -3,6 +3,8 @@ const productsRoutes = express.Router()
 const path=require("path")
 const productsController = require('../controllers/productsController')
 const multer=require("multer")
+const validationNewProduct=require("../middlewares/validationNewProduct")
+const isFileImage=require("../helpers/isFile");
 
 const storage=multer.diskStorage({
     destination: (req,file,cb)=>{
@@ -13,7 +15,31 @@ const storage=multer.diskStorage({
         cb(null,newFileName);
     }
 })
-const upload=multer({storage:storage});
+
+const fileFilter = (req, file, cb)  => {
+    if (!file) {
+        cb(null, false)
+
+        // corta ejecución
+        return
+    }
+
+    if (!isFileImage(file.originalname)) {
+        //Para que llegue a express-validator el archivo
+        req.file = file
+
+        cb(null, false)
+
+        // corta ejecución
+        return
+    }
+   
+    // Si aceptamos el archivo
+    cb(null, true)
+}
+
+
+const upload=multer({storage:storage, fileFilter});
 
 //--------------------VISTA CLIENTES--------------------------------
 
@@ -27,7 +53,7 @@ productsRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
 
 //Create:
 productsRoutes.get("/productCreate", productsController.formNew) //-->> Pagina de creacion.
-productsRoutes.post("/productCreate",upload.single("productImage"), productsController.store)
+productsRoutes.post("/productCreate",upload.single("productImage"),validationNewProduct , productsController.store)
 
 //Update
 productsRoutes.get("/productEdition/:id", productsController.edit)

@@ -48,11 +48,10 @@ module.exports={
     },
     update(data, id) {
         const products = this.readFile();
-
-        const newProducts=products.map(product=>{
-                if(product.id==id){
+        const newProducts=products.map(product=>{  
+            if(product.id==id){
                     product={
-                        id: id,
+                        id: product.id,
                         ...data
                     }
                 }
@@ -64,9 +63,18 @@ module.exports={
     destroy(id) {
         const products = this.readFile();
 
-        ////fs.unlinkSync(path)
         const newProducts = products.filter(product => product.id!= id);
 
+        /*
+        //Eliminar imagen
+        const deletedProduct=products.find(product=>{
+            if(product.id==id){
+                return product
+            }
+        });
+
+        fs.unlinkSync((__dirname, '../public/images/imgProducts/') + deletedProduct.image1); 
+    */
         this.writeFile(newProducts);
     }
 

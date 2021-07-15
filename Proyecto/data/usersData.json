@@ -25,5 +25,23 @@
     "cell": "1231412312",
     "imagen": "/images/imgUser/1625425222080.jpg",
     "id": 3
+  },
+  {
+    "id": 4,
+    "name": "",
+    "lastName": "menacho",
+    "email": "123123",
+    "password": "",
+    "cell": "",
+    "imagen": "/images/imgUser/1626312133662.jpg"
+  },
+  {
+    "id": 5,
+    "name": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "cell": "",
+    "imagen": "/images/imgUser/1626312193543.jpg"
   }
 ]

@@ -13,6 +13,7 @@
         <div>
             <h1>Registrarse</h1>
             <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+                
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
                     <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.name%>"/>

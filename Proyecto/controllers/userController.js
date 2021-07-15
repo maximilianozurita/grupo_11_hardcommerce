@@ -1,5 +1,7 @@
+
+const { validationResult } = require('express-validator');
+
 const usersModels=require("../models/usersModels");
-const {validationResult} = require("express-validator");
 const fs = require("fs");
 const bcrypt = require('bcryptjs');
 const { maxAgeUserCookie } = require('../config/config');

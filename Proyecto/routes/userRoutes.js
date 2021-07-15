@@ -46,7 +46,7 @@ const fileFilter = (req, file, cb)  => {
     }
 
     if (!isFileImage(file.originalname)) {
-        // gonza workaround para que llegue a express-validator el archivo
+        //  para que llegue a express-validator el archivo
         req.file = file
 
         cb(null, false)

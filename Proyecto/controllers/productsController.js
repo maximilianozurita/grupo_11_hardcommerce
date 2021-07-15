@@ -1,5 +1,8 @@
+const { validationResult } = require('express-validator');
 const path = require('path')
 const productsModels=require ("../models/productsModels")
+const fs=require("fs")
+
 const productsController = {
     listOfProducts: (req, res) => {
         const productList = productsModels.findAll();
@@ -20,6 +23,18 @@ const productsController = {
         res.render("products/productCreate")
     },
     store: (req,res)=>{
+        const formValidation=validationResult(req)
+
+        if(!formValidation.isEmpty()){
+            //Borrar imagen
+            if(req.file){
+                fs.unlinkSync(req.file.path)
+            }
+            const oldValues=req.body;
+            res.render("products/productCreate",{oldValues,errors:formValidation.mapped()})
+            return
+        }
+
         const product={
             
             "name": req.body.name,
@@ -40,8 +55,8 @@ const productsController = {
     update: (req,res)=>{
         const data=req.body;
         const id=req.params.id;
-
-        const productOriginal=productsModels.findByPk(req.params.id);
+        
+        const productOriginal=productsModels.findByPk(id);
 
         let image=productOriginal.image1
 
@@ -57,7 +72,6 @@ const productsController = {
     destroy:(req,res)=>{
         const id=req.params.id;
         productsModels.destroy(id);
-
         res.redirect("/products/");
     }
 }

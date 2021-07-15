@@ -1,78 +1,76 @@
-const { body } = require('express-validator');
-const userModel = require('../models/usersModels')
-const { isFileImage } = require('../helpers/file');
-
+const { body } = require ('express-validator');
+const path = require ('path');
+const usersModels = require('../models/usersModels');
+const isFileImage=require("../helpers/isFile");
 
 const validationNewUser = [
+
     body('name')
         .notEmpty()
-        .withMessage('Por favor ingrese nombre')
+        .withMessage('Por favor ingrese su nombre')  
         .bail()
         //
-        .isLength({ min: 4 })
-        .withMessage('Por favor ingrese un nombre mayor a 3 caracteres'),
-        // como es la última no usamos bail()
+        .isLength({ min:3 })
+        .withMessage('Por favor ingrese un nombre más largo'),
+        //como es la ultima no usamos bail.
+
     body('lastName')
         .notEmpty()
-        .withMessage('Por favor ingrese un apellido una vez mas')
+        .withMessage('Por favor ingrese su apellido')
         .bail()
         //
-        .isLength({ min: 4 })
-        .withMessage('Por favor ingrese su apellido una vez mas'),
+        .isLength({ min:3 })
+        .withMessage('Por favor ingrese un apellido más largo'),
+        //como es la ultima no usamos bail.
+
     body('email')
         .notEmpty()
-        .withMessage('Por favor ingrese su mail una vez mas')
-        .isEmail()
-        .withMessage('Ingrese un mail valido')
+        .withMessage('Por favor ingrese su email')
         .bail()
-        .custom((email) => {
-            const userFound = userModel.findByField('email', email)
-
-            if (userFound) {
-                return false
+        //
+        .isEmail()
+        .withMessage('Por favor ingrese una dirección correcta')
+        .bail()
+        .custom((email)=>{
+            const userFound=usersModels.findByField("email",email);
+                
+            //Si encuentra userFound devuelve el usuario encontrado y si no lo encuentra devuelve undefine.
+            if(userFound){
+                return false;
             }
-
-            return true
+            return true;
         })
-        .withMessage('El usuario ya existe'),
+        .withMessage("El usuario ya existe"),
+
     body('password')
         .notEmpty()
-        .withMessage('Por favor ingrese su contraseña con numeros y letras')
-        .isAlphanumeric()
-        .withMessage("Ingrese una contraseña con numeros y letras"),
+        .withMessage('Por favor ingrese un password'),
+        
+        /*.isStrongPassword()
+        .withMessage("por favor ingrese una clave....")*/
+
     body('cell')
         .notEmpty()
-        .withMessage('Por favor ingrese su numero de celular correctamente')
-        .isNumeric()
-        .withMessage('Ingrese el numero de su celular'),
+        .withMessage('Por favor ingrese un telefono '),    
+
     body('imagen')
         .custom((value, { req }) => {
             const { file } = req
-
-            // chequea que haya cargado imagen
+        
             if (!file) {
                 // esto es como si hicieramos .withMessage('Seleccione un archivo')
                 throw new Error('Por favor ingrese una imagen')
             }
-            /*if (!isFileImage(file.originalname)) {
-                // disparar error
-                throw new Error('Por favor ingrese una archivo que sea una imagen')
-            }
-            chequea que la extensión sea la correcta
-            const avalaible_extensions = [".jpg", ".jpeg", ".gif", "png"];
-            const extension = path.extname(file.originalname);
-            if(avalaible_extensions.includes(extension)){
-                throw new Error('Por favor ingrese una archivo que sea una imagen');
-            };
-            return true;*/
             if (!isFileImage(file.originalname)) {
-                // disparar error
+            
                 throw new Error('Por favor ingrese una archivo que sea una imagen')
             }
-
-            // chequea que la extensión sea la correcta
-            
-            return true;
+            return true
         })
+    
+    
 ]
-module.exports = validationNewUser;
+
+module.exports = validationNewUser
+
+

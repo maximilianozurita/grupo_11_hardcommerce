@@ -77,9 +77,12 @@ H1 {
   {
     color:green;
   }
-  .msg-error{
-    color: rgb(11,64,145);
-  }
+  .checkbox {
+    display: flex;
+    justify-content: center;
+}
+#remember {
+  flex-basis: 10%;
 
 }
 /*--------------------------------FIN MAIN--------------------------------*/

@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <header><%- include('../partials/header') %></header>
+    <%- include('../partials/header') %>
    <main >
        
         <section class="formulario">
@@ -16,52 +16,27 @@
 
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
-                    <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.name%>"/>
-                
-                    <% if (locals.errors && errors.name) { %>
-                        <p class='msg-error'><%= errors.name.msg %></p>
-                    <% } %>
-                
+                    <input type="text" name="name" id="name" required/>
                 </div>
 
                 <div class="input-container">
-                    <label for="lastName">Ingrese su apellido</label>
-                    <input type="text" name="lastName" id="lastName" value= "<%= userToEdit.lastName %>" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %> " value="<%= locals.oldValues && oldValues.lastName%>" /> 
-
-                    <% if (locals.errors && errors.lastName) { %>
-                        <p class='msg-error'><%= errors.lastName.msg %></p>
-                    <% } %>
-                
+                    <label for="lastName">Ingrese apellido</label>
+                    <input type="text" name="lastName" id="lastName" required/>
                 </div>
 
                 <div class="input-container">
                     <label for="email">Ingrese email</label>
-                    <input type="text" name="email" id="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.email%>"/> 
-                
-                    <% if (locals.errors && errors.email) { %>
-                        <p class='msg-error'><%= errors.email.msg %></p>
-                    <% } %>
-                
+                    <input type="text" name="email" id="email" required/>
                 </div>
                 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password"  class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.password%>"/>
-                
-                    <% if (locals.errors && errors.password) { %>
-                        <p class='msg-error'><%= errors.password.msg %></p>
-                    <% } %>
-                
+                    <input type="text" name="password" id="password" required/>
                 </div>
 
                 <div class="input-container">
                     <label for="cell">Ingrese número de celular</label>
-                    <input type="text" name="cell" id="cell" class="<%= (locals.errors && errors.cell) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.cell%>"/>
-                
-                    <% if (locals.errors && errors.cell) { %>
-                        <p class='msg-error'><%= errors.cell.msg %></p>
-                    <% } %>
-                
+                    <input type="text" name="cell" id="cell" required/>
                 </div>
 
                 <div class="input-container">
@@ -71,11 +46,6 @@
 
                 <div class="input-container">
                     <button type="submit"><p>ENVIAR</p></button>
-                
-                    <% if (locals.errors && errors.imagen) { %>
-                        <p class='msg-error'><%= errors.imagen.msg %></p>
-                    <% } %>
-                
                 </div>
 
             </form>

@@ -125,12 +125,11 @@ const userController = {
 
         /* Si viene una imagen nueva, cargar la imagen nueva
         sino poner la original */
-        let imagen
+        let imagen = userOriginal.imagen
 
         if (file) {
             imagen = '/images/imgUser/' + file.filename
-        } else {
-            imagen = userOriginal.imagen
+
         }
 
         data.imagen = imagen

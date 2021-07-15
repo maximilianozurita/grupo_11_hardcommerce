@@ -34,23 +34,5 @@
     "price": "250000",
     "cuotas": "0",
     "image1": "product-1623462422947.jpg"
-  },
-  {
-    "name": "mouse",
-    "description": "123",
-    "category": "Discos Mecanicos",
-    "price": "123213",
-    "cuotas": "3",
-    "image1": "product-1625425352461.jpg",
-    "id": "311"
-  },
-  {
-    "name": "213123",
-    "description": "213",
-    "category": "",
-    "price": "123213",
-    "cuotas": "0",
-    "image1": "product-1625425813799.jpg",
-    "id": "3111"
   }
 ]

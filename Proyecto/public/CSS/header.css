@@ -1,0 +1,255 @@
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato' , italic;
+}
+/* ----------------------------------- HEADER ----------------------------------- */
+header
+{
+    background-color: rgba(0,0,0,0);
+}
+.caja1
+{
+    border:solid 2px transparent;
+    display:flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.contactoBar
+{
+    display:none; 
+}
+.navBar
+{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.navBar .hamburguer-button
+{
+    padding:0 5px;
+}
+.navBar .hamburguer-button i
+{
+    font-size:180%;
+    color: rgb(11, 64, 145);
+    transition: all 1s; 
+}
+.navBar .hamburguer-button i:hover
+{
+    color:green;
+}
+.iHome
+{
+    border:solid 2px transparent;
+    padding:0 5px;
+}
+.iHome a i
+{
+    font-size:180%;
+    color:rgb(11, 64, 145);
+    transition: all 1s;
+}
+.iHome a i:hover
+{
+    color: green;
+}
+.logocentral
+{
+    text-align: center;
+    width: 55%;
+}
+.informacion
+{
+    display:flex;
+    justify-content: center;
+}
+.informacion .topBar
+{
+    display:flex;
+}
+.informacion .topBar .searchBar
+{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    
+}
+.informacion .topBar .redes
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.informacion .topBar .searchBar i
+{
+    font-size: 10px;
+    margin: 0px 5px;
+}
+.informacion .topBar .redes i
+{
+    font-size: 10px;
+    margin: 0px 5px;
+}
+.informacion .topBar .iconos
+{
+    margin: 0 3px;
+}
+.informacion .topBar .iconos i
+{
+    font-size: 10px;
+}
+.informacion .bottomBar
+{
+    border:solid 2px transparent;
+    margin-left: 10px;
+
+}
+.informacion .bottomBar li
+{
+    list-style: none;
+}
+.informacion .bottomBar li a
+{
+    text-decoration: none;
+    color:black;
+}
+.informacion .bottomBar li a:hover
+{
+    color:rgb(11, 64, 145);
+    font-weight:bolder;
+}
+.informacion .bottomBar li a i
+{
+    display:none;
+}
+.columnas
+{
+    flex-basis:80%;
+    border:solid 2px transparent;
+    display:flex;
+    text-align: center;
+    justify-content: flex-end;
+    margin:auto;
+}
+.caja2
+{
+    border-bottom: solid 3px rgba(0, 17, 255,0.8);
+    border-top: solid 3px rgba(0, 17, 255,0.8);
+    animation: barraLuminosa 10s infinite;
+}
+@keyframes barraLuminosa
+{
+    0%{border-top: solid 3px rgba(79, 79, 202,0.8);
+        border-bottom: solid 3px rgba(79, 79, 202,0.8);
+    }
+    25%{border-top: solid 3px rgba(0, 17, 255,0.8);
+        border-bottom: solid 3px rgba(0, 17, 255,0.8);
+    }
+    50%{border-top: solid 3px rgba(0, 255, 21,0.8);
+        border-bottom: solid 3px rgba(0, 255, 21,0.8);
+    }
+    75%{border-top: solid 3px rgba(255, 11, 3,0.8);
+        border-bottom: solid 3px rgba(255, 11, 3,0.8);
+    }
+    100%{borde-top: solid 3px rgba(115, 8, 255,0.8);
+        borde-bottom: solid 3px rgba(115, 8, 255,0.8);
+    }
+}
+.mainCaja2
+{
+    display: none;  
+}
+.marcas
+{
+    display:none
+}
+/* -----------------------------------FIN HEADER ----------------------------------- */
+/*--------------------------------HEADER QUERIES--------------------------------*/
+@media(min-width:481px)
+{
+    .hamburguer-button
+    {
+        display:none;
+    }
+    .mainCaja2
+    {
+        display: flex;
+        justify-content: space-around;
+    }
+    .mainCaja2 li
+    {  
+        display: flex;
+    }
+    .mainCaja2 li a
+    {  
+        text-decoration: none;
+    }
+    .mainCaja2 li a p
+    {
+        color:black;
+    }
+    .mainCaja2 li a p:hover
+    {  
+        color: rgb(11, 64, 145);
+        font-weight:bolder;
+    }
+    .contactoBar
+    {
+        margin-top:10px;
+        display:block;
+    }
+    .contactoBar .cajita1
+    {
+        display:flex;
+        justify-content: space-between;
+    }
+    .contactoBar .cajita1 div a
+    {
+        color:rgb(10, 72, 165);
+    };
+    .informacion .topBar .searchBar i
+    {
+    font-size: 25px;
+    }
+    .informacion .topBar .redes i
+    {
+        font-size: 20px;
+    }
+    
+}
+@media (min-width: 768px) 
+{
+    .menu
+    {
+        flex-direction: row;
+    }
+    .marcas
+    {
+        border-right:solid 4px rgb(10, 72, 165);
+        border-left:solid 4px rgb(10, 72, 165);
+        margin:15px 0;
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-around;
+    }
+    .marcas h2
+    {
+        font-size: 25px;
+        color:rgb(10, 72, 165);
+    }
+    .navBar .columnas div .logosHeader
+    {
+        display:block;
+    }
+    .logosHeader
+    {
+        width: 70%;
+    }
+
+}
+/*--------------------------------FIN HEADER QUERIES--------------------------------*/

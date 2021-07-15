@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="/CSS/login.css">
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    <main>
+        <div>
+            <h1>Ingresar</h1>
+            <form class="formulario" action="/user/login" method="POST">             
+              <div class=input-container>
+                <label for="email"></label>
+                <input placeholder="email" name="email" /> 
+
+                <% if (locals.errors && errors.email) { %>
+                  <p class='msg-error'><%= errors.email.msg %></p>
+                <% } %>
+
+             </div>
+              <div class="input-container">
+                <label for="password"></label>
+                <input placeholder="Contraseña" name="password" />
+
+                <% if (locals.errors && errors.password) { %>
+                  <p class='msg-error'><%= errors.password.msg %></p>
+                <% } %>
+
+              </div>
+
+              <div class="input-container">
+                <input type="checkbox" name="remember" id="remember" value="yes" <%= (locals.oldValues && oldValues.remember === 'yes') ? 'checked' : '' %>/> Recordar usuario
+            </div>
+
+              <div class="input-container">
+                <input class="boton" type="submit" value="Ingresar">
+                <div class="input-container checkbox"> 
+                  <input type="checkbox" name="remember" value="yes" id="remember" >
+                  <p>Recordar usuario?</p>
+                </div>
+                <div class="recuperar">
+                    <a href="#">¿Olvido su contraseña?</a>
+                    <a href="/user/register">¿Nuevo usuario?</a>
+                </div>
+              </div>
+            </form>
+
+        </div>
+    </main>
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

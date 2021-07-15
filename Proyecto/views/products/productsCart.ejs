@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/CSS/productCart.css">
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    <main class="mainProductCart">
+        
+        <div class="contenedor-titulo-carrito">
+            <br>
+            <h3>
+                <p class="header-carrito"><i class="fas fa-shopping-cart"></i>
+                    <span> </span>       
+                    Carrito de compras
+                </p>
+            </h3>
+            <br>
+        </div>
+        <br><hr><br>
+
+        <section>
+            <article class="articulo">
+                <article class="art-quitar">
+                    <img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="" class="carrito-img" width=50>
+                    <button type="button" name="Quitar" class="boton-quitar">Quitar</button>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="carrito-desc-span">Procesador Intel i7</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">-</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">1</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">+</span></article>
+                </article>
+                <article class="carrito-precio">
+                    <article><span class="carrito-precio-span">$38500,00</span></article>
+                </article>
+            </article>            
+        </section>
+        <br><hr><br>
+        <section>
+            <article class="articulo">
+                <article class="art-quitar">
+                    <img src="/images/imgProducts/micro-amd-ryzen-5-5600x.jpg" alt="" class="carrito-img" width=50>
+                    <button type="button" name="Quitar" class="boton-quitar">Quitar</button>
+                </article>
+                
+                <article class="carrito-desc">
+                    <article><span class="carrito-desc-span">Procesador AMD Ryzen 5</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">-</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">1</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">+</span></article>
+                </article>
+                <article class="carrito-precio">
+                    <article><span class="carrito-precio-span">$32000,00</span></article>
+                </article>
+            </article>            
+        </section>        
+        <br><hr><br>               
+        <section>
+            <article class="articulo">
+                <article class="art-quitar">
+                    <img src="/images/imgProducts/RTX 2080ti.jpg" alt="" class="carrito-img" width=50>
+                    <button type="button" name="Quitar" class="boton-quitar">Quitar</button>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="carrito-desc-span">GeForce RTX</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">-</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">1</span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega">+</span></article>
+                </article>
+                <article class="carrito-precio">
+                    <article><span class="carrito-precio-span">$19900,00</span></article>
+                </article>
+            </article>
+            
+        </section>
+        <br><hr><br>
+       
+        <section>
+            <article class="articulo">
+                <article>
+                    <img src="" alt="" class="carrito-img" width=50>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="carrito-desc-span"></span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega"></span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega"></span></article>
+                </article>
+                <article class="carrito-desc">
+                    <article><span class="quita-agrega"></span></article>
+                </article>
+                <article class="carrito-precio">
+                    <article class="art-quitar">
+                        <span class="carrito-precio-span"><em>Total: </em> <strong>$90400,00</strong></span>
+                        <br><br>
+                        <button type="button" name="Comprar" class="boton-quitar">Finalizar la Compra</button>
+                    </article>
+
+                </article>
+            </article>
+            
+        </section>
+        <br><hr><br>
+    </main>
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

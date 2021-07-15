@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>listado</title>
+    <link rel="stylesheet" href="/CSS/userDetail.css">
+    <%- include('../partials/head') %>
+</head>
+
+    <header>
+        <%- include ('../partials/header') %>
+    </header> 
+
+    <main>
+        <section class="users-detail">
+            <% if (userDetail == null) {%>
+             No existe el usuario :( 
+            <%} else { %>
+            
+             <div class="info">
+                <h2><p>Name:<%= userDetail.name %></p></h2>
+                <h3><p>Last name: <%= userDetail.lastName %> </p></h3>
+                <h3><p>Email: <%= userDetail.email %></p></h3>
+                <h3><p>Password: <%= userDetail.password %></p></h3>
+                <h3><p>Cell: <%= userDetail.cell %></p></h3>
+                <img src="<%= userDetail.imagen %>" width="20%"/>
+             </div>
+            <% } %>
+            <div class="buttons">
+                <a href="/user/editUsers/<%= userDetail.id %>">
+                    <button>Edit</button>
+                </a> 
+                <form action="/user/<%= userDetail.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+       
+             
+         </section>
+    </main>
+
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Producto</title>
+    <link rel="stylesheet" href="/CSS/productDetail.css">
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+
+    <main class="mainMain">
+        <div class="mainMain_containerTop">
+            <div class="mainMain_containerTop_left">
+                <div class="mainMain_containerTop_left_top">
+                    <div class="tituloDelProducto_imagen"><h1 >Titulo del producto</h1></div> <!--titulo pegado a la imagen-->
+                    <img src="/images/imgProducts/Micro intel i7 9700k.jpg" width=100% alt="master"> <!--Imagen principal-->    
+                </div>
+                <div class="mainMain_containerTop_left_bottom">
+                    <div class="mainMain_containerTop_left_bottom_cajita">
+                        <div class="imagen"><img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="master"></div>
+                    </div>
+                    <div class="mainMain_containerTop_left_bottom_cajita">
+                        <div class="imagen"><img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="master"></div>
+                    </div>
+                    <div class="mainMain_containerTop_left_bottom_cajita">
+                        <div class="imagen"><img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="master"></div>
+                    </div>
+                    <div class="mainMain_containerTop_left_bottom_cajita">
+                        <div class="imagen"><img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="master"></div>
+                    </div>
+                    <div class="mainMain_containerTop_left_bottom_cajita">
+                        <div class="imagen"><img src="/images/imgProducts/Micro intel i7 9700k.jpg" alt="master"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainMain_container_right">
+                <div class="mainMain_container_right_top">
+                    <h1 class="tituloDelProducto">Titulo del producto</h1>
+                    <p>Codigo producto</p>
+                    <h2>Precio: $xxxxxx</h2>
+                    <div><a href='#'>Formas de pago</a></div>
+                    <p>12 cuotas sin interes de $xxxx con las siguientes tarjetas</p>
+                    <div class="formasDePago"><img src="/images/formasDePago.png" alt="pago" width="100%"></div>
+                    <div class="esconder">
+                        <h3>Descripción rapida:</h3>
+                        <div><a>Procesador Intel Core i3</a></div>
+                        <div><a>Meroria ram 4GB</a></div>
+                        <div><a>Pantalla LED de 14"</a></div>
+                        <div><a>Resolucion de 1366*768 px</a></div>
+                        <div><a>Es antireflejo</a></div>
+                        <div><a>Placa de video intel UHD Graphics</a></div>
+                        <div><a>Conexión wifi y bluetooh</a></div>
+                    </div>
+                </div>
+                <div class="mainMain_container_right_bot">
+                    <div class="mainMain_container_right_bot_columa1">
+                        <div class="botones"><p><i class="fas fa-shopping-cart"></i>Agregar</p></div>
+                        <div class="botones"><p>Calcular envio</p></div>
+                    </div>
+                    <div class="mainMain_container_right_bot_columa2">
+                        <div class="botones"><p>Comprar ahora</p></div>
+                        <div class="botones"><p>Stock</p></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="hamburguer-button">
+            <a href="#">
+                <i class="fas fa-bars"></i>
+            </a> 
+        </div>
+        <div class="mainMain_containerBottom">
+            <h2>Descripción tecnica del producto</h2>
+            <div class="DescripciónDelProducto">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero architecto est odio facilis esse deserunt voluptatibus optio exercitationem repellendus nihil mollitia molestiae aspernatur saepe, id nostrum officia similique totam. Neque!
+                </p>
+                <br>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos corrupti, totam repellendus deserunt consequuntur vel aliquid minus labore reprehenderit dolores est quia veritatis odio et necessitatibus exercitationem nemo quam nesciunt?
+                </p>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati consectetur necessitatibus atque distinctio! Libero odio nesciunt veritatis quaerat. Quo labore corrupti praesentium quibusdam ipsam architecto asperiores beatae voluptatibus est quia!
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

@@ -12,16 +12,30 @@
     <main>
         <div>
             <h1>Ingresar</h1>
-            <form class="formulario" action="" method="POST">
-            <span class= 'msg-error'><%= locals.errors && errors.password ? errors.password.msg : '' %> </span>              
+            <form class="formulario" action="/user/login" method="POST">             
               <div class=input-container>
-                <label for="username"></label>
-                <input placeholder="Nombre mail" name="email">
-              </div>
+                <label for="email"></label>
+                <input placeholder="email" name="email" /> 
+
+                <% if (locals.errors && errors.email) { %>
+                  <p class='msg-error'><%= errors.email.msg %></p>
+                <% } %>
+
+             </div>
               <div class="input-container">
                 <label for="password"></label>
-                <input placeholder="Contraseña" name="password">
+                <input placeholder="Contraseña" name="password" />
+
+                <% if (locals.errors && errors.password) { %>
+                  <p class='msg-error'><%= errors.password.msg %></p>
+                <% } %>
+
               </div>
+
+              <div class="input-container">
+                <input type="checkbox" name="remember" id="remember" value="yes" <%= (locals.oldValues && oldValues.remember === 'yes') ? 'checked' : '' %>/> Recordar usuario
+            </div>
+
               <div class="input-container">
                 <input class="boton" type="submit" value="Ingresar">
                 <div class="input-container checkbox"> 
@@ -30,7 +44,7 @@
                 </div>
                 <div class="recuperar">
                     <a href="#">¿Olvido su contraseña?</a>
-                    <a href="#">¿Nuevo usuario?</a>
+                    <a href="/user/register">¿Nuevo usuario?</a>
                 </div>
               </div>
             </form>

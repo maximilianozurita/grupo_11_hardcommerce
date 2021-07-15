@@ -1,15 +1,16 @@
 const express = require('express');
 const userRoutes = express.Router();
 const userController = require('../controllers/userController');
-const multer = require('multer')
-const { body } = require('express-validator')
+const multer = require('multer');
 const path = require('path');
-const validationNewUser = require('../middlewares/validationNewUser');
-const isFileImage=require("../helpers/isFile");
-const validationLoginUser=require('../middlewares/validationLoginUser');
-const guestMiddleware=require('../middlewares/guestMiddleware');
-const authMiddleware=require ('../middlewares/authMiddleware');
 
+const { isFileImage } = require('../helpers/file');
+
+
+const validationLogin = require('../middlewares/validationLogin');
+const validationNewUser = require("../middlewares/validationNewUser");
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 // destino donde guardar el archivo
 // nombre del archivo
 const storage = multer.diskStorage({
@@ -33,24 +34,19 @@ const storage = multer.diskStorage({
         // ejecutamos callback con null (error) y el nombre del archivo
         cb(null, filename)
     },
-})
+});
 
-
-//fileFilter es un byPass para que multer guarde o no el archivo.
-const  fileFilter =(req, file, cb) => {
-
-        //cheque si hay archivo
-
+// fileFilter es un byPass para que multer guarde o no el archivo
+const fileFilter = (req, file, cb)  => {
     if (!file) {
-       
-        // si no hay archivo, corta el procedimiento.
         cb(null, false)
-        //corta validacion
+
+        // corta ejecución
         return
     }
 
     if (!isFileImage(file.originalname)) {
-        //Para que llegue a express-validator el archivo
+        //  para que llegue a express-validator el archivo
         req.file = file
 
         cb(null, false)
@@ -61,28 +57,30 @@ const  fileFilter =(req, file, cb) => {
    
     // Si aceptamos el archivo
     cb(null, true)
- 
-   }
-  
-const upload = multer({ storage, fileFilter })
+
+}
+
+
+const upload = multer({ storage, fileFilter });
 
 userRoutes.get('/login',guestMiddleware, userController.login);
-userRoutes.post("/login",validationLoginUser,userController.processLogin);
-
-userRoutes.get("/logout",validationLoginUser,userController.logout);
+userRoutes.post('/login', validationLogin, userController.processLogin);
 
 userRoutes.get('/',userController.listOfUsers);
 
 userRoutes.get('/userDetail/:id', userController.detail);
 
-userRoutes.get("/register", guestMiddleware, userController.formNew);
-userRoutes.post('/register', upload.single('imagen'), validationNewUser, userController.store);
+userRoutes.get("/register", guestMiddleware,userController.formNew);
+//userRoutes.post('/register', userController.store);
+// aca deberíamos pasar multer
+userRoutes.post('/register', upload.single('imagen'),validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('imagen'), userController.update);
 userRoutes.delete("/:id", userController.destroy);
 
-userRoutes.get('/profile',authMiddleware,userController.profile);
+userRoutes.get('/profile', authMiddleware, userController.profile);
+userRoutes.get('/logout', authMiddleware, userController.logout)
 
 module.exports = userRoutes

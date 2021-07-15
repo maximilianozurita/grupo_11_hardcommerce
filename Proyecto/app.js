@@ -1,17 +1,26 @@
 const express=require('express');
 const app=express();
-const path=require('path');
+//const path=require('path');
 const method = require('method-override');
 const productModels=require ("./models/productsModels");
-const session=require ("express-session");
-const {sessionSecret, cookiesSecret} =require("./config/config");
-const cookieParser=require ("cookie-parser");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
-app.use(session({secret: "sessionSecret"}))
-app.use (cookieParser(cookiesSecret ))
 
-//Despues de cookie parser se debe requerir el cookies session
-const cookiesSessionMiddleware= require ("./middlewares/cookiesSessionMiddleware");
+const { sessionSecret, cookiesSecret} = require('./config/config')
+// middlewares
+
+app.use(session({
+    secret: sessionSecret
+  }))
+
+app.use(cookieParser(cookiesSecret));
+const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware');
+const sessionToLocals = require('./middlewares/sessionToLocals');
+const notFoundMiddleware = require('./middlewares/notFound');
+
+app.use(cookiesSessionMiddleware);
+app.use(sessionToLocals);
 //const { dirname } = require('path');
 //Guarda los modulos de express en app.
 
@@ -38,7 +47,7 @@ app.use(express.urlencoded({ extended: false }));
 //ESTABLECIENDO RUTAS ESTATICAS EN PUBLIC
 //const publicPath=path.resolve(__dirname, "./public");
 //app.use(express.static(publicPath));
-//app.use(express.static('public'));
+
 app.use(express.static('public'));
 
 //TRAER HTML con sendFile (ya no se usa, ahora se usar el metodo render para traer ejs)
@@ -64,12 +73,13 @@ app.use('/products', productsRoutes)
 const userRoutes = require('./routes/userRoutes');
 app.use('/user', userRoutes)
 
+app.use(notFoundMiddleware)
 
 //Si no encuentra la pagina porque el URL es incorrecto redirige a la pagina "not-found".
-app.use((req,res,next)=>{
+/*app.use((req,res,next)=>{
     res.status(404).render("./main/not-found");
     next();
-})
+})*/
 
 
 //Abre el servidor

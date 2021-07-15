@@ -73,7 +73,7 @@ module.exports={
             }
         });
 
-        fs.unlinkSync((__dirname, '../public/images/imgProducts/') + deletedProduct.image1); 
+        fs.unlinkSync(path.join(__dirname, '../public/images/imgProducts/', deletedProduct.image1)); 
     
         this.writeFile(newProducts);
     }

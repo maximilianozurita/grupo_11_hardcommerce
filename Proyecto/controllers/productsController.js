@@ -89,9 +89,11 @@ const productsController = {
     destroy:(req,res)=>{
         const id=req.params.id;
         productsModels.destroy(id);
+        
         /*product.destroy({where: {id}})
-        res.redirect("/products/");
-        */
+        res.redirect("/products/");*/
+
+       res.redirect('/products/')
     }
 }
 

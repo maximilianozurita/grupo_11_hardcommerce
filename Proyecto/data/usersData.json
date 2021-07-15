@@ -1,47 +1,11 @@
 [
   {
-    "id": 1,
-    "name": "usuario1",
-    "lastName": "usuario1",
-    "email": "usuario1@gmail.com",
-    "password": "usuario1",
-    "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
-  },
-  {
-    "name": "jeremias",
-    "lastName": "mensad",
-    "email": "mgb256@outllok.com",
-    "password": "$2a$10$K940D2QOOSkqz3WpVNmST.2X2PVK2Ewv9vgbLn4TEZRthl4/tZmTu",
-    "cell": "1139341085",
-    "imagen": "/images/imgUser/1625274262843.jpg",
-    "id": 2
-  },
-  {
-    "name": "jeremias",
-    "lastName": "menacho",
-    "email": "gab.menacho@gmail.com",
-    "password": "$2a$10$dBjvohjdp.pzqaAeCDGqGucnhL6MDG.Imb8xm44Js95bRtFIVVVsu",
-    "cell": "1231412312",
-    "imagen": "/images/imgUser/1625425222080.jpg",
-    "id": 3
-  },
-  {
-    "id": 4,
-    "name": "",
-    "lastName": "menacho",
-    "email": "123123",
-    "password": "",
-    "cell": "",
-    "imagen": "/images/imgUser/1626312133662.jpg"
-  },
-  {
-    "id": 5,
-    "name": "",
-    "lastName": "",
-    "email": "",
-    "password": "",
-    "cell": "",
-    "imagen": "/images/imgUser/1626312193543.jpg"
+    "name": "maxi",
+    "lastName": "zurita",
+    "email": "maxi@gmail.com",
+    "password": "$2a$10$YoqFWrhR29IjEGpAtAUbyOc7W4nLX4xrYFJuQLiUncHNfzR1Bdw9q",
+    "cell": "1234",
+    "imagen": "/images/imgUser/1626376090285.png",
+    "id": 1
   }
 ]

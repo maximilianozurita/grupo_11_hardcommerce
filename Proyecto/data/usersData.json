@@ -7,5 +7,14 @@
     "cell": "1234",
     "imagen": "/images/imgUser/1626376090285.png",
     "id": 1
+  },
+  {
+    "id": 2,
+    "name": "maximiliano",
+    "lastName": "zur",
+    "email": "maxiz@gmail.com",
+    "password": "1234",
+    "cell": "12345",
+    "imagen": "/images/imgUser/1626391092908.jpg"
   }
 ]

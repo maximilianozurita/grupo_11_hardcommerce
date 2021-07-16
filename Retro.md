@@ -1,19 +1,16 @@
 Comenzar a hacer: 
--Al final de cada semana hacer 2 reuniones en donde cada miembro expondra al resto de los miembros del equipo como si el resto fueran StakeHolder.
--Definir un logo, tipografia gral y estetica general (paleta de colores).
--Comenzar a utilizar distintas ramas en GitHub.
--Ver con cuantas ramas es conveniente trabajar.
+-Comenzar a maquetar las páginas faltantes
+-Comenzar a pensar la relación entre el carrito de compras y el usuario
 
 Hacer más:
--Mas secciones de pagina.
--Aprender a usar mas trello.
--Dividir mas el trabajo y definir responsables en trello --> Que cada miembro que complete un trabajo modifique trello para que se vea reflejado quien lo realizo.
+-Aplicar buenas prácticas
 
 Continuar haciendo: 
 -Reuniones a ayudar al otro con las dificultades del proyecto.
 
 Hacer menos:
 -Descuidar la estetica de la pagina.
+-Mergear a main sin hacer pruebas
 
 Dejar de hacer:
 -Pushear en rama main directamente.

@@ -1,2 +1,8 @@
-<li><a href='/user/profile'>Perfil</a></li>
-<li><a href='/user/logout'>Logout</a></li>
+<ul>
+    <li><a href='/user/profile'><%=locals.logged.name%> <%=locals.logged.lastName%></a>   <img src="<%= locals.logged.imagen %>" width="35px" style="border-radius: 100%">  
+    </li>
+    
+    <li><a href='/user/logout'>Salir</a>
+   
+    <li><a href='/products'>Lista de productos</a></li>
+</ul>

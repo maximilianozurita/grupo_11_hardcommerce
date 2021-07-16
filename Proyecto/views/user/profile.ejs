@@ -7,8 +7,9 @@
     <header><%- include('../partials/header') %></header>
 
     <main class="profile">
-            BIENVENIDO! <u>[NOMBRE]</u><br/>
-            [IMAGEN]
+        BIENVENIDX! <u><%= locals.logged.name %>  <%= locals.logged.lastName %> </u><br/>
+
+        <img width="30%" src="<%= locals.logged.imagen %>">
         </section>
     </main>
 

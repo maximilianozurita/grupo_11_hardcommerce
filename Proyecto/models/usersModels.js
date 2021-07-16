@@ -57,11 +57,10 @@ module.exports={
             }
             return user;
         });
-        
+
+        //Se elimina la imagen vieja en las carpetas
         users.forEach(user => {
             if(user.id==id && user.imagen!=data.imagen){
-                console.log(user.imagen)
-                console.log(data.imagen)
                 fs.unlinkSync(path.resolve(__dirname,"../public/") + user.imagen)
             }
         });

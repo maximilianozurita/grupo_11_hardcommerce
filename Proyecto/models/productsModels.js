@@ -57,6 +57,13 @@ module.exports={
                 }
             return product
         })
+        
+        //Se elimina la imagen vieja en las carpetas
+        products.forEach(product => {
+            if(product.id==id && product.imagen!=data.imagen){
+                fs.unlinkSync(path.resolve(__dirname,"../public/") + product.imagen)
+            }
+        });
 
         this.writeFile(newProducts);
     },

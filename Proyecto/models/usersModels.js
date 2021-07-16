@@ -71,14 +71,15 @@ module.exports={
         const users = this.readFile();
         
         const newUsers = users.filter(user => user.id != id);
+
         const deleteUser = users.find(user=>{
             if(user.id==id)
             {
                 return user;
             }
         })
-        fs.unlinkSync(path.resolve(__dirname,"../public/") + deleteUser.imagen
-        )
+        
+        fs.unlinkSync(path.resolve(__dirname,"../public/") + deleteUser.imagen)
         this.writeFile(newUsers);
     }
 

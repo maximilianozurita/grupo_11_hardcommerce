@@ -31,12 +31,14 @@
                             </div>
                            
                     </div>
-                    <div class="session-nav">
-                        <% if (locals.logged) { %>
-                           <%- include('header-auth') %> 
-                        <% } else {%>
-                           <%- include('header-guest') %> 
-                       <% }%>
+                    <div class="bottomBar">
+                        <ul>
+                                <% if (locals.logged) { %>
+                                   <%- include('nav-auth') %> 
+                                <% } else {%>
+                                   <%- include('nav-guest') %> 
+                               <% }%>
+                        </ul>    
                     </div>
                 </div>
         </div>

@@ -1,5 +1,5 @@
-module.exports={
-    sessionSecret:"ecommerce",
-    cookiesSecret: 'COOKIES',
-    maxAgeUserCookie: 1000 * 60 * 6
-};
+module.exports = {
+    sessionSecret: 'USUARIOS',
+    cookiesSecret: 'COOKIES USUARIOS',
+    maxAgeUserCookie: 1000 * 120 * 6
+}

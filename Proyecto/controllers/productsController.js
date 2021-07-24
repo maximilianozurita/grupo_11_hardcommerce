@@ -45,23 +45,11 @@ const productsController = {
             "image1": req.file.filename
         }
         const productCreated=productsModels.create(product);
-        /*
-            Product.create(product)
-            .then(productCreated)=>{
-                res.redirect("/products/")
-            }
-            //Tambien se puede hacer un create y mientras se crea se puede redirigir a home
-            Product.create(product)
-            
-            res.redirect("/products/")
-            
-        */
 
         res.redirect("/products/");
     },
     edit:(req,res)=>{
         const productToEdit=productsModels.findByPk(req.params.id);
-        
         res.render("products/productEdition",{productToEdit})
     },
     update: (req,res)=>{
@@ -69,12 +57,7 @@ const productsController = {
         const id=req.params.id;
         
         const productOriginal=productsModels.findByPk(id);
-        /*productsfindByPk(req.params.id)
-        //.then(productOriginal)=>{
-            toda la logica hecha antes
-        }
 
-        */
         let image=productOriginal.image1
 
         if(req.file){
@@ -89,11 +72,7 @@ const productsController = {
     destroy:(req,res)=>{
         const id=req.params.id;
         productsModels.destroy(id);
-        
-        /*product.destroy({where: {id}})
-        res.redirect("/products/");*/
-
-       res.redirect('/products/')
+        res.redirect("/products/");
     }
 }
 

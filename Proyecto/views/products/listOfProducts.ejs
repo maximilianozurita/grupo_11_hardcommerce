@@ -61,7 +61,7 @@
                                 <div>
                                     <a href="/products/detail/<%= products.id %>" class="producto__button-producto">
                                         <div class="producto__contenedor-imagen">
-                                            <img src="<%= products.image %>" alt="imagen-oferta" width="100%">
+                                            <img src="/images/imgProducts/<%= products.image1 %>" alt="imagen-oferta" width="100%">
                                         </div>
                                     </a>
                                 </div>
@@ -70,7 +70,7 @@
                                         <%= products.description  %>
                                     </p>
                                     <p class="producto__precio">
-                                        <%= products.precio %>
+                                        <%= products.price %>
                                     </p>
                                     <a href="/products/Cart" class="button-agregar">
                                         <div class="button-agregar__contenedor-imagen">

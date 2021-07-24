@@ -28,7 +28,7 @@ module.exports={
         const userFound = users.find(user => user.id == id);
         return userFound;
     },
-    findByField(field,value){
+    findByField(field, value) {
         const users = this.readFile();
         // Filtrar por el [field]
 
@@ -49,6 +49,7 @@ module.exports={
 
         const newUsers = users.map(user => {
             if(user.id == id){
+
                 user = {
                     id: user.id,
                     ...data
@@ -56,13 +57,29 @@ module.exports={
             }
             return user;
         });
+
+        //Se elimina la imagen vieja en las carpetas
+        users.forEach(user => {
+            if(user.id==id && user.imagen!=data.imagen){
+                fs.unlinkSync(path.resolve(__dirname,"../public/") + user.imagen)
+            }
+        });
+
         this.writeFile(newUsers);
     },
     destroy(id) {
         const users = this.readFile();
-
+        
         const newUsers = users.filter(user => user.id != id);
 
+        const deleteUser = users.find(user=>{
+            if(user.id==id)
+            {
+                return user;
+            }
+        })
+        
+        fs.unlinkSync(path.resolve(__dirname,"../public/") + deleteUser.imagen)
         this.writeFile(newUsers);
     }
 

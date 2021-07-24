@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <title>perfil</title>
+    <%- include('../partials/head') %>
+<body>
+    
+    <header><%- include('../partials/header') %></header>
+
+    <main class="profile">
+        BIENVENIDX! <u><%= locals.logged.name %>  <%= locals.logged.lastName %> </u><br/>
+
+        <img width="30%" src="<%= locals.logged.imagen %>">
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <%- include("../partials/footer") %>
+    </footer>
+
+
+</body>
+</html> 

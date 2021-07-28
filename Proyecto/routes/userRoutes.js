@@ -9,6 +9,7 @@ const { isFileImage } = require('../helpers/file');
 
 const validationLogin = require('../middlewares/validationLogin');
 const validationNewUser = require("../middlewares/validationNewUser");
+const validationUserEdition=require("../middlewares/validationUserEdition");
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 // destino donde guardar el archivo
@@ -75,6 +76,7 @@ userRoutes.get("/register", guestMiddleware,userController.formNew);
 userRoutes.post('/register', upload.single('image'),validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
+userRoutes.put('/:id', upload.single('imagen'),validationUserEdition, userController.update);
 
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('image'), userController.update);

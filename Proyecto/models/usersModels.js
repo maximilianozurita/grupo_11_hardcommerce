@@ -71,6 +71,7 @@ module.exports={
         const users = this.readFile();
         
         const newUsers = users.filter(user => user.id != id);
+
         const deleteUser = users.find(user=>{
             if(user.id==id)
             {

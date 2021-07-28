@@ -61,7 +61,7 @@ module.exports={
         //Se elimina la imagen vieja en las carpetas
         products.forEach(product => {
             if(product.id==id && product.image1!=data.image1){
-                fs.unlinkSync(path.join(__dirname,"../public/images/imgProducts/",  product.image1));
+                fs.unlinkSync(path.join(__dirname,"../public/images/imgProducts/", product.image1))
             }
         });
 
@@ -80,7 +80,8 @@ module.exports={
             }
         });
 
-        fs.unlinkSync(path.join(__dirname, '../public/images/imgProducts/', deletedProduct.image1)); 
+        fs.unlinkSync(path.join(__dirname, '../public/images/imgProducts/', deletedProduct.image1))
+    
         this.writeFile(newProducts);
     }
 

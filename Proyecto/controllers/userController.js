@@ -137,6 +137,20 @@ const userController = {
         const { id } = req.params;
         // el usuario original y su imagen
         const userOriginal = usersModels.findByPk(id);
+        
+        const userToEdit=userOriginal;
+        const formValidation = validationResult(req)
+        if (!formValidation.isEmpty()) {
+            // borrar imagen
+            if (req.file) {
+                // primero chequeamos que exista
+                fs.unlinkSync(req.file.path)
+            }
+            // tenemos errores
+            res.render('user/editUsers', {userToEdit, errors: formValidation.mapped() })
+            return
+        }
+
 
         // dentro de req.file va a venir la información del archivo
         const { file } = req
@@ -151,6 +165,16 @@ const userController = {
         }
 
         data.image = image
+
+        //Hashear password si fue ingresada
+        if(data.password){
+            const password=req.body.password
+            const hashPassword = bcrypt.hashSync(password)
+            data.password=hashPassword
+        }
+        else{
+            data.password=userOriginal.password
+        }
 
         usersModels.update(data, id);
         res.redirect('/user/');

@@ -2,19 +2,19 @@
   {
     "id": 1,
     "name": "usuario1",
-    "lastName": "usuario1",
+    "last_name": "usuario1",
     "email": "usuario1@gmail.com",
     "password": "usuario1",
     "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
+    "image": "/images/imgUser/user.png"
   },
   {
-    "name": "Isaac Jeremías",
-    "lastName": "menacho",
-    "email": "gab.menacho@gmail.com",
-    "password": "$2a$10$oio5wmMjPb2PtjBgBRvmsuBUPERr3ocptI2HKl9.tcJhoylRnnTlO",
-    "cell": "1231412312",
-    "imagen": "/images/imgUser/1626461012777.png",
+    "name": "nueva",
+    "last_name": "cuenta",
+    "email": "nv@gmail.com",
+    "password": "$2a$10$ToYPs0nA7W4kKpxB58NbbeLdoAiMg7mUAuk.AudaZlsl30WKMiDL6",
+    "cell": "1139341085",
+    "image": "/images/imgUser/1627477603915.png",
     "id": 2
   }
 ]

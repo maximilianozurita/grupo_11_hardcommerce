@@ -5,7 +5,8 @@ const usersModels=require("../models/usersModels");
 const fs = require("fs");
 const bcrypt = require('bcryptjs');
 const { maxAgeUserCookie } = require('../config/config');
-//const { user } = require("../database/models");
+const { User } = require("../database/models");
+
 
 
 const userController = {
@@ -57,13 +58,27 @@ const userController = {
         res.redirect('/')
     },
     listOfUsers: (req, res) =>{
-        const usersList = usersModels.findAll()
-        res.render('user/listOfUsers',{ usersList })
+        
+        
+        User.findAll({
+            order: [
+                ['name', 'ASC'],
+            ],
+        })
+            .then(usersList => {
+                
+                res.render('user/listOfUsers',{ usersList })
+        
+            })
     },
     detail: (req, res) => {
         const { id } = req.params
-        const userDetail = usersModels.findByPk(id)
-        res.render('user/userDetail', { userDetail })
+        //const userDetail = usersModels.findByPk(id)
+        User.findByPk(id)
+            .then(userDetail =>{
+                res.render('user/userDetail', { userDetail })
+            })
+        
     },
     formNew: (req, res) => {
         res.render('user/register');
@@ -88,10 +103,10 @@ const userController = {
         } 
 
 
-        const {name, lastName, email, password, cell} = req.body;
+        const {name, last_name, email, password, cell} = req.body;
         
         const { file } = req;
-        const imagen = file.filename;
+        const image = file.filename;
         
         // hashear el password
         const hashPassword = bcrypt.hashSync(password)
@@ -99,18 +114,19 @@ const userController = {
         const user = 
         {
             name:name,
-            lastName:lastName,
+            last_name:last_name,
             email:email,
             password:hashPassword,
             cell:cell,
-            imagen: "/images/imgUser/" + imagen,
+            image: "/images/imgUser/" + image,
         }
-        usersModels.create(user);
-        res.redirect('/user/');
-       /* user.create({userr})
-        .then((userFound)=>{
-            res.redirect('/user/')
-        })*/
+        /*usersModels.create(user);
+        res.redirect('/user/');*/ 
+
+        User.create(user)
+        .then((userCreated) => {
+            res.redirect('/user/userDetail/' + userCreated.id);
+        })
     },
     edit: (req, res) => {
         const userToEdit = usersModels.findByPk(req.params.id);
@@ -127,14 +143,14 @@ const userController = {
 
         /* Si viene una imagen nueva, cargar la imagen nueva
         sino poner la original */
-        let imagen = userOriginal.imagen
+        let image = userOriginal.image
 
         if (file) {
-            imagen = '/images/imgUser/' + file.filename
+            image = '/images/imgUser/' + file.filename
 
         }
 
-        data.imagen = imagen
+        data.image = image
 
         usersModels.update(data, id);
         res.redirect('/user/');

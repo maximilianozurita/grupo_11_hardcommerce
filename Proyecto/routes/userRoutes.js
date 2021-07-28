@@ -72,12 +72,12 @@ userRoutes.get('/userDetail/:id', userController.detail);
 userRoutes.get("/register", guestMiddleware,userController.formNew);
 //userRoutes.post('/register', userController.store);
 // aca deberíamos pasar multer
-userRoutes.post('/register', upload.single('imagen'),validationNewUser, userController.store);
+userRoutes.post('/register', upload.single('image'),validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
 
 //userRoutes.put('/:id', userController.update);
-userRoutes.put('/:id', upload.single('imagen'), userController.update);
+userRoutes.put('/:id', upload.single('image'), userController.update);
 userRoutes.delete("/:id", userController.destroy);
 
 userRoutes.get('/profile', authMiddleware, userController.profile);

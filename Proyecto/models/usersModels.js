@@ -60,8 +60,8 @@ module.exports={
 
         //Se elimina la imagen vieja en las carpetas
         users.forEach(user => {
-            if(user.id==id && user.imagen!=data.imagen){
-                fs.unlinkSync(path.resolve(__dirname,"../public/") + user.imagen)
+            if(user.id==id && user.image!=data.image){
+                fs.unlinkSync(path.resolve(__dirname,"../public/") + user.image)
             }
         });
 
@@ -77,7 +77,7 @@ module.exports={
                 return user;
             }
         })
-        fs.unlinkSync(path.resolve(__dirname,"../public/") + deleteUser.imagen
+        fs.unlinkSync(path.resolve(__dirname,"../public/") + deleteUser.image
         )
         this.writeFile(newUsers);
     }

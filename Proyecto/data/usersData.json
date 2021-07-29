@@ -2,28 +2,19 @@
   {
     "id": 1,
     "name": "usuario1",
-    "lastName": "usuario1",
+    "last_name": "usuario1",
     "email": "usuario1@gmail.com",
     "password": "usuario1",
     "cell": "1122334455",
-    "imagen": "/images/imgUser/user.png"
+    "image": "/images/imgUser/user.png"
   },
   {
-    "id": 2,
-    "name": "max",
-    "lastName": "zurita",
-    "email": "maxi@gmail.com",
-    "password": "$2a$10$9xDTcE71fGsjLFC1OiyVkeqBvI/.a0QSQB443pJAag25B0DrueWDK",
-    "cell": "12345",
-    "imagen": "/images/imgUser/1626473799002.png"
-  },
-  {
-    "id": 3,
-    "name": "2312",
-    "lastName": "zurita",
-    "email": "max@gmail.com",
-    "cell": "1234",
-    "password": "$2a$10$2Z1forhzjzYHZuSE9R6o8O0vwRQUNNbWMW9qimhUMGMcyjzQq.5RG",
-    "imagen": "/images/imgUser/1626480574084.png"
+    "name": "nueva",
+    "last_name": "cuenta",
+    "email": "nv@gmail.com",
+    "password": "$2a$10$ToYPs0nA7W4kKpxB58NbbeLdoAiMg7mUAuk.AudaZlsl30WKMiDL6",
+    "cell": "1139341085",
+    "image": "/images/imgUser/1627477603915.png",
+    "id": 2
   }
 ]

@@ -1,13 +1,6 @@
-14/07
+SPRINT 10/08/21:
 
-*Mergeamos master con rama.
-*Modificamos ejs de userEdit agregando valores del usuario
-*Modificamos página ver todo ruteando las imágenes
-*Actualizamos trello
-
-*Eliminar imagen al modificar el perfil
-
-15/07
-*Profile terminado
-*usersEdit fixeado
-
+28/07/21: 
+-Se actualizo tablas SQL.
+-Se actualizo trello con tareas pendientes. 
+-Se solucionaron errores de sequelize.

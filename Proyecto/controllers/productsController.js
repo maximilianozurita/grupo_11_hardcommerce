@@ -1,22 +1,31 @@
 const { validationResult } = require('express-validator');
 const path = require('path')
-const productsModels=require ("../models/productsModels")
+const {Product}=require("../database/models")
 const fs=require("fs")
+const { Op } = require('sequelize');
 
 const productsController = {
     listOfProducts: (req, res) => {
-        const productList = productsModels.findAll();
-        //res.sendFile(path.resolve('views/products/listaDeArticulos.html'))
-        res.render('products/listOfProducts',{productList});
+        Product.findAll()
+            .then(productList=>{
+                res.render('products/listOfProducts',{productList})
+            })
+        
     },
     detail: (req, res) => {
-        res.render('products/productsDetail')
+        const {id}=req.params
+
+        const productToEdit=Product.findByPk(id)
+
+        res.render('products/productsDetail',{productToEdit});
     },
     cart: (req,res)=>{
+        //Agregar tabla de carrito de compras. Ver si agregar aca o en un modelo nuevo.
+
         res.render('products/productsCart')
     },
-    products:(req, res) => {
-        const productList=productsModels.findAll()
+    products:async (req, res) => {
+        const productList = await Product.findAll();
         res.render('products/products',{productList})
     },
     formNew: (req,res)=>{
@@ -48,15 +57,15 @@ const productsController = {
 
         res.redirect("/products/");
     },
-    edit:(req,res)=>{
-        const productToEdit=productsModels.findByPk(req.params.id);
+    edit:async (req,res)=>{
+        const productToEdit= await productsModels.findByPk(req.params.id);
         res.render("products/productEdition",{productToEdit})
     },
-    update: (req,res)=>{
+    update: async (req,res)=>{
         const data=req.body;
         const id=req.params.id;
         
-        const productOriginal=productsModels.findByPk(id);
+        const productOriginal= await productsModels.findByPk(id);
 
         let image=productOriginal.image1
 

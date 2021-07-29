@@ -45,7 +45,7 @@ const validationNewUser = [
         .withMessage('Por favor ingrese su numero de celular correctamente')
         .isNumeric()
         .withMessage('Ingrese el numero de su celular'),
-    body('imagen')
+    body('image')
         .custom((value, { req }) => {
             const { file } = req
 

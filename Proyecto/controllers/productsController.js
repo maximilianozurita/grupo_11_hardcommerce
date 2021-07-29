@@ -44,7 +44,8 @@ const productsController = {
             return
         }
 
-        const product={
+        //Modificar formularios.
+        const productToCreate={
             
             "name": req.body.name,
             "description": req.body.description,
@@ -53,9 +54,10 @@ const productsController = {
             "cuotas": req.body.cuotas,
             "image1": req.file.filename
         }
-        const productCreated=productsModels.create(product);
-
-        res.redirect("/products/");
+        Product.create(productToCreate)
+        .then(result=>{
+            res.redirect("/products/");
+        })
     },
     edit:async (req,res)=>{
         const productToEdit= await productsModels.findByPk(req.params.id);

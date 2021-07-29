@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         sales: {
             type: DataTypes.STRING
         },
-        brands_id: {
+        brand_id: {
             type: DataTypes.STRING
         },
     }

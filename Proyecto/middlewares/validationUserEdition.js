@@ -41,7 +41,7 @@ const validationUserEdition = [
         .withMessage('Por favor ingrese su numero de celular correctamente')
         .bail(),
         
-    body('imagen')
+    body('image')
         .custom((value, { req }) => {
             const { file } = req
             if(file){

@@ -76,7 +76,7 @@ userRoutes.get("/register", guestMiddleware,userController.formNew);
 userRoutes.post('/register', upload.single('image'),validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
-userRoutes.put('/:id', upload.single('imagen'),validationUserEdition, userController.update);
+userRoutes.put('/:id', upload.single('image'),validationUserEdition, userController.update);
 
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('image'), userController.update);

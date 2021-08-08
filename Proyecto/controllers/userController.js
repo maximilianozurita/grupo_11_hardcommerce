@@ -142,7 +142,7 @@ const userController = {
         User.findByPk(id)
         .then(userOriginal=>{
             const userToEdit=userOriginal;
-            const formValidation = validationResult(req)
+            const formValidation = validationResult(req);
             if (!formValidation.isEmpty()) {
                 // borrar imagen
                 if (req.file) {
@@ -153,8 +153,6 @@ const userController = {
                 res.render('user/editUsers', {userToEdit, errors: formValidation.mapped() })
                 return
             }
-    
-    
             // dentro de req.file va a venir la información del archivo
             const { file } = req
     
@@ -178,6 +176,9 @@ const userController = {
             }
             else{
                 data.password=userOriginal.password
+            }
+            if(data.email===""){
+                data.email=userToEdit.email
             }
             
             const propertiesToEdit = {

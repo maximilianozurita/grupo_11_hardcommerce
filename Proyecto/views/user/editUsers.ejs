@@ -36,7 +36,7 @@
 
                 <div class="input-container">
                     <label for="email">Ingrese email</label>
-                    <input type="text" name="email" id="email" value= "<%= userToEdit.email %>" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"/> 
+                    <input placeholder="<%= userToEdit.email %>" type="text" name="email" id="email"  class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"/> 
                 
                     <% if (locals.errors && errors.email) { %>
                         <p class='msg-error'><%= errors.email.msg %></p>

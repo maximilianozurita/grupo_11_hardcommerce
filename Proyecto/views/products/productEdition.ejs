@@ -69,11 +69,10 @@
                 <input type="text" size="5" id="stock" name="stock" required pattern="[0-9]+" required value="<%= productToEdit.stock %>"/>
              </div>
             <div class="input-container">
-                <label for="photo">Imagen principal</label>
-                <% productToEdit.images.forEach(image => {%> 
-                    <img src="<%= image.url %>"  class="product__image" >
-                    <input value=1 type="file" name="productImage" multiple />
-                <% }) %>
+                <label for="photo">Imagenes</label>
+                <% for(let i=0;i<5;i++){%>
+                    <input type="file" name="productImage"/>
+                <%}%>
            </div>
            <div class="input-container">
                 <button type="submit">ENVIAR</button>

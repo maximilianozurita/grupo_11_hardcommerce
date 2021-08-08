@@ -109,11 +109,11 @@ const productsController = {
         res.render("products/productEdition",{productToEdit,categorys,brandToLoad})
     },
     update: async (req,res)=>{
-        const id=req.params.id;
+        const idParams=req.params.id;
         arrayFiles=req.files
-        const productOriginal= await Product.findByPk(id);
+        const productOriginal= await Product.findByPk(idParams);
         const imagesOriginal= await ImageProduct.findAll({
-            where: {product_id: id}
+            where: {product_id: idParams}
         })
 
         await Product.update({
@@ -126,36 +126,100 @@ const productsController = {
             "quota": req.body.quota,
             "stock": req.body.stock,},
             {
-                where: {id: req.params.id}
+                where: {id: idParams}
             })
         
-        let image=imagesOriginal
 
-        if(arrayFiles){           
-            for (let i=0; i<arrayFiles.length;i++){
-                image[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+        if(arrayFiles){
+
+            imagesOriginal.forEach(image => {
+                fs.unlinkSync(path.join(__dirname,"../public/", image.url))
+            });
+
+            await ImageProduct.destroy({
+                where: {product_id: idParams}
+            })
+
+            
+
+            arrayFiles.forEach(async file => {
+                const imageCreated={
+                    "url": "/images/imgProducts/" + file.filename,
+                    "product_id": idParams
+                }
+                await ImageProduct.create(imageCreated)
+            });
+
+            /*if (arrayFiles.length>imagesOriginal.length){
+                for(let i=0; i<imagesOriginal.length;i++){
+                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+                }
+                for(let i=imagesOriginal.length;i<arrayFiles.length;i++){
+                    const newImages={
+                        "url": "/images/imgProducts/" + arrayFiles[i].filename,
+                        "product_id": idParams
+                    }
+                    imagesOriginal[i].push(newImages)
+                }
+            }
+            
+            if (arrayFiles.length<=imagesOriginal.length){
+                for(let i=0; i<imagesOriginal.length;i++){
+                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+                }
             }
         }
         
-        for(let i=0;i<arrayFiles.length;i++){
-            await ImageProduct.update({
-                "url": image[i].url},
+        No funciona UPSERT
+        imagesOriginal.forEach(async image => {
+            await ImageProduct.Upsert({
+                "url": image.url,
+                "product_id": image.product_id},
             {
-                where: {product_id: id}
+                where: {id: image.id}
             })
-        }
-
+        })
+        
+        imagesOriginal.forEach(async image => {
+            const foundItem = await ImageProduct.findOne({where: {id: image.id}});
+            if (foundItem) {
+                await ImageProduct.update(
+                    {
+                        "url": image.url,
+                        "product_id": image.product_id}, 
+                    {
+                        where: {id: image.id}
+                    })
+            }
+            else{
+                await ImageProduct.create(
+                    {
+                        "url": image.url,
+                        "product_id": image.product_id 
+                    } 
+                )
+            }
+        })*/
+    }
         res.redirect("/products/");
     },
     destroy:async (req,res)=>{
-        const id=req.params.id;
+        const idParams=req.params.id;
+
+        const imagesOriginal= await ImageProduct.findAll({
+            where: {product_id: idParams}
+        })
+        imagesOriginal.forEach(image => {
+            fs.unlinkSync(path.join(__dirname,"../public/", image.url))
+        });
+
 
         await ImageProduct.destroy({
-            where: {product_id: id}
+            where: {product_id: idParams}
         })
 
         await Product.destroy({
-            where:{ id }
+            where:{ id: idParams }
         })
 
         res.redirect("/products/");

@@ -3,6 +3,7 @@ const path = require('path')
 const {Product, ImageProduct, Category, Brand}=require("../database/models/")
 const fs=require("fs")
 const { Op, where } = require('sequelize');
+const { isArray } = require('util');
 
 const productsController = {
     listOfProducts: async (req, res) => {
@@ -51,7 +52,12 @@ const productsController = {
     },
     store: async (req,res)=>{
         const formValidation=validationResult(req)
-        arrayFiles=req.files
+        const arrayFiles=req.files
+
+        if(req.file){
+            arrayFiles.push(req.file)
+        }
+
         
         if(!formValidation.isEmpty()){
             //Borrar imagen
@@ -91,8 +97,7 @@ const productsController = {
             }
             await ImageProduct.create(imageCreated)
         });
-       
-        res.redirect("/products/");
+        res.redirect("/products/")
 
     },
     edit:async (req,res)=>{
@@ -110,7 +115,12 @@ const productsController = {
     },
     update: async (req,res)=>{
         const idParams=req.params.id;
-        arrayFiles=req.files
+        const arrayFiles=req.files
+
+        if(req.file){
+            arrayFiles.push(req.file)
+        }
+
         const productOriginal= await Product.findByPk(idParams);
         const imagesOriginal= await ImageProduct.findAll({
             where: {product_id: idParams}

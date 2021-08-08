@@ -79,7 +79,7 @@
                          <div class="input-container">
                             <label for="photo">Ingrese hasta 5 archivos</label>
                             <% for(let i=0;i<5;i++){%>
-                                <input type="file" name="productImage"/>
+                                <input type="file" name="productImage" multiple/>
                             <%}%>
                             </div>
                          <p class="msg-error"><%=locals.errors && errors.image? errors.image.msg: "" %></p>

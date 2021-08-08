@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const path = require('path')
 const {Product, ImageProduct, Category, Brand}=require("../database/models/")
 const fs=require("fs")
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 
 const productsController = {
     listOfProducts: async (req, res) => {
@@ -110,18 +110,11 @@ const productsController = {
     },
     update: async (req,res)=>{
         const id=req.params.id;
-        
+        arrayFiles=req.files
         const productOriginal= await Product.findByPk(id);
-        const imageOriginal= await ImageProduct.findAll({
+        const imagesOriginal= await ImageProduct.findAll({
             where: {product_id: id}
         })
-
-        let image=imageOriginal[0];
-
-        if(req.file){
-            image.url= "/images/imgProducts/" + req.file.filename
-        }
-
 
         await Product.update({
             "name": req.body.name,
@@ -131,13 +124,26 @@ const productsController = {
             "brand_id":req.body.brand,
             "price": req.body.price,
             "quota": req.body.quota,
-            "stock": req.body.stock,
-        })
+            "stock": req.body.stock,},
+            {
+                where: {id: req.params.id}
+            })
+        
+        let image=imagesOriginal
 
-        await ImageProduct.update({
-            "url": "/images/imgProducts/" + req.file.filename,
-            "product_id": id
-        })
+        if(arrayFiles){           
+            for (let i=0; i<arrayFiles.length;i++){
+                image[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+            }
+        }
+        
+        for(let i=0;i<arrayFiles.length;i++){
+            await ImageProduct.update({
+                "url": image[i].url},
+            {
+                where: {product_id: id}
+            })
+        }
 
         res.redirect("/products/");
     },

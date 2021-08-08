@@ -70,8 +70,10 @@
              </div>
             <div class="input-container">
                 <label for="photo">Imagen principal</label>
-                <img src="<%= productToEdit.images[0].url %>"  class="product__image">
-                <input type="file" name="productImage"/>
+                <% productToEdit.images.forEach(image => {%> 
+                    <img src="<%= image.url %>"  class="product__image" >
+                    <input value=1 type="file" name="productImage" multiple />
+                <% }) %>
            </div>
            <div class="input-container">
                 <button type="submit">ENVIAR</button>

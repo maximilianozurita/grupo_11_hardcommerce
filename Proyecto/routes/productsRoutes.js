@@ -57,7 +57,7 @@ productsRoutes.post("/productCreate",upload.array("productImage", 5),validationN
 
 //Update
 productsRoutes.get("/productEdition/:id", productsController.edit)
-productsRoutes.put("/productEdition/:id",upload.single("productImage"), productsController.update)
+productsRoutes.put("/productEdition/:id",upload.array("productImage"), productsController.update)
 
 productsRoutes.delete("/:id", productsController.destroy)
 

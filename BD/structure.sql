@@ -11,11 +11,6 @@ CREATE TABLE users(id INT(10) NOT NULL AUTO_INCREMENT,
 CREATE TABLE categorys(id INT(10) NOT NULL AUTO_INCREMENT,
 	info VARCHAR(30),
     PRIMARY KEY(id));
-    
-CREATE TABLE image_products(id INT(10) NOT NULL AUTO_INCREMENT,
-	url VARCHAR(30),
-    product_id INT(10),
-    PRIMARY KEY(id));
 
 CREATE TABLE brands(id INT(10) NOT NULL AUTO_INCREMENT,
 	name VARCHAR(30),
@@ -27,15 +22,19 @@ CREATE TABLE products(id INT(10) NOT NULL AUTO_INCREMENT,
     category_id INT(10),
     price INT(10),
     quota INT(10),
-    image_id INT(10),
     short_description VARCHAR(30),
     stock INT(10),
     sales INT(10),
-    brand_id INT(10),
+    brand_id INT (30),
     PRIMARY KEY(id),
     FOREIGN KEY(category_id) references categorys(id),
-    FOREIGN KEY(image_id) references image_products(id),
-    FOREIGN KEY(brand_id) references brands(id));
+    FOREIGN KEY (brand_id) references brands (id));
+    
+    CREATE TABLE image_products(id INT(10) NOT NULL AUTO_INCREMENT,
+	url VARCHAR(60),
+    product_id INT(10),
+    PRIMARY KEY(id),
+    FOREIGN KEY(product_id) references products(id));
     
 CREATE TABLE order_items(id INT(10) NOT NULL AUTO_INCREMENT,
 	user_id INT(10),
@@ -52,4 +51,6 @@ CREATE TABLE orders(id INT(10) NOT NULL AUTO_INCREMENT,
     sum INT(10),
     PRIMARY KEY(id),
     FOREIGN KEY(user_id) references users(id));
+    
+
     

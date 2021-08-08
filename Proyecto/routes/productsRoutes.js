@@ -26,7 +26,7 @@ const fileFilter = (req, file, cb)  => {
 
     if (!isFileImage(file.originalname)) {
         //Para que llegue a express-validator el archivo
-        req.file = file
+        req.file=file
 
         cb(null, false)
 
@@ -53,7 +53,7 @@ productsRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
 
 //Create:
 productsRoutes.get("/productCreate", productsController.formNew) //-->> Pagina de creacion.
-productsRoutes.post("/productCreate",upload.single("productImage"),validationNewProduct , productsController.store)
+productsRoutes.post("/productCreate",upload.array("productImage", 5),validationNewProduct , productsController.store)
 
 //Update
 productsRoutes.get("/productEdition/:id", productsController.edit)

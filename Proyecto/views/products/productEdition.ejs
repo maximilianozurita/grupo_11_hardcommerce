@@ -19,46 +19,58 @@
                 <label for="nombre">Nombre</label>
                 <input placeholder="Nombre del producto" name="name" id="name" required value="<%= productToEdit.name%>">
             </div>
+            <div class="input-container">
+                <label for="product_description">Descripción del producto:</label>
+                <textarea name="product_description" id="product_description"><%=productToEdit.product_description%></textarea>
+            </div>
 
            <div class="input-container">
-                <label for="descripcion">Descripción del producto:</label>
-                <textarea name="description" id="descripcion"><%=productToEdit.description%></textarea>
+                <label for="short_description">Descripción corta del producto:</label>
+                <textarea name="short_description" id="short_description"><%=productToEdit.short_description%></textarea>
            </div>
            
            <div class="input-container">
                 <label for="category">Categoria del producto</label> 
                 <select class="category" id="category" name="category">
-                   <option value="<%= productToEdit.category%>" selected="selected"><%= productToEdit.category%></option>
-                   <option value="Discos Mecanicos">Discos mecanicos</option>
-                   <option value="Procesadores">Procesadores</option>
-                   <option value="Motherboards">Motherboards</option>
-                   <option value="Monitors">Monitors</option>
-                   <option value="SSD">SSD</option>
-                   <option value="placa De Video">Placa de video</option>
-                   <option value="MemoriasRam">Memorias ram</option>
-                   <option value="Perifericos">Perifericos</option>
+                   <option value="<%= productToEdit.category.id%>" selected="selected"><%= productToEdit.category.info%></option>
+                   <%categorys.forEach(category => { %>
+                       <option value=" <%= category.id%> " > <%= category.info%> </option>
+                   <%})%>
                </select>
            </div>
-
            <div class="input-container">
-               <label for="precio">Precio</label>
-               <input type="text" size="5" id="precio" name="price" required pattern="[0-9]+" required value="<%= productToEdit.price %>"/>
+            <label for="brand">Categoria del producto</label> 
+            <select class="brand" id="brand" name="brand">
+               <option value="<%= productToEdit.category.id%>" selected="selected"><%= productToEdit.category.info%></option>
+               <%categorys.forEach(category => { %>
+                   <option value=" <%= brandToLoad.id%> " > <%= brandToLoad.name%> </option>
+               <%})%>
+           </select>
+       </div>
+
+            <div class="input-container">
+               <label for="price">Precio</label>
+               <input type="text" size="5" id="price" name="price" required pattern="[0-9]+" required value="<%= productToEdit.price %>"/>
             </div>
 
             <div>
-               <label for="cuotas">Cuotas</label>
-               <select id="cuotas" name="cuotas">
-                <option value="<%= productToEdit.cuotas%>" selected="selected"><%= productToEdit.cuotas%></option>
+               <label for="quota">Cuotas</label>
+               <select id="quota" name="quota">
+                <option value="<%= productToEdit.quota%>" selected="selected"><%= productToEdit.quota%></option>
                    <option value="0">0</option>
                    <option value="3">3</option>
                    <option value="6">6</option>
                    <option value="9">9</option>
-                   <option value="12">12</option>
+                   <option value="12">12</option> 
                </select>                       
             </div>
             <div class="input-container">
+                <label for="stock">stock</label>
+                <input type="text" size="5" id="stock" name="stock" required pattern="[0-9]+" required value="<%= productToEdit.stock %>"/>
+             </div>
+            <div class="input-container">
                 <label for="photo">Imagen principal</label>
-                <img src="/images/imgProducts/<%= productToEdit.image1 %>"  class="product__image">
+                <img src="<%= productToEdit.images[0].url %>"  class="product__image">
                 <input type="file" name="productImage"/>
            </div>
            <div class="input-container">

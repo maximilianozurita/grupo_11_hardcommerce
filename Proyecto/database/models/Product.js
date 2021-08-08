@@ -8,12 +8,15 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
         }, 
         name: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         product_description: {
             type: DataTypes.STRING,
         },
         category_id: {
+            type: DataTypes.INTEGER,
+        },
+        brand_id: {
             type: DataTypes.INTEGER,
         },
         price: {
@@ -22,21 +25,15 @@ module.exports = (sequelize, DataTypes) => {
         quota: {
             type: DataTypes.INTEGER,
         },
-        image_id: {
-            type: DataTypes.INTEGER,
-        },
         short_description: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         stock: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         sales: {
-            type: DataTypes.STRING
-        },
-        brand_id: {
-            type: DataTypes.STRING
-        },
+            type: DataTypes.STRING,
+        }
     }
     
     const config = {
@@ -47,5 +44,22 @@ module.exports = (sequelize, DataTypes) => {
     
     const ProductModel = sequelize.define(alias, cols, config)
 
+    ProductModel.associate=models=>{
+        ProductModel.hasMany(models.ImageProduct,{ //1 a muchos
+            as: "images",
+            foreignKey: "product_id"
+        })
+
+        ProductModel.belongsTo(models.Category,{
+            as: "category",
+            foreignKey: "category_id"
+        })
+        
+        ProductModel.belongsTo(models.Brand,{
+            as: 'brand',
+            foreignKey: 'brand_id',
+        })
+
+    }
     return ProductModel
 };

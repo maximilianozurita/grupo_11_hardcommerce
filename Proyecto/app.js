@@ -2,7 +2,7 @@ const express=require('express');
 const app=express();
 //const path=require('path');
 const method = require('method-override');
-const productModels=require ("./models/productsModels");
+const {Product}=require("./database/models/")
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
@@ -52,9 +52,16 @@ app.use(express.static('public'));
 //app.get ("/productDetail",(req,res)=>{res.sendFile(path.resolve(__dirname, "./views/productDetail.html"))})
 
 //Render del HOME
-app.get('/', (req, res) => {
-    const productList=productModels.findAll();
-    res.render('main/index',{productList});
+app.get('/', async(req, res) => {
+
+    const productList=await Product.findAll({
+        include:[
+            {association: 'images'},
+            {association: 'category'},
+            {association: 'brand'}
+        ]
+    })
+    res.render('main/index',{productList})
 });
 
 //Render de productos

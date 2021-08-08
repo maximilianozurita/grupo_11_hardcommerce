@@ -8,7 +8,10 @@ body("name")
     .notEmpty()
     .withMessage("Por favor ingrese un nombre de producto"),
 
-body("description")
+body("product_description")
+    .notEmpty()
+    .withMessage("Por favor ingrese una descripción de producto"),
+body("short_description")
     .notEmpty()
     .withMessage("Por favor ingrese una descripción de producto"),
 
@@ -24,23 +27,29 @@ body("price")
     .isNumeric()
     .withMessage("Ingrese un valor numerico"),
 
-body("cuotas")
+body("quota")
     .notEmpty()
     .withMessage("Por favor ingrese cantidad de cuotas"),
-
-body('image')
+body("brand")
+    .notEmpty()
+    .withMessage("Por favor ingrese la marca"),
+    
+body('productImage')
 
     .custom((value, { req }) => {
-        const { file } = req
- 
-        if (!file) {
+        const files = req.files
+        
+        if (!files) {
             // esto es como si hicieramos .withMessage('Seleccione un archivo')
             throw new Error('Por favor ingrese una imagen')
         }
-        if (!isFileImage(file.originalname)) {
+        files.forEach(file => {
+            if (!isFileImage(file.originalname)) {
+    
+                throw new Error('Por favor ingrese una archivo que sea una imagen')
+            }
+        });
 
-            throw new Error('Por favor ingrese una archivo que sea una imagen')
-        }
         return true
     })
 

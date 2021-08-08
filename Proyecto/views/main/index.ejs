@@ -35,10 +35,10 @@
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
-                                    <img src="/images/imgProducts/<%= productList[i].image1 %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                    <img src="<%= productList[i].images[0].url %> %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= productList[i].description  %> 
+                                    <%= productList[i].product_description  %> 
                                 </p>
                                 <p class="producto__precio">
                                     $<%= productList[i].price %>
@@ -95,10 +95,10 @@
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
-                                    <img src="/images/imgProducts/<%= productList[i].image1 %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                    <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= productList[i].description  %> 
+                                    <%= productList[i].product_description  %> 
                                 </p>
                                 <p class="producto__precio">
                                     $<%= productList[i].price %>

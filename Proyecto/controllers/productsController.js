@@ -1,21 +1,29 @@
 const { validationResult } = require('express-validator');
 const path = require('path')
-const {Product}=require("../database/models")
+const {Product, ImageProduct, Category, Brand}=require("../database/models/")
 const fs=require("fs")
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
+const { isArray } = require('util');
 
 const productsController = {
-    listOfProducts: (req, res) => {
-        Product.findAll()
-            .then(productList=>{
-                res.render('products/listOfProducts',{productList})
-            })
+    listOfProducts: async (req, res) => {
+        const productList= await Product.findAll()
+
+        res.render('products/listOfProducts',{productList})
         
     },
-    detail: (req, res) => {
+    detail: async (req, res) => {
         const {id}=req.params
 
-        const productToEdit=Product.findByPk(id)
+        const productToEdit= await Product.findByPk(id,{
+            include:[
+                {association: 'images'},
+                {association: 'category'},
+                {association: 'brand'}
+            ]
+        })
+
+        //linkear detalles de producto en ejs
 
         res.render('products/productsDetail',{productToEdit});
     },
@@ -25,65 +33,207 @@ const productsController = {
         res.render('products/productsCart')
     },
     products:async (req, res) => {
-        const productList = await Product.findAll();
+        const productList = await Product.findAll({
+            include:[
+                {association: 'images'},
+                {association: 'category'},
+                {association: 'brand'}
+            ]
+        });
+        //res.json(productList)
         res.render('products/products',{productList})
     },
-    formNew: (req,res)=>{
-        res.render("products/productCreate")
-    },
-    store: (req,res)=>{
-        const formValidation=validationResult(req)
+    formNew: async (req,res)=>{
+        
+        const brandToLoad= await Brand.findAll()
+        const categoryToLoad= await Category.findAll()
 
+        res.render("products/productCreate",{brandToLoad,categoryToLoad})
+    },
+    store: async (req,res)=>{
+        const formValidation=validationResult(req)
+        const arrayFiles=req.files
+
+        if(req.file){
+            arrayFiles.push(req.file)
+        }
+
+        
         if(!formValidation.isEmpty()){
             //Borrar imagen
-            if(req.file){
-                fs.unlinkSync(req.file.path)
-            }
+            arrayFiles.forEach(file => {
+                if(file){
+                    fs.unlinkSync(file.path)
+                }   
+            });
             const oldValues=req.body;
-            res.render("products/productCreate",{oldValues,errors:formValidation.mapped()})
+            const brandToLoad= await Brand.findAll()
+            const categoryToLoad= await Category.findAll()
+            res.render("products/productCreate",{brandToLoad,categoryToLoad,oldValues,errors:formValidation.mapped()})
             return
         }
+
 
         //Modificar formularios.
         const productToCreate={
             
             "name": req.body.name,
-            "description": req.body.description,
-            "category": req.body.category,
+            "product_description": req.body.product_description,
+            "category_id": req.body.category,
+            "brand_id": req.body.brand,
             "price": req.body.price,
-            "cuotas": req.body.cuotas,
-            "image1": req.file.filename
+            "quota": req.body.quota,
+            "short_description": req.body.short_description,
+            "stock": req.body.stock,
+            "sales": 0,
         }
-        Product.create(productToCreate)
-        .then(result=>{
-            res.redirect("/products/");
-        })
+        
+        const productCreated=await Product.create(productToCreate)
+
+        arrayFiles.forEach(async file => {
+            const imageCreated={
+                "url": "/images/imgProducts/" + file.filename,
+                "product_id": productCreated.id
+            }
+            await ImageProduct.create(imageCreated)
+        });
+        res.redirect("/products/")
+
     },
     edit:async (req,res)=>{
-        const productToEdit= await productsModels.findByPk(req.params.id);
-        res.render("products/productEdition",{productToEdit})
+        const productToEdit= await Product.findByPk(req.params.id,
+            {
+                include:[
+                    {association: 'images'},
+                    {association: 'category'},
+                    {association: 'brand'}
+                ]
+            });
+        const categorys=await Category.findAll()
+        const brandToLoad=await Brand.findAll()
+        res.render("products/productEdition",{productToEdit,categorys,brandToLoad})
     },
     update: async (req,res)=>{
-        const data=req.body;
-        const id=req.params.id;
-        
-        const productOriginal= await productsModels.findByPk(id);
-
-        let image=productOriginal.image1
+        const idParams=req.params.id;
+        const arrayFiles=req.files
 
         if(req.file){
-            image= req.file.filename;
+            arrayFiles.push(req.file)
         }
 
-        data.image1=image;
+        const productOriginal= await Product.findByPk(idParams);
+        const imagesOriginal= await ImageProduct.findAll({
+            where: {product_id: idParams}
+        })
 
-        productsModels.update(data,id);
+        await Product.update({
+            "name": req.body.name,
+            "product_description": req.body.product_description,
+            "short_description": req.body.short_description,
+            "category_id": req.body.category,
+            "brand_id":req.body.brand,
+            "price": req.body.price,
+            "quota": req.body.quota,
+            "stock": req.body.stock,},
+            {
+                where: {id: idParams}
+            })
+        
+
+        if(arrayFiles){
+
+            imagesOriginal.forEach(image => {
+                fs.unlinkSync(path.join(__dirname,"../public/", image.url))
+            });
+
+            await ImageProduct.destroy({
+                where: {product_id: idParams}
+            })
+
+            
+
+            arrayFiles.forEach(async file => {
+                const imageCreated={
+                    "url": "/images/imgProducts/" + file.filename,
+                    "product_id": idParams
+                }
+                await ImageProduct.create(imageCreated)
+            });
+
+            /*if (arrayFiles.length>imagesOriginal.length){
+                for(let i=0; i<imagesOriginal.length;i++){
+                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+                }
+                for(let i=imagesOriginal.length;i<arrayFiles.length;i++){
+                    const newImages={
+                        "url": "/images/imgProducts/" + arrayFiles[i].filename,
+                        "product_id": idParams
+                    }
+                    imagesOriginal[i].push(newImages)
+                }
+            }
+            
+            if (arrayFiles.length<=imagesOriginal.length){
+                for(let i=0; i<imagesOriginal.length;i++){
+                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
+                }
+            }
+        }
+        
+        No funciona UPSERT
+        imagesOriginal.forEach(async image => {
+            await ImageProduct.Upsert({
+                "url": image.url,
+                "product_id": image.product_id},
+            {
+                where: {id: image.id}
+            })
+        })
+        
+        imagesOriginal.forEach(async image => {
+            const foundItem = await ImageProduct.findOne({where: {id: image.id}});
+            if (foundItem) {
+                await ImageProduct.update(
+                    {
+                        "url": image.url,
+                        "product_id": image.product_id}, 
+                    {
+                        where: {id: image.id}
+                    })
+            }
+            else{
+                await ImageProduct.create(
+                    {
+                        "url": image.url,
+                        "product_id": image.product_id 
+                    } 
+                )
+            }
+        })*/
+    }
         res.redirect("/products/");
     },
-    destroy:(req,res)=>{
-        const id=req.params.id;
-        productsModels.destroy(id);
+    destroy:async (req,res)=>{
+        const idParams=req.params.id;
+
+        const imagesOriginal= await ImageProduct.findAll({
+            where: {product_id: idParams}
+        })
+        imagesOriginal.forEach(image => {
+            fs.unlinkSync(path.join(__dirname,"../public/", image.url))
+        });
+
+
+        await ImageProduct.destroy({
+            where: {product_id: idParams}
+        })
+
+        await Product.destroy({
+            where:{ id: idParams }
+        })
+
         res.redirect("/products/");
+
     }
 }
 

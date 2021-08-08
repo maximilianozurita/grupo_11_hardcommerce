@@ -35,5 +35,12 @@ module.exports = (sequelize, DataTypes) => {
     
     const UserModel = sequelize.define(alias, cols, config)
 
+    UserModel.associate=models=>{
+        UserModel.hasMany(models.Order,{ //1 a muchos
+        as: "order",
+        foreignKey: "user_id"
+        })
+    }
+
     return UserModel;
 }           

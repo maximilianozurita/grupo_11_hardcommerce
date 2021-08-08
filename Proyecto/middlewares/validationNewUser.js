@@ -38,6 +38,7 @@ const validationNewUser = [
             }
                 return true
             })
+            //8/7
             /*.custom(({ req }) => {
                 const { email } = req.body
                 

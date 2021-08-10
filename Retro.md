@@ -4,13 +4,13 @@ Comenzar a hacer:
 
 Hacer más:
 -Aplicar buenas prácticas
+-commits por partes para dividir el progreso.
 
 Continuar haciendo: 
 -Reuniones a ayudar al otro con las dificultades del proyecto.
 
 Hacer menos:
 -Descuidar la estetica de la pagina.
--Mergear a main sin hacer pruebas
 
 Dejar de hacer:
 -Pushear en rama main directamente.

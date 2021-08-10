@@ -61,11 +61,12 @@ const productsController = {
         
         if(!formValidation.isEmpty()){
             //Borrar imagen
-            arrayFiles.forEach(file => {
-                if(file){
-                    fs.unlinkSync(file.path)
+            for(let i=0;i<arrayFiles.length;i++){
+                if(arrayFiles.length>0){
+                    fs.unlinkSync(arrayFiles.path)
                 }   
-            });
+            }
+
             const oldValues=req.body;
             const brandToLoad= await Brand.findAll()
             const categoryToLoad= await Category.findAll()
@@ -90,13 +91,14 @@ const productsController = {
         
         const productCreated=await Product.create(productToCreate)
 
-        arrayFiles.forEach(async file => {
+        for (let i=0; i<arrayFiles.length;i++){
             const imageCreated={
-                "url": "/images/imgProducts/" + file.filename,
+                "url": "/images/imgProducts/" + arrayFiles.filename,
                 "product_id": productCreated.id
             }
             await ImageProduct.create(imageCreated)
-        });
+        }
+
         res.redirect("/products/")
 
     },
@@ -139,77 +141,27 @@ const productsController = {
                 where: {id: idParams}
             })
         
+        
+        if(arrayFiles.length>0){
 
-        if(arrayFiles){
+            for(let i=0;i<imagesOriginal.length;i++){
+                fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
 
-            imagesOriginal.forEach(image => {
-                fs.unlinkSync(path.join(__dirname,"../public/", image.url))
-            });
+            }
 
             await ImageProduct.destroy({
                 where: {product_id: idParams}
             })
 
             
-
-            arrayFiles.forEach(async file => {
+            for(let i=0; i<arrayFiles.length;i++){
                 const imageCreated={
-                    "url": "/images/imgProducts/" + file.filename,
+                    "url": "/images/imgProducts/" + arrayFiles[i].filename,
                     "product_id": idParams
                 }
                 await ImageProduct.create(imageCreated)
-            });
-
-            /*if (arrayFiles.length>imagesOriginal.length){
-                for(let i=0; i<imagesOriginal.length;i++){
-                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
-                }
-                for(let i=imagesOriginal.length;i<arrayFiles.length;i++){
-                    const newImages={
-                        "url": "/images/imgProducts/" + arrayFiles[i].filename,
-                        "product_id": idParams
-                    }
-                    imagesOriginal[i].push(newImages)
-                }
             }
             
-            if (arrayFiles.length<=imagesOriginal.length){
-                for(let i=0; i<imagesOriginal.length;i++){
-                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
-                }
-            }
-        }
-        
-        No funciona UPSERT
-        imagesOriginal.forEach(async image => {
-            await ImageProduct.Upsert({
-                "url": image.url,
-                "product_id": image.product_id},
-            {
-                where: {id: image.id}
-            })
-        })
-        
-        imagesOriginal.forEach(async image => {
-            const foundItem = await ImageProduct.findOne({where: {id: image.id}});
-            if (foundItem) {
-                await ImageProduct.update(
-                    {
-                        "url": image.url,
-                        "product_id": image.product_id}, 
-                    {
-                        where: {id: image.id}
-                    })
-            }
-            else{
-                await ImageProduct.create(
-                    {
-                        "url": image.url,
-                        "product_id": image.product_id 
-                    } 
-                )
-            }
-        })*/
     }
         res.redirect("/products/");
     },
@@ -219,10 +171,10 @@ const productsController = {
         const imagesOriginal= await ImageProduct.findAll({
             where: {product_id: idParams}
         })
-        imagesOriginal.forEach(image => {
-            fs.unlinkSync(path.join(__dirname,"../public/", image.url))
-        });
 
+        for (let i=0; i<imagesOriginal.length;i++){
+            fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
+        }
 
         await ImageProduct.destroy({
             where: {product_id: idParams}

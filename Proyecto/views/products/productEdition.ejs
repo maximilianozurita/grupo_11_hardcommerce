@@ -39,11 +39,11 @@
                </select>
            </div>
            <div class="input-container">
-            <label for="brand">Categoria del producto</label> 
+            <label for="brand">marca del producto</label> 
             <select class="brand" id="brand" name="brand">
-               <option value="<%= productToEdit.category.id%>" selected="selected"><%= productToEdit.category.info%></option>
-               <%categorys.forEach(category => { %>
-                   <option value=" <%= brandToLoad.id%> " > <%= brandToLoad.name%> </option>
+               <option value="<%= productToEdit.brand.id%>" selected="selected"><%= productToEdit.brand.name%></option>
+               <%brandToLoad.forEach(brand => { %>
+                   <option value=" <%= brand.id%> " > <%= brand.name%> </option>
                <%})%>
            </select>
        </div>

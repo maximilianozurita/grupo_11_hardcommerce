@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const usersModels=require("../models/usersModels");
 const fs = require("fs");
+const path=require ("path");
 const bcrypt = require('bcryptjs');
 const { maxAgeUserCookie } = require('../config/config');
 const { User } = require("../database/models");
@@ -200,16 +201,27 @@ const userController = {
         })
         
     },
-    destroy: (req, res) => {
-        const id = req.params.id;
-        User.destroy({
+    destroy:async (req, res) => {
+        const {id} = req.params;
+        const deleteImage = await User.findAll({
             where: {
                 id
             }
         })
-            .then(() => {
-                res.redirect('/user/');
-            })
+        //fs.unlinkSync(path.join(__dirname,"../public/images/imgUser/",deleteImage.image))
+        deleteImage.forEach(image => {
+            fs.unlinkSync(path.join(__dirname,"../public/", image.image))
+        });
+         
+        
+        await User.destroy({
+            where: {
+                id
+            }
+        })
+            
+        res.redirect('/user/');
+            
     }
 }
 

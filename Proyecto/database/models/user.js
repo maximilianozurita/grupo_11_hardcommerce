@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING
         },
-        lastName: {
+        last_name: {
             type: DataTypes.STRING
         },
         email: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     const config = {
         tableName: "users",  // <--------
         timestamps: false, /* no va a buscar las columnas de timestamps */
-        underscored: false  // <si la columna esta snakecase lo pongo true
+        underscored: true  // <si la columna esta snakecase lo pongo true
     }
     
     const UserModel = sequelize.define(alias, cols, config)

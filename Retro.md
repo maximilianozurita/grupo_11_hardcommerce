@@ -1,3 +1,4 @@
+
 Comenzar a hacer: 
 -Comenzar a maquetar las páginas faltantes
 -Comenzar a pensar la relación entre el carrito de compras y el usuario

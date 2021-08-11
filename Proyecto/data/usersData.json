@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "usuario1",
-    "last_name": "usuario1",
+    "lastName": "usuario1",
     "email": "usuario1@gmail.com",
     "password": "usuario1",
     "cell": "1122334455",
@@ -10,7 +10,7 @@
   },
   {
     "name": "nueva",
-    "last_name": "cuenta",
+    "lastName": "cuenta",
     "email": "nv@gmail.com",
     "password": "$2a$10$ToYPs0nA7W4kKpxB58NbbeLdoAiMg7mUAuk.AudaZlsl30WKMiDL6",
     "cell": "1139341085",

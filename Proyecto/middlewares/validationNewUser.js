@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 const userModel = require('../models/usersModels')
 const { isFileImage } = require('../helpers/file');
-
+const { User } = require('../database/models');
 
 const validationNewUser = [
     body('name')
@@ -25,16 +25,38 @@ const validationNewUser = [
         .isEmail()
         .withMessage('Ingrese un mail valido')
         .bail()
-        .custom((email) => {
-            const userFound = userModel.findByField('email', email)
+        .custom(async (value, { req }) => {
+            const { email} = req.body
+            const userFound = await User.findOne({
+                where: {
+                    email
+                }
+            })
 
             if (userFound) {
-                return false
+                return Promise.reject('El email ya esta en uso');
             }
-
-            return true
-        })
-        .withMessage('El usuario ya existe'),
+                return true
+            })
+            //8/7
+            /*.custom(({ req }) => {
+                const { email } = req.body
+                
+                return User.findOne({
+                    where: {
+                        email
+                    }
+                })
+                .then((userFound) => {
+            
+                    if (userFound) {
+                        return Promise.reject('El mail esta en uso')
+                    } 
+                return true;
+                })
+            })
+           ,*/
+        ,
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese su contraseña con numeros y letras')

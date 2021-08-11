@@ -1,4 +1,5 @@
 
+
 INSERT INTO brands (name) VALUES ("Intel");
 INSERT INTO brands (name) VALUES ("AMD");
 INSERT INTO brands (name) VALUES ("asus");
@@ -45,6 +46,8 @@ INSERT INTO products (name,product_description,category_id,price,quota,short_des
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",3);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",3);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",3);
+
+
 
 select * from products;
 select * from image_products;

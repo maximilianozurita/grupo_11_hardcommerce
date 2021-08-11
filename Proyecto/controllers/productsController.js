@@ -102,8 +102,8 @@ const productsController = {
                 "url": "/images/imgProducts/" + arrayFiles[i].filename,
                 "product_id": productCreated.id
             }
-            const aux=await ImageProduct.create(imageCreated) 
-            console.log(aux);
+            await ImageProduct.create(imageCreated) 
+            
         }
         res.redirect("/products/");
         

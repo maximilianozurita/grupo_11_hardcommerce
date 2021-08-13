@@ -5,13 +5,16 @@ const productsController = require('../controllers/productsController')
 const multer=require("multer")
 const validationNewProduct=require("../middlewares/validationNewProduct")
 const isFileImage=require("../helpers/isFile");
+const { uuid } = require('uuidv4');
+
 
 const storage=multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,path.join(__dirname, "../public/images/imgProducts"))
     },
     filename:(req,file,cb)=>{
-        const newFileName="product-"+Date.now()+path.extname(file.originalname);
+        const newFileName="product-"+uuid()+path.extname(file.originalname);//uuiv4
+        console.log(newFileName)
         cb(null,newFileName);
     }
 })

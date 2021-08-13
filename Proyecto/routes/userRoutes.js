@@ -65,7 +65,7 @@ const fileFilter = (req, file, cb)  => {
 const upload = multer({ storage, fileFilter });
 
 userRoutes.get('/login',guestMiddleware, userController.login);
-userRoutes.post('/login', validationLogin, userController.processLogin);
+userRoutes.post('/login',guestMiddleware, validationLogin, userController.processLogin);
 
 userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);
@@ -76,7 +76,7 @@ userRoutes.get("/register", guestMiddleware,userController.formNew);
 userRoutes.post('/register', upload.single('image'),validationNewUser, userController.store);
 
 userRoutes.get('/editUsers/:id', userController.edit);
-userRoutes.put('/:id', upload.single('imagen'),validationUserEdition, userController.update);
+userRoutes.put('/:id', upload.single('image'),validationUserEdition, userController.update);
 
 //userRoutes.put('/:id', userController.update);
 userRoutes.put('/:id', upload.single('image'), userController.update);

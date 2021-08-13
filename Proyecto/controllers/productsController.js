@@ -7,7 +7,13 @@ const { isArray } = require('util');
 
 const productsController = {
     listOfProducts: async (req, res) => {
-        const productList= await Product.findAll()
+        const productList = await Product.findAll({
+            include:[
+                {association: 'images'},
+                {association: 'category'},
+                {association: 'brand'}
+            ]
+        });
 
         res.render('products/listOfProducts',{productList})
         
@@ -15,7 +21,7 @@ const productsController = {
     detail: async (req, res) => {
         const {id}=req.params
 
-        const productToEdit= await Product.findByPk(id,{
+        const productToShow= await Product.findByPk(id,{
             include:[
                 {association: 'images'},
                 {association: 'category'},
@@ -25,7 +31,7 @@ const productsController = {
 
         //linkear detalles de producto en ejs
 
-        res.render('products/productsDetail',{productToEdit});
+        res.render('products/productsDetail',{productToShow});
     },
     cart: (req,res)=>{
         //Agregar tabla de carrito de compras. Ver si agregar aca o en un modelo nuevo.
@@ -91,16 +97,19 @@ const productsController = {
         
         const productCreated=await Product.create(productToCreate)
 
-        for (let i=0; i<arrayFiles.length;i++){
+        
+        for(let i=0;i<arrayFiles.length;i++){  
             const imageCreated={
-                "url": "/images/imgProducts/" + arrayFiles.filename,
+                "url": "/images/imgProducts/" + arrayFiles[i].filename,
                 "product_id": productCreated.id
             }
-            await ImageProduct.create(imageCreated)
+            await ImageProduct.create(imageCreated) 
+            
         }
+        res.redirect("/products/");
+        
 
-        res.redirect("/products/")
-
+        
     },
     edit:async (req,res)=>{
         const productToEdit= await Product.findByPk(req.params.id,
@@ -124,10 +133,7 @@ const productsController = {
         }
 
         const productOriginal= await Product.findByPk(idParams);
-        const imagesOriginal= await ImageProduct.findAll({
-            where: {product_id: idParams}
-        })
-
+        
         await Product.update({
             "name": req.body.name,
             "product_description": req.body.product_description,
@@ -140,9 +146,13 @@ const productsController = {
             {
                 where: {id: idParams}
             })
-        
-        
+            
+            
         if(arrayFiles.length>0){
+                
+            const imagesOriginal= await ImageProduct.findAll({
+                where: {product_id: idParams}
+            })
 
             for(let i=0;i<imagesOriginal.length;i++){
                 fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
@@ -161,16 +171,22 @@ const productsController = {
                 }
                 await ImageProduct.create(imageCreated)
             }
-            
-    }
+        }
+        
         res.redirect("/products/");
+    
+    
     },
-    destroy:async (req,res)=>{
+
+    destroy: async (req,res)=>{
         const idParams=req.params.id;
 
         const imagesOriginal= await ImageProduct.findAll({
             where: {product_id: idParams}
         })
+        for(let i=0;i<imagesOriginal.length;i++){
+            fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
+        }
 
         for (let i=0; i<imagesOriginal.length;i++){
             fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))

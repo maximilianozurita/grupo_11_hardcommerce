@@ -4,8 +4,7 @@ CREATE TABLE users(id INT(10) NOT NULL AUTO_INCREMENT,
 	email VARCHAR(35),
 	password VARCHAR(100),
 	cell INT(10),
-    category VARCHAR(30),
-    image VARCHAR(30),
+    image VARCHAR(60),
     PRIMARY KEY (id));
                      
 CREATE TABLE categorys(id INT(10) NOT NULL AUTO_INCREMENT,
@@ -31,7 +30,7 @@ CREATE TABLE products(id INT(10) NOT NULL AUTO_INCREMENT,
     FOREIGN KEY (brand_id) references brands (id));
     
     CREATE TABLE image_products(id INT(10) NOT NULL AUTO_INCREMENT,
-	url VARCHAR(60),
+	url VARCHAR(100),
     product_id INT(10),
     PRIMARY KEY(id),
     FOREIGN KEY(product_id) references products(id));

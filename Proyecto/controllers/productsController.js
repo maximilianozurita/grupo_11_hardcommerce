@@ -67,10 +67,10 @@ const productsController = {
         
         if(!formValidation.isEmpty()){
             //Borrar imagen
-            for(let i=0;i<arrayFiles.length;i++){
-                if(arrayFiles.length>0){
-                    fs.unlinkSync(arrayFiles.path)
-                }   
+            if(arrayFiles.length>0){
+                for(let i=0;i<arrayFiles.length;i++){
+                    fs.unlinkSync(arrayFiles[i].path)
+                }
             }
 
             const oldValues=req.body;
@@ -185,10 +185,6 @@ const productsController = {
             where: {product_id: idParams}
         })
         for(let i=0;i<imagesOriginal.length;i++){
-            fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
-        }
-
-        for (let i=0; i<imagesOriginal.length;i++){
             fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
         }
 

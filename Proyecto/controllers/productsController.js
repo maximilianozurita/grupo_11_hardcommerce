@@ -67,11 +67,12 @@ const productsController = {
         
         if(!formValidation.isEmpty()){
             //Borrar imagen
-            arrayFiles.forEach(file => {
-                if(file){
-                    fs.unlinkSync(file.path)
-                }   
-            });
+            if(arrayFiles.length>0){
+                for(let i=0;i<arrayFiles.length;i++){
+                    fs.unlinkSync(arrayFiles[i].path)
+                }
+            }
+
             const oldValues=req.body;
             const brandToLoad= await Brand.findAll()
             const categoryToLoad= await Category.findAll()
@@ -147,14 +148,15 @@ const productsController = {
             })
             
             
-            if(arrayFiles.length>0){
+        if(arrayFiles.length>0){
                 
             const imagesOriginal= await ImageProduct.findAll({
                 where: {product_id: idParams}
             })
-        
+
             for(let i=0;i<imagesOriginal.length;i++){
-                fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url));
+                fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
+
             }
 
             await ImageProduct.destroy({
@@ -162,73 +164,21 @@ const productsController = {
             })
 
             
-
-            for(let i=0;i<arrayFiles.length;i++){
+            for(let i=0; i<arrayFiles.length;i++){
                 const imageCreated={
                     "url": "/images/imgProducts/" + arrayFiles[i].filename,
                     "product_id": idParams
                 }
                 await ImageProduct.create(imageCreated)
             }
-          
-            //res.redirect("/products/");
-
-            /*if (arrayFiles.length>imagesOriginal.length){
-                for(let i=0; i<imagesOriginal.length;i++){
-                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
-                }
-                for(let i=imagesOriginal.length;i<arrayFiles.length;i++){
-                    const newImages={
-                        "url": "/images/imgProducts/" + arrayFiles[i].filename,
-                        "product_id": idParams
-                    }
-                    imagesOriginal[i].push(newImages)
-                }
-            }
-            
-            if (arrayFiles.length<=imagesOriginal.length){
-                for(let i=0; i<imagesOriginal.length;i++){
-                    imagesOriginal[i].url= "/images/imgProducts/" + arrayFiles[i].filename
-                }
-            }
         }
         
-        No funciona UPSERT
-        imagesOriginal.forEach(async image => {
-            await ImageProduct.Upsert({
-                "url": image.url,
-                "product_id": image.product_id},
-            {
-                where: {id: image.id}
-            })
-        })
-        
-        imagesOriginal.forEach(async image => {
-            const foundItem = await ImageProduct.findOne({where: {id: image.id}});
-            if (foundItem) {
-                await ImageProduct.update(
-                    {
-                        "url": image.url,
-                        "product_id": image.product_id}, 
-                    {
-                        where: {id: image.id}
-                    })
-            }
-            else{
-                await ImageProduct.create(
-                    {
-                        "url": image.url,
-                        "product_id": image.product_id 
-                    } 
-                )
-            }
-        })*/
-    }
         res.redirect("/products/");
     
     
     },
-    destroy:async (req,res)=>{
+
+    destroy: async (req,res)=>{
         const idParams=req.params.id;
 
         const imagesOriginal= await ImageProduct.findAll({
@@ -237,7 +187,6 @@ const productsController = {
         for(let i=0;i<imagesOriginal.length;i++){
             fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
         }
-
 
         await ImageProduct.destroy({
             where: {product_id: idParams}

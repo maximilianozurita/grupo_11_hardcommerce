@@ -18,43 +18,48 @@
                          <input placeholder="Nombre del producto" name="name" id="name" value="<%= locals.oldValues? oldValues.name:null %>">
                          <p class="msg-error"><%=locals.errors && errors.name? errors.name.msg: "" %></p>
                     </div>  
+                    <span class="msg-error msg-error-name" ></span>
 
                     <div class="input-container">
                          <label for="product_description">Descripción del producto:</label>
                          <textarea name="product_description" id="product_description"><%= locals.oldValues? oldValues.product_description:null %></textarea>
                          <p class="msg-error"><%=locals.errors && errors.product_description? errors.product_description.msg: "" %></p>
                     </div>
+                    <span class="msg-error msg-error-product_description" ></span>
                     <div class="input-container">
                         <label for="short_description">Descripcion corta de producto:</label>
                         <textarea name="short_description" id="short_description"><%= locals.oldValues? oldValues.short_description:null %></textarea>
                         <p class="msg-error"><%=locals.errors && errors.short_description? errors.short_description.msg: "" %></p>
-                    </div>                    
+                    </div>
+                    <span class="msg-error msg-error-short_description" ></span>                
                     <div class="input-container">
                         <label for="stock">stock</label>
                         <input type="text" size="5" id="stock" name="stock" required pattern="[0-9]+" value="<%= locals.oldValues? oldValues.price: null %>"/>
                         <p class="msg-error"><%=locals.errors && errors.stock? errors.stock.msg: "" %></p>
                     </div>
-
+                    <span class="msg-error msg-error-stock" ></span>
                     <div class="input-container">
                          <label for="category">Categoria del producto</label> 
                          <select class="category" id="category" name="category">
-                            <option value="<%= locals.oldValues? oldValues.category: null %>" ><%= locals.oldValues? categoryToLoad[oldValues.category-1].info: null %></option>
+                            <option value="<%= locals.oldValues? oldValues.category: null %>" ><%= locals.oldValues && oldValues.category? categoryToLoad[oldValues.category-1].info: null %></option>
                             <% categoryToLoad.forEach(element => { %>
                                 <option value= <%= element.id %> > <%= element.info%>  </option>
                                 <% }); %>
                         </select> 
                         <p class="msg-error"><%=locals.errors && errors.category? errors.category.msg: ""%></p>
                     </div>
+                    <span class="msg-error msg-error-category" ></span>
                     <div class="input-container">
                         <label for="brand">Marca</label> 
                         <select class="brand" id="brand" name="brand">
-                           <option value="<%= locals.oldValues? oldValues.brand: null %>" ><%= locals.oldValues? brandToLoad[oldValues.brand-1].name: null %></option>
+                           <option value="<%= locals.oldValues? oldValues.brand: null %>" ><%= locals.oldValues && oldValues.brand? brandToLoad[oldValues.brand-1].name: null %></option>
                            <% brandToLoad.forEach(element => { %>
                                <option value= <%= element.id %> > <%= element.name%>  </option>
                                <% }); %>
                        </select> 
                        <p class="msg-error"><%=locals.errors && errors.brand? errors.brand.msg: ""%></p>
                    </div>
+                   <span class="msg-error msg-error-brand" ></span>
 
                     <fieldset class="input-container">
                         <legend>Datos económicos</legend>
@@ -62,6 +67,7 @@
                         <label for="precio">Precio</label>
                         <input type="text" size="5" id="price" name="price" value="<%= locals.oldValues? oldValues.price: null %>"/>
                         <p class="msg-error"><%=locals.errors && errors.price? errors.price.msg: "" %></p>
+                        <span class="msg-error msg-error-price" ></span>
 
                         <label for="quota">Cuotas</label>
                         <select id="quota" name="quota">
@@ -73,6 +79,7 @@
                             <option value="12">12</option>
                         </select>                       
                         <p class="msg-error"><%=locals.errors && errors.quotas? errors.quotas.msg: ""%></p>
+                        <span class="msg-error msg-error-quota" ></span>
                     </fieldset>
 
                     <div class="input-container">
@@ -83,10 +90,12 @@
                             <%}%>
                             </div>
                          <p class="msg-error"><%=locals.errors && errors.image? errors.image.msg: "" %></p>
+                         <span class="msg-error msg-error-name" ></span>
                     </div>
                     <div class="input-container">
                          <button type="submit">ENVIAR</button>
                          <button type="reset">BORRAR</button>
+                         <span class="msg-error msg-error-name" ></span>
                     </div>
         </form>    
     </main>
@@ -97,3 +106,4 @@
     
 </body>
 </html>
+<script src="/JS/FormValidationNewProduct.js"></script>

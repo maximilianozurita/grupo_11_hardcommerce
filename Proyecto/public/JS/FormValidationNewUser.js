@@ -58,8 +58,9 @@ window.addEventListener('load', () => {
             hasError=true;
         }
         if(!inputImage.value){
-            errorImage.innerHTML="Por favor ingrese un numero de celular"
             hasError=true;
+            errorImage.innerHTML="Por favor ingrese un numero de celular"
+           
         }
 
         /*

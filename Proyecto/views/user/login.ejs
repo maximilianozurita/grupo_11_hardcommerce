@@ -15,7 +15,7 @@
             <form class="formulario" action="/user/login" method="POST">             
               <div class=input-container>
                 <label for="email"></label>
-                <input placeholder="email" name="email" /> 
+                <input placeholder="email" name="email" id="email" /> 
 
                 <% if (locals.errors && errors.email) { %>
                   <p class='msg-error'><%= errors.email.msg %></p>
@@ -24,7 +24,7 @@
              </div>
               <div class="input-container">
                 <label for="password"></label>
-                <input type="password" placeholder="Contraseña" name="password" />
+                <input type="password" placeholder="Contraseña" name="password" id="password" />
 
                 <% if (locals.errors && errors.password) { %>
                   <p class='msg-error'><%= errors.password.msg %></p>

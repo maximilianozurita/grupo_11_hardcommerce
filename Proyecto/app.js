@@ -1,4 +1,4 @@
-const express=require('express');
+const express=require("express")
 const app=express();
 //const path=require('path');
 const method = require('method-override');
@@ -21,7 +21,6 @@ const notFoundMiddleware = require('./middlewares/notFound');
 
 app.use(cookiesSessionMiddleware);
 app.use(sessionToLocals);
-//const { dirname } = require('path');
 //Guarda los modulos de express en app.
 
 //Ejecuta el metodo para utilizar method
@@ -71,6 +70,9 @@ app.use('/products', productsRoutes)
 //Render de users
 const userRoutes = require('./routes/userRoutes');
 app.use('/user', userRoutes)
+
+const apiRoutes=require("./routes/api")
+app.use("/api",apiRoutes)
 
 app.use(notFoundMiddleware)
 

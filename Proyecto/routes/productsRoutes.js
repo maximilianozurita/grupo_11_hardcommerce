@@ -36,7 +36,6 @@ const fileFilter = (req, file, cb)  => {
         // corta ejecución
         return
     }
-   
     // Si aceptamos el archivo
     cb(null, true)
 }

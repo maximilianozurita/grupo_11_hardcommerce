@@ -18,7 +18,7 @@ const userController = {
 
         if (!formValidation.isEmpty()) {
             return res.render('user/login', { oldValues, errors: formValidation.mapped() })
-        } 
+        }
         // lo que viene del login
         const { email,remember } = req.body
         // le pedimos al modelo el usuario

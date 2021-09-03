@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
             errorLastName.innerHTML="Por favor ingrese un apellido mayor a 3 caracteres"
             hasError=true;
         }
-        
+
         if(!inputPassword.value.length>0){
             errorPassword.innerHTML="Por favor ingrese un password"
             hasError=true;

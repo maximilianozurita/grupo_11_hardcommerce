@@ -1,5 +1,5 @@
-window.addEventListener('load', () => {
 
+window.addEventListener('load', () => {
     let form=document.querySelector(".formulario");
 
     let inputName=document.querySelector("#name");
@@ -26,46 +26,95 @@ window.addEventListener('load', () => {
     let errorImage=document.querySelector(".msg-error-image");
 
     let errorArray=[errorName,errorLastName,errorEmail,errorPassword,errorCell,errorImage];
+   
+    
+    //ingresa automaticamente al primer input.
+    inputName.focus ();
 
+    //funcion que valida que sea unicamente numeros.
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    //funcion que valida que tenga formato email.
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    //resetea todos los msj de errores previos.
     function resetError(){
         errorArray.forEach(error => {
             error.innerHTML=""
         });
     }
-
-    function validateForm(e){
-        resetError()
+    
+    
+    // funcion que tiene la logica de validacion.
+   function validateForm(e){ 
+     
 
         let hasError=false;
 
+        resetError()
+
         if(inputName.value.length<4){
-            errorName.innerHTML="Por favor ingrese un nombre mayor a 3 caracteres"
+    
             hasError=true;
+            errorName.innerHTML="Por favor ingrese un nombre mayor a 3 caracteres"
+            inputName.focus ()
+
         }
 
         if(inputLastName.value.length<4){
             errorLastName.innerHTML="Por favor ingrese un apellido mayor a 3 caracteres"
+
+            if (!hasError){
+                inputLastName.focus()
+            }
+            hasError=true;
+        }
+
+        if( !validateEmail (inputEmail.value) ){
+            errorEmail.innerHTML="Por favor ingrese su email"
+
+            if(!hasError){
+                inputEmail.focus()
+            }
             hasError=true;
         }
 
         if(!inputPassword.value.length>0){
             errorPassword.innerHTML="Por favor ingrese un password"
+
+            if(!hasError) {
+                inputPassword.focus()
+            }
             hasError=true;
+            
         }
 
-        if(!inputCell.value.length>0){
+        if(!isNumeric(inputCell.value) || inputCell.value.length < 10){
             errorCell.innerHTML="Por favor ingrese un numero de celular"
+            if(!hasError){
+                inputCell.focus()
+            }
             hasError=true;
         }
         if(!inputImage.value){
-            errorImage.innerHTML="Por favor ingrese un numero de celular"
+          
+            errorImage.innerHTML="Por favor ingrese una imagen" 
+        
+            if(!hasError){
+                inputImage.focus()
+            }
+
             hasError=true;
+
+           
         }
 
-        /*
-        inputEmail,
-        */
-        console.log(hasError)
+       
+        
         if (hasError) {
             e.preventDefault()
         }
@@ -77,7 +126,6 @@ window.addEventListener('load', () => {
         input.addEventListener("blur",validateForm);
     });
 
-    form.addEventListener("submit",validateForm);
-
+    form.addEventListener("submit",validateForm)
 
 })

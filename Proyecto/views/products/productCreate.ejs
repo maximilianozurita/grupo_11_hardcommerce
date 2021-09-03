@@ -17,27 +17,31 @@
                     <div class="input-container">
                          <input placeholder="Nombre del producto" name="name" id="name" value="<%= locals.oldValues? oldValues.name:null %>">
                          <p class="msg-error"><%=locals.errors && errors.name? errors.name.msg: "" %></p>
+                         <span class="msg-error msg-error-name" ></span>
                     </div>  
-                    <span class="msg-error msg-error-name" ></span>
+                   
 
                     <div class="input-container">
                          <label for="product_description">Descripción del producto:</label>
                          <textarea name="product_description" id="product_description"><%= locals.oldValues? oldValues.product_description:null %></textarea>
                          <p class="msg-error"><%=locals.errors && errors.product_description? errors.product_description.msg: "" %></p>
+                         <span class="msg-error msg-error-product_description" ></span>
                     </div>
-                    <span class="msg-error msg-error-product_description" ></span>
+                   
                     <div class="input-container">
                         <label for="short_description">Descripcion corta de producto:</label>
                         <textarea name="short_description" id="short_description"><%= locals.oldValues? oldValues.short_description:null %></textarea>
                         <p class="msg-error"><%=locals.errors && errors.short_description? errors.short_description.msg: "" %></p>
+                        <span class="msg-error msg-error-short_description" ></span> 
                     </div>
-                    <span class="msg-error msg-error-short_description" ></span>                
+                                  
                     <div class="input-container">
                         <label for="stock">stock</label>
                         <input type="text" size="5" id="stock" name="stock" required pattern="[0-9]+" value="<%= locals.oldValues? oldValues.price: null %>"/>
                         <p class="msg-error"><%=locals.errors && errors.stock? errors.stock.msg: "" %></p>
+                        <span class="msg-error msg-error-stock" ></span>
                     </div>
-                    <span class="msg-error msg-error-stock" ></span>
+              
                     <div class="input-container">
                          <label for="category">Categoria del producto</label> 
                          <select class="category" id="category" name="category">
@@ -47,8 +51,9 @@
                                 <% }); %>
                         </select> 
                         <p class="msg-error"><%=locals.errors && errors.category? errors.category.msg: ""%></p>
+                        <span class="msg-error msg-error-category" ></span>
                     </div>
-                    <span class="msg-error msg-error-category" ></span>
+                   
                     <div class="input-container">
                         <label for="brand">Marca</label> 
                         <select class="brand" id="brand" name="brand">
@@ -58,8 +63,9 @@
                                <% }); %>
                        </select> 
                        <p class="msg-error"><%=locals.errors && errors.brand? errors.brand.msg: ""%></p>
+                       <span class="msg-error msg-error-brand" ></span>
                    </div>
-                   <span class="msg-error msg-error-brand" ></span>
+              
 
                     <fieldset class="input-container">
                         <legend>Datos económicos</legend>

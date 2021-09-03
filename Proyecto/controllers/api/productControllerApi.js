@@ -1,4 +1,4 @@
-const {Product, ImageProduct, Category, Brand}=require("../database/models/")
+const {Product, ImageProduct, Category, Brand}=require("../../database/models")
 
 const productsController = {
     listOfProducts: async (req, res) => {

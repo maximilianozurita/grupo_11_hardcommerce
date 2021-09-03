@@ -6,12 +6,12 @@ const productsController=require("../../controllers/api/productControllerApi")
 
 //--------------------VISTA CLIENTES--------------------------------
 
-productsRoutes.get('/listOfProducts', productsController.listOfProducts) //-->>listado de productos
-productsRoutes.get('/detail/:id', productsController.detail)               //-->>Detalle de producto seleccionado.
+apiRoutes.get('/listOfProducts', productsController.listOfProducts) //-->>listado de productos
+apiRoutes.get('/detail/:id', productsController.detail)               //-->>Detalle de producto seleccionado.
 
 //-------------------VISTA ADMINISTRADOR------------------------------
 
-productsRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
+apiRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
 
 
-apiRoutes.get()
+module.exports = apiRoutes;

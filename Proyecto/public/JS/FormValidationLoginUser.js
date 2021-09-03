@@ -1,5 +1,7 @@
 window.addEventListener('load', () => {
 
+    
+
 let form = document.querySelector (".formulario");
 
 let inputEmail = document.querySelector ("#email");
@@ -12,10 +14,17 @@ let inputArray = [
 let errorEmail = document.querySelector (".msg-error-email");
 let errorPassword = document.querySelector (".msg-error-password");
 
-let inputArray = [
+let errorArray = [
     errorEmail, errorPassword
 ];
 
+
+
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 function resetErrors(){
     errorArray.forEach(error => {
@@ -23,30 +32,52 @@ function resetErrors(){
     });
 }
 
-form.addEventListener("submit", (e) =>{
-    hasErrors = false
 
+function validateForm(e){ 
     resetErrors ()
+
+    let hasError=false;
 
     // email
 
-    if (!inputEmail.value) {
-        hasErrors = true
-        errorName.innerHTML = "Escriba su email"
+    if (!validateEmail (inputEmail.value) ) {
+   
+        errorEmail.innerHTML = "Escriba su email "
+        hasError= true;
+        inputEmail.focus()
+
     }
 
     // password
 
-    if (!inputPassword.value) {
-        hasErrors=true;
-        errorPassword.innerHTML="Por favor ingrese un password11111"
+    if ( !inputPassword.value) {
+        errorPassword.innerHTML="Por favor ingrese un password"
+      
+       if (!hasErrors) {
+        inputPassword.focus()
+       }
+
+       hasErrors = true
 
     }
 
-    if (hasErrors) {
+    if (hasError) {
         e.preventDefault()
     }
 
+
+}
+
+});
+
+inputArray.forEach(input => {
+    input.addEventListener("blur",validateForm);
+
+
+
+form.addEventListener("submit",validateForm);
+
+
 })
 
 
@@ -57,4 +88,4 @@ form.addEventListener("submit", (e) =>{
 
 
 
-})
+

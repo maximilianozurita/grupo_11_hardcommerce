@@ -1,3 +1,17 @@
+function hasEmail(email) {
+
+
+    const endpoint = 'http://localhost:3005/api/users/hasEmail';
+    const data = {email: email};
+
+    return fetch(endpoint, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+}
 
 window.addEventListener('load', () => {
     let form=document.querySelector(".formulario");
@@ -26,8 +40,8 @@ window.addEventListener('load', () => {
     let errorImage=document.querySelector(".msg-error-image");
 
     let errorArray=[errorName,errorLastName,errorEmail,errorPassword,errorCell,errorImage];
-   
-    
+
+
     //ingresa automaticamente al primer input.
     inputName.focus ();
 
@@ -47,74 +61,69 @@ window.addEventListener('load', () => {
             error.innerHTML=""
         });
     }
-    
-    
+
+
     // funcion que tiene la logica de validacion.
-   function validateForm(e){ 
-     
+   function validateForm(e){
+
 
         let hasError=false;
 
         resetError()
 
         if(inputName.value.length<4){
-    
+
             hasError=true;
             errorName.innerHTML="Por favor ingrese un nombre mayor a 3 caracteres"
-            inputName.focus ()
 
         }
 
         if(inputLastName.value.length<4){
             errorLastName.innerHTML="Por favor ingrese un apellido mayor a 3 caracteres"
 
-            if (!hasError){
-                inputLastName.focus()
-            }
             hasError=true;
         }
+
+        var isEmail;
+        hasEmail(inputEmail.value)
+             .catch(error => {
+                 isEmail=true
+                 errorEmail.innerHTML="Error de servidor, intentelo mas tarde"
+            })
+            .then(response => {
+
+                isEmail=response.data.hasEmail
+
+                if(isEmail){
+                    errorEmail.innerHTML="email existente, ingrese uno nuevo"
+
+                    hasError=true;
+                }
+            });
 
         if( !validateEmail (inputEmail.value) ){
             errorEmail.innerHTML="Por favor ingrese su email"
 
-            if(!hasError){
-                inputEmail.focus()
-            }
             hasError=true;
         }
 
         if(!inputPassword.value.length>0){
             errorPassword.innerHTML="Por favor ingrese un password"
-
-            if(!hasError) {
-                inputPassword.focus()
-            }
             hasError=true;
-            
         }
 
         if(!isNumeric(inputCell.value) || inputCell.value.length < 10){
             errorCell.innerHTML="Por favor ingrese un numero de celular"
-            if(!hasError){
-                inputCell.focus()
-            }
             hasError=true;
         }
         if(!inputImage.value){
-          
-            errorImage.innerHTML="Por favor ingrese una imagen" 
-        
-            if(!hasError){
-                inputImage.focus()
-            }
+
+            errorImage.innerHTML="Por favor ingrese una imagen"
 
             hasError=true;
 
-           
         }
 
-       
-        
         if (hasError) {
             e.preventDefault()
         }

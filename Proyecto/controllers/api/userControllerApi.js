@@ -10,6 +10,7 @@ const userController = {
             }
         })
 
+        let hasEmail
         if(emailFinded){
             hasEmail=true;
         }

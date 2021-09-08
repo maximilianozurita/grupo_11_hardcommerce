@@ -16,7 +16,7 @@ const productsController = {
         });
 
         res.render('products/listOfProducts',{productList})
-        
+
     },
     detail: async (req, res) => {
         const {id}=req.params
@@ -50,7 +50,7 @@ const productsController = {
         res.render('products/products',{productList})
     },
     formNew: async (req,res)=>{
-        
+
         const brandToLoad= await Brand.findAll()
         const categoryToLoad= await Category.findAll()
 
@@ -60,11 +60,6 @@ const productsController = {
         const formValidation=validationResult(req)
         const arrayFiles=req.files
 
-        if(req.file){
-            arrayFiles.push(req.file)
-        }
-
-        
         if(!formValidation.isEmpty()){
             //Borrar imagen
             if(arrayFiles.length>0){
@@ -80,10 +75,7 @@ const productsController = {
             return
         }
 
-
-        //Modificar formularios.
         const productToCreate={
-            
             "name": req.body.name,
             "product_description": req.body.product_description,
             "category_id": req.body.category,
@@ -94,22 +86,20 @@ const productsController = {
             "stock": req.body.stock,
             "sales": 0,
         }
-        
+
         const productCreated=await Product.create(productToCreate)
 
-        
-        for(let i=0;i<arrayFiles.length;i++){  
+
+        for(let i=0;i<arrayFiles.length;i++){
             const imageCreated={
                 "url": "/images/imgProducts/" + arrayFiles[i].filename,
                 "product_id": productCreated.id
             }
-            await ImageProduct.create(imageCreated) 
-            
+            await ImageProduct.create(imageCreated)
+
         }
         res.redirect("/products/");
-        
 
-        
     },
     edit:async (req,res)=>{
         const productToEdit= await Product.findByPk(req.params.id,
@@ -128,12 +118,6 @@ const productsController = {
         const idParams=req.params.id;
         const arrayFiles=req.files
 
-        if(req.file){
-            arrayFiles.push(req.file)
-        }
-
-        const productOriginal= await Product.findByPk(idParams);
-        
         await Product.update({
             "name": req.body.name,
             "product_description": req.body.product_description,
@@ -145,37 +129,72 @@ const productsController = {
             "stock": req.body.stock,},
             {
                 where: {id: idParams}
-            })
-            
-            
-        if(arrayFiles.length>0){
-                
+            }
+        )
+
+
+        if(arrayFiles.length!=0){
+
             const imagesOriginal= await ImageProduct.findAll({
                 where: {product_id: idParams}
             })
 
-            for(let i=0;i<imagesOriginal.length;i++){
-                fs.unlinkSync(path.join(__dirname,"../public/", imagesOriginal[i].url))
+            let arrayImages=[
+                {
+                    "id":null,
+                    "url":null,
+                    "product_id": idParams
+                },
+                {
+                    "id":null,
+                    "url":null,
+                    "product_id": idParams
+                },
+                {
+                    "id":null,
+                    "url":null,
+                    "product_id": idParams
+                },
+                {
+                    "id":null,
+                    "url":null,
+                    "product_id": idParams
+                },
+                {
+                    "id":null,
+                    "url":null,
+                    "product_id": idParams
+                },
+            ]
 
+            //cargar imagenes de BD
+            for(let i=0;i<imagesOriginal.length;i++){
+                arrayImages[i].id=imagesOriginal[i].id
+                arrayImages[i].url=imagesOriginal[i].url
             }
 
-            await ImageProduct.destroy({
-                where: {product_id: idParams}
+            //Cargar y reemplazar imagenes de req
+            let position;
+            arrayFiles.forEach(file => {
+                position=Number(file.fieldname.substr(-1))
+                fs.unlinkSync(path.join(__dirname,"../public/", arrayImages[position].url))
+                arrayImages[position].url="/images/imgProducts/"+ file.filename
+            });
+
+
+            //Eliminar array sin imagen
+            const imageToUpdate=arrayImages.filter(image=>{
+                return image.url!=null
             })
 
-            
-            for(let i=0; i<arrayFiles.length;i++){
-                const imageCreated={
-                    "url": "/images/imgProducts/" + arrayFiles[i].filename,
-                    "product_id": idParams
-                }
-                await ImageProduct.create(imageCreated)
+            //Subir a BD
+            for(let i=0; i<imageToUpdate.length;i++){
+                await ImageProduct.update(imageToUpdate[i],{
+                    where: {id:imageToUpdate[i].id}
+                })
             }
         }
-        
         res.redirect("/products/");
-    
-    
     },
 
     destroy: async (req,res)=>{

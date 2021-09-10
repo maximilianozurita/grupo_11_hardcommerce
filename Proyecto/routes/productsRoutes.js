@@ -14,7 +14,6 @@ const storage=multer.diskStorage({
     },
     filename:(req,file,cb)=>{
         const newFileName="product-"+uuid()+path.extname(file.originalname);//uuiv4
-        console.log(newFileName)
         cb(null,newFileName);
     }
 })
@@ -36,7 +35,6 @@ const fileFilter = (req, file, cb)  => {
         // corta ejecución
         return
     }
-   
     // Si aceptamos el archivo
     cb(null, true)
 }
@@ -56,11 +54,11 @@ productsRoutes.get("/",productsController.products) //-->>LISTADO DE PRODUCTOS
 
 //Create:
 productsRoutes.get("/productCreate", productsController.formNew) //-->> Pagina de creacion.
-productsRoutes.post("/productCreate",upload.array("productImage", 5),validationNewProduct , productsController.store)
+productsRoutes.post("/productCreate",upload.any("productImage1","productImage2","productImage3","productImage4","productImage5"),validationNewProduct , productsController.store)
 
 //Update
 productsRoutes.get("/productEdition/:id", productsController.edit)
-productsRoutes.put("/productEdition/:id",upload.array("productImage"), productsController.update)
+productsRoutes.put("/productEdition/:id",upload.any("productImage1","productImage2","productImage3","productImage4","productImage5"), productsController.update)
 
 productsRoutes.delete("/:id", productsController.destroy)
 

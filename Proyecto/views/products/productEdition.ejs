@@ -12,9 +12,9 @@
     </header>
 
     <main>
-        <form class="formulario" action="/products/productEdition/<%= productToEdit.id%>?_method=PUT" 
-           enctype="multipart/form-data" method="POST">  
-  
+        <form class="formulario" action="/products/productEdition/<%= productToEdit.id%>?_method=PUT"
+           enctype="multipart/form-data" method="POST">
+
             <div class="input-container">
                 <label for="nombre">Nombre</label>
                 <input placeholder="Nombre del producto" name="name" id="name" required value="<%= productToEdit.name%>">
@@ -28,9 +28,9 @@
                 <label for="short_description">Descripción corta del producto:</label>
                 <textarea name="short_description" id="short_description"><%=productToEdit.short_description%></textarea>
            </div>
-           
+
            <div class="input-container">
-                <label for="category">Categoria del producto</label> 
+                <label for="category">Categoria del producto</label>
                 <select class="category" id="category" name="category">
                    <option value="<%= productToEdit.category.id%>" selected="selected"><%= productToEdit.category.info%></option>
                    <%categorys.forEach(category => { %>
@@ -39,7 +39,7 @@
                </select>
            </div>
            <div class="input-container">
-            <label for="brand">marca del producto</label> 
+            <label for="brand">marca del producto</label>
             <select class="brand" id="brand" name="brand">
                <option value="<%= productToEdit.brand.id%>" selected="selected"><%= productToEdit.brand.name%></option>
                <%brandToLoad.forEach(brand => { %>
@@ -61,8 +61,8 @@
                    <option value="3">3</option>
                    <option value="6">6</option>
                    <option value="9">9</option>
-                   <option value="12">12</option> 
-               </select>                       
+                   <option value="12">12</option>
+               </select>
             </div>
             <div class="input-container">
                 <label for="stock">stock</label>
@@ -70,8 +70,13 @@
              </div>
             <div class="input-container">
                 <label for="photo">Imagenes</label>
-                <% for(let i=0;i<5;i++){%>
-                    <input type="file" name="productImage" multiple/>
+                <%for(let i=0;i<productToEdit.images.length;i++){ %>
+                    <div>
+                        <div class="img-container">
+                            <img src="<%= productToEdit.images[i].url %>" width="100%">
+                        </div>
+                        <input type="file" name="productImage<%=i%>" multiple/>
+                    </div>
                 <%}%>
            </div>
            <div class="input-container">

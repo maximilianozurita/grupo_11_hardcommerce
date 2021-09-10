@@ -31,14 +31,14 @@
         <section class="contenedor-seccion">
             <p class="titulos-home">Ofertas</p>
             <div class="contenedor-productos">
-                <% for(let i=0; i<productList.length; i++) {%> 
+                <% for(let i=0; i<productList.length; i++) {%>
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
                                     <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= productList[i].short_description  %> 
+                                    <%= productList[i].short_description  %>
                                 </p>
                                 <p class="producto__precio">
                                     $<%= productList[i].price %>
@@ -51,8 +51,8 @@
                                 <span class="button-agregar__body">Agregar</span>
                             </a>
                     </article>
-                <% } %> 
-                 
+                <% } %>
+
             </div>
         </section>
         <!--SECCION CONTACTO-->

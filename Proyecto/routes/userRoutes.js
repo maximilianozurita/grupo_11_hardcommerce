@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
         // generar un nombre para nuestro archivo
         //const filename = `${now}${extension}`
         const filename = now + extension
-        
+
         // ejecutamos callback con null (error) y el nombre del archivo
         cb(null, filename)
     },
@@ -55,7 +55,7 @@ const fileFilter = (req, file, cb)  => {
         // corta ejecución
         return
     }
-   
+
     // Si aceptamos el archivo
     cb(null, true)
 
@@ -71,7 +71,7 @@ userRoutes.get('/',userController.listOfUsers);
 userRoutes.get('/userDetail/:id', userController.detail);
 
 userRoutes.get("/register", guestMiddleware,userController.formNew);
-//userRoutes.post('/register', userController.store);
+
 // aca deberíamos pasar multer
 userRoutes.post('/register', upload.single('image'),validationNewUser, userController.store);
 

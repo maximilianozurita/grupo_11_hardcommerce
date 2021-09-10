@@ -37,26 +37,7 @@ const validationNewUser = [
                 return Promise.reject('El email ya esta en uso');
             }
                 return true
-            })
-            //8/7
-            /*.custom(({ req }) => {
-                const { email } = req.body
-                
-                return User.findOne({
-                    where: {
-                        email
-                    }
-                })
-                .then((userFound) => {
-            
-                    if (userFound) {
-                        return Promise.reject('El mail esta en uso')
-                    } 
-                return true;
-                })
-            })
-           ,*/
-        ,
+            }),
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese su contraseña con numeros y letras')
@@ -93,7 +74,7 @@ const validationNewUser = [
             }
 
             // chequea que la extensión sea la correcta
-            
+
             return true;
         })
 ]

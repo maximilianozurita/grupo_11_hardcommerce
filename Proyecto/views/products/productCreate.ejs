@@ -13,57 +13,63 @@
 
     <main>
         <h3>Agregar producto nuevo</h3>
-        <form class="formulario" action="/products/productCreate" method="POST" enctype="multipart/form-data">                    
+        <form class="formulario" action="/products/productCreate" method="POST" enctype="multipart/form-data">
                     <div class="input-container">
                          <input placeholder="Nombre del producto" name="name" id="name" value="<%= locals.oldValues? oldValues.name:null %>">
                          <p class="msg-error"><%=locals.errors && errors.name? errors.name.msg: "" %></p>
-                    </div>  
-                    <span class="msg-error msg-error-name" ></span>
+                         <span class="msg-error msg-error-name" ></span>
+                    </div>
+
 
                     <div class="input-container">
                          <label for="product_description">Descripción del producto:</label>
                          <textarea name="product_description" id="product_description"><%= locals.oldValues? oldValues.product_description:null %></textarea>
                          <p class="msg-error"><%=locals.errors && errors.product_description? errors.product_description.msg: "" %></p>
+                         <span class="msg-error msg-error-product_description" ></span>
                     </div>
-                    <span class="msg-error msg-error-product_description" ></span>
+
                     <div class="input-container">
                         <label for="short_description">Descripcion corta de producto:</label>
                         <textarea name="short_description" id="short_description"><%= locals.oldValues? oldValues.short_description:null %></textarea>
                         <p class="msg-error"><%=locals.errors && errors.short_description? errors.short_description.msg: "" %></p>
+                        <span class="msg-error msg-error-short_description" ></span>
                     </div>
-                    <span class="msg-error msg-error-short_description" ></span>                
+
                     <div class="input-container">
                         <label for="stock">stock</label>
                         <input type="text" size="5" id="stock" name="stock" required pattern="[0-9]+" value="<%= locals.oldValues? oldValues.price: null %>"/>
                         <p class="msg-error"><%=locals.errors && errors.stock? errors.stock.msg: "" %></p>
+                        <span class="msg-error msg-error-stock" ></span>
                     </div>
-                    <span class="msg-error msg-error-stock" ></span>
+
                     <div class="input-container">
-                         <label for="category">Categoria del producto</label> 
+                         <label for="category">Categoria del producto</label>
                          <select class="category" id="category" name="category">
                             <option value="<%= locals.oldValues? oldValues.category: null %>" ><%= locals.oldValues && oldValues.category? categoryToLoad[oldValues.category-1].info: null %></option>
                             <% categoryToLoad.forEach(element => { %>
                                 <option value= <%= element.id %> > <%= element.info%>  </option>
                                 <% }); %>
-                        </select> 
+                        </select>
                         <p class="msg-error"><%=locals.errors && errors.category? errors.category.msg: ""%></p>
+                        <span class="msg-error msg-error-category" ></span>
                     </div>
-                    <span class="msg-error msg-error-category" ></span>
+
                     <div class="input-container">
-                        <label for="brand">Marca</label> 
+                        <label for="brand">Marca</label>
                         <select class="brand" id="brand" name="brand">
                            <option value="<%= locals.oldValues? oldValues.brand: null %>" ><%= locals.oldValues && oldValues.brand? brandToLoad[oldValues.brand-1].name: null %></option>
                            <% brandToLoad.forEach(element => { %>
                                <option value= <%= element.id %> > <%= element.name%>  </option>
                                <% }); %>
-                       </select> 
+                       </select>
                        <p class="msg-error"><%=locals.errors && errors.brand? errors.brand.msg: ""%></p>
+                       <span class="msg-error msg-error-brand" ></span>
                    </div>
-                   <span class="msg-error msg-error-brand" ></span>
+
 
                     <fieldset class="input-container">
                         <legend>Datos económicos</legend>
-                      
+
                         <label for="precio">Precio</label>
                         <input type="text" size="5" id="price" name="price" value="<%= locals.oldValues? oldValues.price: null %>"/>
                         <p class="msg-error"><%=locals.errors && errors.price? errors.price.msg: "" %></p>
@@ -77,7 +83,7 @@
                             <option value="6">6</option>
                             <option value="9">9</option>
                             <option value="12">12</option>
-                        </select>                       
+                        </select>
                         <p class="msg-error"><%=locals.errors && errors.quotas? errors.quotas.msg: ""%></p>
                         <span class="msg-error msg-error-quota" ></span>
                     </fieldset>
@@ -85,9 +91,11 @@
                     <div class="input-container">
                          <div class="input-container">
                             <label for="photo">Ingrese hasta 5 archivos</label>
-                            <% for(let i=0;i<5;i++){%>
-                                <input type="file" name="productImage" multiple/>
-                            <%}%>
+                            <input type="file" name="productImage1" multiple/>
+                            <input type="file" name="productImage2" multiple/>
+                            <input type="file" name="productImage3" multiple/>
+                            <input type="file" name="productImage4" multiple/>
+                            <input type="file" name="productImage5" multiple/>
                             </div>
                          <p class="msg-error"><%=locals.errors && errors.image? errors.image.msg: "" %></p>
                          <span class="msg-error msg-error-name" ></span>
@@ -97,13 +105,13 @@
                          <button type="reset">BORRAR</button>
                          <span class="msg-error msg-error-name" ></span>
                     </div>
-        </form>    
+        </form>
     </main>
 
     <footer class="main-footer">
         <%- include("../partials/footer") %>
     </footer>
-    
+
 </body>
 </html>
 <script src="/JS/FormValidationNewProduct.js"></script>

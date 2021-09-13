@@ -1,11 +1,13 @@
 const express=require ("express")
 const apiRoutes=express.Router()
 
-const userControllerApi=require("../../controllers/api/userControllerApi")
+const userController=require("../../controllers/api/userControllerApi")
 
 
-apiRoutes.post('/hasEmail', userControllerApi.checkEmail);
-apiRoutes.get("/",userControllerApi.users);
-apiRoutes.get("/:id",userControllerApi.detail);
+apiRoutes.post('/hasEmail', userController.checkEmail)
+
+apiRoutes.get('/', userController.users)
+apiRoutes.get('/:id', userController.detail)
+
 
 module.exports = apiRoutes;

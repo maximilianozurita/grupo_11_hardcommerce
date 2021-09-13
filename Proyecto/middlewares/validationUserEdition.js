@@ -11,7 +11,7 @@ const validationUserEdition = [
         //
         .isLength({ min: 2 })
         .withMessage('Por favor ingrese un nombre mayor a 3 caracteres'),
-    body('lastName')
+    body('last_name')
         .notEmpty()
         .withMessage('Por favor ingrese un apellido una vez mas')
         .bail()

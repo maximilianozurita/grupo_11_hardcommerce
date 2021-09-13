@@ -26,6 +26,8 @@ const userController = {
                 hasEmail
             }
         })
+
+
     },
     users: async (req, res ) => {
         try {
@@ -85,7 +87,10 @@ const userController = {
                 }
             })
     }
-
 }
+
+
+    
+
 
 module.exports = userController

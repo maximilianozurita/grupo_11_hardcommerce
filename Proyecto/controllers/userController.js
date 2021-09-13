@@ -103,7 +103,7 @@ const userController = {
         } 
 
 
-        const {name, lastName, email, password, cell} = req.body;
+        const {name, last_name, email, password, cell} = req.body;
         
         const { file } = req
         const image = file.filename
@@ -114,7 +114,7 @@ const userController = {
         const user = 
         {
             name:name,
-            lastName:lastName,
+            last_name:last_name,
             email:email,
             password:hashPassword,
             cell:cell,
@@ -184,7 +184,7 @@ const userController = {
             
             const propertiesToEdit = {
                 name:data.name,
-                lastName:data.lastName,
+                last_name:data.last_name,
                 email:data.email,
                 password:data.password,
                 cell:data.cell,

@@ -19,7 +19,7 @@ let errorArray = [
 ];
 
 
-
+inputEmail.focus()
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -34,30 +34,35 @@ function resetErrors(){
 
 
 function validateForm(e){ 
-    resetErrors ()
+  
 
     let hasError=false;
+    resetErrors ()
 
     // email
 
     if (!validateEmail (inputEmail.value) ) {
    
-        errorEmail.innerHTML = "Escriba su email "
+        errorEmail.innerHTML = "Debe escribir su email "
+        
+        if (!hasError) {
+            inputEmail.focus()
+        }
         hasError= true;
-        inputEmail.focus()
-
+        
+     
     }
 
     // password
 
-    if ( !inputPassword.value) {
-        errorPassword.innerHTML="Por favor ingrese un password"
+    if ( !inputPassword.value.length>0) {
+        errorPassword.innerHTML="Debe ingresar un password"
+        if (!hasError) {
+            inputPassword.focus()
+        }
+       hasError = true;
       
-       if (!hasErrors) {
-        inputPassword.focus()
-       }
-
-       hasErrors = true
+       
 
     }
 
@@ -68,10 +73,12 @@ function validateForm(e){
 
 }
 
-});
+
 
 inputArray.forEach(input => {
     input.addEventListener("blur",validateForm);
+
+});
 
 
 

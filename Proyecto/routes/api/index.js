@@ -4,7 +4,6 @@ const productRoutes=require("./productRoutesApi")
 const userRoutes=require("./userRouterApi")
 
 apiRoutes.use("/products",productRoutes);
-
 apiRoutes.use("/users",userRoutes);
 
 module.exports=apiRoutes

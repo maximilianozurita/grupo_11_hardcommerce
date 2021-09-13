@@ -166,6 +166,46 @@ header
 {
     display:none
 }
+.searchMenu{
+    font-family:sans-serif;
+    display:flex;
+    justify-content: center;
+    height:40px;
+}
+.iconoSearch{
+    position: absolute;
+    padding:5px;
+}
+.iconoSearch input{
+    width:0;
+    height:40px;
+    padding: 0 20px;
+    font-size:18px;
+    outline:none;
+    border:1px solid silver;
+    border-radius:30px;
+    transition: all 0.5s ease;
+}
+.btn{
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgb(11, 64, 145);;
+    width:55px;
+    height:55px;
+    line-height:55px;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    border-radius:50px;
+    cursor:pointer;
+}
+.iconoSearch:hover input{
+    width:240px
+}
+.iconoSearch input:focus{
+    width:240px;
+}
 /* -----------------------------------FIN HEADER ----------------------------------- */
 /*--------------------------------HEADER QUERIES--------------------------------*/
 @media(min-width:481px)

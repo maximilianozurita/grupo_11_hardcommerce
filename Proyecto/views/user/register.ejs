@@ -47,7 +47,7 @@
 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.password%>"/>
+                    <input type="password" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.password%>"/>
                     <span class='msg-error msg-error-password'></span>
 
                     <% if (locals.errors && errors.password) { %>

@@ -7,7 +7,7 @@ const { User } = require('../database/models');
 const validationLogin = [
     body('email')
         .notEmpty()
-        .withMessage('Por favor ingrese su e-mail')
+        .withMessage('Por favor ingrese su e-mail soy back')
         .isEmail()
         .withMessage('No es en formato e-mail'),
     body('password')
@@ -37,7 +37,6 @@ const validationLogin = [
                 } else {
                     return Promise.reject('El usuario o la contraseña son inválidas');
                 }
-    
             })
         })
         

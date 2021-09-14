@@ -41,6 +41,7 @@ window.addEventListener('load', () => {
         errorPrice,
         errorQuota
     ];
+    
     inputName.focus ();
 
     function resetError(){

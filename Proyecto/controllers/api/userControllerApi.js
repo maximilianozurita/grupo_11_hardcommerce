@@ -36,7 +36,7 @@ const userController = {
             })
 
             const usersMapped = users.rows.map(user => {
-                const urlDetail = "http://localhost:3005/api/users/" + user.id 
+                const urlDetail = "http://localhost:3000/api/users/" + user.id 
                 user.setDataValue ("detail", urlDetail)
                 return user;
             });
@@ -67,7 +67,7 @@ const userController = {
     detail: async (req, res) => {
 
         const user = await User.findByPk(req.params.id, {attributes:["id","name","last_name","email","cell","image"]});
-        const urlImagen =  "http://localhost:3005"+user.image
+        const urlImagen =  "http://localhost:3000"+user.image
         user.setDataValue ("imagen", urlImagen)
 
         if(!user) {

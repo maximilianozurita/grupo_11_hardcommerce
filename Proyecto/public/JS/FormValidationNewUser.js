@@ -1,7 +1,7 @@
 function hasEmail(email) {
 
 
-    const endpoint = 'http://localhost:3005/api/users/hasEmail';
+    const endpoint = 'http://localhost:3000/api/users/hasEmail';
     const data = {email: email};
 
     return fetch(endpoint, {

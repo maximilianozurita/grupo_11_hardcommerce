@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
     let form=document.querySelector(".formulario");
 
     let inputName=document.querySelector("#name");
-    let inputLastName=document.querySelector("#lastName");
+    let inputLastName=document.querySelector("#last_name");
     let inputEmail=document.querySelector("#email");
     let inputPassword=document.querySelector("#password");
     let inputCell=document.querySelector("#cell");
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     ]
 
     let errorName=document.querySelector(".msg-error-name");
-    let errorLastName=document.querySelector(".msg-error-lastName");
+    let errorLastName=document.querySelector(".msg-error-last_name");
     let errorEmail=document.querySelector(".msg-error-email");
     let errorPassword=document.querySelector(".msg-error-password");
     let errorCell=document.querySelector(".msg-error-cell");

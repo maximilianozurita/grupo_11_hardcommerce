@@ -66,7 +66,9 @@ const userController = {
     },
     detail: async (req, res) => {
 
-        const user = await User.findByPk(req.params.id, {attributes:["id","name","last_name","image"]})
+        const user = await User.findByPk(req.params.id, {attributes:["id","name","last_name","email","cell","image"]});
+        const urlImagen =  "http://localhost:3005"+user.image
+        user.setDataValue ("imagen", urlImagen)
 
         if(!user) {
             res.status(404).json({
@@ -76,16 +78,19 @@ const userController = {
             })
             return
         }
-            res.status(200).json({
-                meta:{
-                    status:"success",
-                    
-                },
-                data:{
-                    user: user
-                    
-                }
-            })
+         res.status(200).json({
+            meta:{
+                status:"success",
+            },
+            data:{
+                id: user.id,
+                name: user.name,
+                lastname: user.last_name,
+                email: user.email,
+                cell: user.cell,
+                imagen: urlImagen
+            }
+        })
     }
 }
 

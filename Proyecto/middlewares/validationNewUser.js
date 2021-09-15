@@ -12,7 +12,7 @@ const validationNewUser = [
         .isLength({ min: 4 })
         .withMessage('Por favor ingrese un nombre mayor a 3 caracteres'),
         // como es la última no usamos bail()
-    body('lastName')
+    body('last_name')
         .notEmpty()
         .withMessage('Por favor ingrese un apellido una vez mas')
         .bail()

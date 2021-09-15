@@ -28,8 +28,8 @@
                     <label for="lastName">Ingrese su apellido</label>
                     <input type="text" name="lastName" id="lastName" value= "<%= userToEdit.last_name %>" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %> "/>
 
-                    <% if (locals.errors && errors.lastName) { %>
-                        <p class='msg-error'><%= errors.lastName.msg %></p>
+                    <% if (locals.errors && errors.last_name) { %>
+                        <p class='msg-error'><%= errors.last_name.msg %></p>
                     <% } %>
 
                 </div>

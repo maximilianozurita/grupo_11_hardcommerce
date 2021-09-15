@@ -5,7 +5,7 @@ const method = require('method-override');
 const {Product}=require("./database/models/")
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
+const cors = require('cors');
 
 const { sessionSecret, cookiesSecret} = require('./config/config')
 // middlewares
@@ -13,7 +13,7 @@ const { sessionSecret, cookiesSecret} = require('./config/config')
 app.use(session({
     secret: sessionSecret
   }))
-
+app.use(cors())
 app.use(cookieParser(cookiesSecret));
 const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware');
 const sessionToLocals = require('./middlewares/sessionToLocals');
@@ -84,6 +84,6 @@ app.use(notFoundMiddleware)
 
 
 //Abre el servidor
-app.listen(3005,()=>{
+app.listen(3000,()=>{
     console.log('Servidor ejecutado');
 });

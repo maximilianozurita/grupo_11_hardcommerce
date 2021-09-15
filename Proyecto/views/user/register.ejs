@@ -25,12 +25,12 @@
 
 
                 <div class="input-container">
-                    <label for="lastName">Ingrese su apellido</label>
-                    <input type="text" name="lastName" id="lastName" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.lastName%>" />
-                    <span class='msg-error msg-error-lastName'></span>
+                    <label for="last_name">Ingrese su apellido</label>
+                    <input type="text" name="last_name" id="last_name" class="<%= (locals.errors && errors.last_name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.last_name%>" />
+                    <span class='msg-error msg-error-last_name'></span>
 
-                    <% if (locals.errors && errors.lastName) { %>
-                        <p class='msg-error'><%= errors.lastName.msg %></p>
+                    <% if (locals.errors && errors.last_name) { %>
+                        <p class='msg-error'><%= errors.last_name.msg %></p>
                     <% } %>
                 </div>
 
@@ -47,7 +47,7 @@
 
                 <div class="input-container">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.password%>"/>
+                    <input type="password" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.password%>"/>
                     <span class='msg-error msg-error-password'></span>
 
                     <% if (locals.errors && errors.password) { %>

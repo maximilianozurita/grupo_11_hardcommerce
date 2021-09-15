@@ -32,12 +32,13 @@ const userController = {
     users: async (req, res ) => {
         try {
             const users = await User.findAndCountAll({
-                attributes: ["id","name","last_name","email"]
+                attributes: ["id","name","last_name","email","image"]
             })
 
             const usersMapped = users.rows.map(user => {
-                const urlDetail = "http://localhost:3000/api/users/" + user.id 
-                user.setDataValue ("detail", urlDetail)
+
+                const urlImage =  "http://localhost:3000"+user.image
+                user.setDataValue ("image", urlImage)
                 return user;
             });
 
@@ -48,6 +49,7 @@ const userController = {
                     },
                     data:{
                         data: usersMapped
+
                     }
 
                 })
@@ -67,8 +69,8 @@ const userController = {
     detail: async (req, res) => {
 
         const user = await User.findByPk(req.params.id, {attributes:["id","name","last_name","email","cell","image"]});
-        const urlImagen =  "http://localhost:3000"+user.image
-        user.setDataValue ("imagen", urlImagen)
+        const urlImage =  "http://localhost:3000"+user.image
+        user.setDataValue ("image", urlImage)
 
         if(!user) {
             res.status(404).json({
@@ -88,14 +90,10 @@ const userController = {
                 lastname: user.last_name,
                 email: user.email,
                 cell: user.cell,
-                imagen: urlImagen
+                image: urlImage
             }
         })
     }
 }
-
-
-    
-
 
 module.exports = userController

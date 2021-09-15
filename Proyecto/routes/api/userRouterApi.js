@@ -7,5 +7,8 @@ apiRoutes.get('/', userController.users)
 apiRoutes.get('/:id', userController.detail)
 
 
+apiRoutes.get('/', userController.users)
+apiRoutes.get('/:id', userController.detail)
+
 
 module.exports = apiRoutes;

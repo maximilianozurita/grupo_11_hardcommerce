@@ -18,10 +18,9 @@ body
 }
 .contenedor-main-carrusel
 {
-    padding: 1%;
     position: relative;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 .carrusel-productos__imagen
 {

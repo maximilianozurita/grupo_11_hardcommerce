@@ -3,7 +3,7 @@ CREATE TABLE users(id INT(10) NOT NULL AUTO_INCREMENT,
 	last_name VARCHAR(30),
 	email VARCHAR(35),
 	password VARCHAR(100),
-	cell INT(10),
+	cell INT(50),
     image VARCHAR(60),
     PRIMARY KEY (id));
                      

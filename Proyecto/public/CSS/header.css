@@ -271,7 +271,7 @@ header
     .mainCaja2
     {
         display: flex;
-        justify-content: space-around;
+        justify-content:left;
     }
     .mainCaja2 li
     {  

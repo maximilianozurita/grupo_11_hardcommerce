@@ -13,6 +13,7 @@ const userController = {
         res.render('user/login')
     },
     processLogin: (req, res) => {
+        //res.json(req.body)
         const formValidation = validationResult(req)
         const oldValues = req.body
 

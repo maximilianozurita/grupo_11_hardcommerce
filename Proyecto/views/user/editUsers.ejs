@@ -6,57 +6,57 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-    
+
     <header><%- include('../partials/header') %></header>
    <main >
-       
+
         <section class="formulario">
-            
+
             <form action="/user/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                 <div class="input-container">
                     <label for="name">Ingrese su nombre</label>
                     <input type="text" name="name" id="name" value= "<%= userToEdit.name %>" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>"/>
-                
+
                     <% if (locals.errors && errors.name) { %>
                         <p class='msg-error'><%= errors.name.msg %></p>
                     <% } %>
-                
+
                 </div>
 
                 <div class="input-container">
                     <label for="lastName">Ingrese su apellido</label>
-                    <input type="text" name="lastName" id="lastName" value= "<%= userToEdit.lastName %>" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %> "/> 
+                    <input type="text" name="lastName" id="lastName" value= "<%= userToEdit.last_name %>" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %> "/>
 
                     <% if (locals.errors && errors.lastName) { %>
                         <p class='msg-error'><%= errors.lastName.msg %></p>
                     <% } %>
-                
+
                 </div>
 
                 <div class="input-container">
                     <label for="email">Ingrese email</label>
-                    <input placeholder="<%= userToEdit.email %>" type="text" name="email" id="email"  class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"/> 
-                
+                    <input placeholder="<%= userToEdit.email %>" type="text" name="email" id="email"  class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"/>
+
                     <% if (locals.errors && errors.email) { %>
                         <p class='msg-error'><%= errors.email.msg %></p>
                     <% } %>
-                
+
                 </div>
 
                 <div class="input-container">
                     <label for="cell">Ingrese número de celular</label>
                     <input type="text" name="cell" id="cell" value= "<%= userToEdit.cell %>" class="<%= (locals.errors && errors.cell) ? 'input-error' : '' %>"/>
-                
+
                     <% if (locals.errors && errors.cell) { %>
                         <p class='msg-error'><%= errors.cell.msg %></p>
                     <% } %>
                 </div>
-                
+
                 <div class="input-container">
                     <label for="password">Contraseña</label>
                     <input type="text" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>"/>
-                
+
                     <% if (locals.errors && errors.password) { %>
                         <p class='msg-error'><%= errors.password.msg %></p>
                     <% } %>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="input-container">
                     <button type="submit"><p>ENVIAR</p></button>
-                
+
                     <% if (locals.errors && errors.image) { %>
                         <p class='msg-error'><%= errors.image.msg %></p>
                     <% } %>
@@ -82,4 +82,4 @@
     <%- include("../partials/footer") %>
 </footer>
 </body>
-</html> 
+</html>

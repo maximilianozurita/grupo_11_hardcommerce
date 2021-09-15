@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = 'User'
-    
-    const cols = {  
+
+    const cols = {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
     }
-    
+
     const config = {
         tableName: "users",  // <--------
         timestamps: false, /* no va a buscar las columnas de timestamps */
         underscored: true  // <si la columna esta snakecase lo pongo true
     }
-    
+
     const UserModel = sequelize.define(alias, cols, config)
 
     UserModel.associate=models=>{
@@ -43,4 +43,4 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     return UserModel;
-}           
+}

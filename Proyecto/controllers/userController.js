@@ -1,5 +1,4 @@
 const { validationResult } = require('express-validator');
-const usersModels=require("../models/usersModels");
 const fs = require("fs");
 const path=require ("path");
 const bcrypt = require('bcryptjs');
@@ -33,20 +32,18 @@ const userController = {
             // cargamos los datos del usuario en la sesión
             // le sacamos el password
             delete user.password
-    
+
             // cargamos dentro de la sesión la propieda logged con el usuario (menos el password)
             req.session.logged = user
-    
             // guardamos un dato de nuestro usuario en la sesión (email, user_id)
             if (remember) {
                 // clave
                 res.cookie('user', user.id, {
                     maxAge: maxAgeUserCookie,
                     // pasamos esta propiedad para que firme la cookie
-                    signed: true,    
+                    signed: true,
                 })
             }
-    
             // redirigimos al profile
             res.redirect('/user/profile')
         })
@@ -69,18 +66,19 @@ const userController = {
                 ['name', 'ASC'],
             ]
         })
-        .then(usersList => {   
+        .then(usersList => {
             res.render('user/listOfUsers',{ usersList })
         })
     },
     detail: (req, res) => {
         const { id } = req.params
-        //const userDetail = usersModels.findByPk(id)
+
         User.findByPk(id)
         .then(userDetail =>{
+
             res.render('user/userDetail', { userDetail })
          })
-        
+
     },
     formNew: (req, res) => {
         res.render('user/register');
@@ -89,7 +87,7 @@ const userController = {
         const formValidation = validationResult(req)
         /* si encuentro un error devuelvo el formulario
         con los valores ya cargados y los errores */
-    
+
         if (!formValidation.isEmpty()) {
             // borrar imagen
             if (req.file) {
@@ -99,38 +97,39 @@ const userController = {
             // tenemos errores
             const oldValues = req.body
             res.render('user/register', { oldValues, errors: formValidation.mapped() })
-          return  
-        } 
+          return
+        }
 
 
         const {name, lastName, email, password, cell} = req.body;
-        
+
         const { file } = req
         const image = file.filename
-        
+
         // hashear el password
         const hashPassword = bcrypt.hashSync(password)
 
-        const user = 
+        const user =
         {
             name:name,
-            lastName:lastName,
+            last_name:lastName,
             email:email,
             password:hashPassword,
             cell:cell,
             image: "/images/imgUser/" + image ,
         }
         /*usersModels.create(user);
-        res.redirect('/user/');*/ 
+        res.redirect('/user/');*/
 
         User.create(user)
         .then((userCreated) => {
             res.redirect('/user/userDetail/' + userCreated.id);
         })
     },
-    edit: (req, res) => { 
+    edit: (req, res) => {
         User.findByPk(req.params.id)
         .then(userToEdit => {
+
             res.render('user/editUsers',{
                 userToEdit
             });
@@ -156,19 +155,19 @@ const userController = {
             }
             // dentro de req.file va a venir la información del archivo
             const { file } = req
-    
+
             /* Si viene una imagen nueva, cargar la imagen nueva
             sino poner la original */
             let image
-            
+
             if (file) {
                 image = '/images/imgUser/' + file.filename
             }else {
                 image = userToEdit.image
             }
-    
+
             //data.image = image
-    
+
             //Hashear password si fue ingresada
             if(data.password){
                 const password=req.body.password
@@ -176,15 +175,15 @@ const userController = {
                 data.password=hashPassword
             }
             else{
-                data.password=userOriginal.password
+                data.password=userToEdit.password
             }
             if(data.email===""){
                 data.email=userToEdit.email
             }
-            
+
             const propertiesToEdit = {
                 name:data.name,
-                lastName:data.lastName,
+                last_Name:data.lastName,
                 email:data.email,
                 password:data.password,
                 cell:data.cell,
@@ -195,11 +194,11 @@ const userController = {
                 where:{id}
             })
             .then(() => {
-                
+
                 res.redirect('/user/');
             })
         })
-        
+
     },
     destroy:async (req, res) => {
         const {id} = req.params;
@@ -212,16 +211,16 @@ const userController = {
         deleteImage.forEach(image => {
             fs.unlinkSync(path.join(__dirname,"../public/", image.image))
         });
-         
-        
+
+
         await User.destroy({
             where: {
                 id
             }
         })
-            
+
         res.redirect('/user/');
-            
+
     }
 }
 

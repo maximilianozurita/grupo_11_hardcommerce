@@ -12,30 +12,30 @@
     <main>
         <div>
             <h1>Ingresar</h1>
-            <form class="formulario" action="/user/login" method="POST" enctype="multipart/form-data">             
-           
+            <form class="formulario" action="/user/login" method="POST">
+
               <div class=input-container>
                 <label for="email"></label>
-                <input placeholder="email" name="email" id="email" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.name%>" /> 
-                <span class='msg-error msg-error-email'></span> 
-                
+                <input placeholder="email" name="email" id="email" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" />
+                <span class='msg-error msg-error-email'></span>
+
               <span class='msg-error msg-error-email'></span>
 
                 <% if (locals.errors && errors.email) { %>
                   <p class='msg-error'><%= errors.email.msg %></p>
                 <% } %>
-             
+
              </div>
-            
+
               <div class="input-container">
                 <label for="password"></label>
-                <input type="password" placeholder="Contraseña" name="password" id="password"  class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.name%>"  />
-                
+                <input type="password" placeholder="Contraseña" name="password" id="password"  class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" />
+
               <span class='msg-error msg-error-password'></span>
                 <% if (locals.errors && errors.password) { %>
                   <p class='msg-error'><%= errors.password.msg %></p>
                 <% } %>
-               
+
 
               </div>
 
@@ -59,4 +59,4 @@
     </footer>
 </body>
 </html>
-<script src="/JS/FormValidationLoginUser.js"></script>
+//<script src="/JS/FormValidationLoginUser.js"></script>

@@ -39,6 +39,8 @@ const userController = {
 
                 const urlImage =  "http://localhost:3000"+user.image
                 user.setDataValue ("image", urlImage)
+                const urlDetail = "http://localhost:3000/api/users/"+user.id
+                user.setDataValue ("detail",urlDetail)
                 return user;
             });
 

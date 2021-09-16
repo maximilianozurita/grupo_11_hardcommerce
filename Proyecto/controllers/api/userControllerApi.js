@@ -36,7 +36,7 @@ const userController = {
             })
 
             const usersMapped = users.rows.map(user => {
-                
+
                 const urlImage =  "http://localhost:3000"+user.image
                 user.setDataValue ("image", urlImage)
                 const urlDetail = "http://localhost:3000/api/users/"+user.id
@@ -51,7 +51,7 @@ const userController = {
                     },
                     data:{
                         data: usersMapped
-                        
+
                     }
 
                 })
@@ -97,9 +97,5 @@ const userController = {
         })
     }
 }
-
-
-    
-
 
 module.exports = userController

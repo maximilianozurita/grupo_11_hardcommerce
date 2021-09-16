@@ -1,7 +1,7 @@
 function hasEmail(email) {
 
 
-    const endpoint = 'http://localhost:3005/api/users/hasEmail';
+    const endpoint = 'http://localhost:3000/api/users/hasEmail';
     const data = {email: email};
 
     return fetch(endpoint, {
@@ -11,6 +11,9 @@ function hasEmail(email) {
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
+    .then(response=>{
+        return response.data.hasEmail
+    })
 }
 
 window.addEventListener('load', () => {
@@ -64,7 +67,7 @@ window.addEventListener('load', () => {
 
 
     // funcion que tiene la logica de validacion.
-   function validateForm(e){
+   async function validateForm(e){
 
 
         let hasError=false;
@@ -84,22 +87,17 @@ window.addEventListener('load', () => {
             hasError=true;
         }
 
-        var isEmail;
-        hasEmail(inputEmail.value)
+        let isEmail= await hasEmail(inputEmail.value)
              .catch(error => {
                  isEmail=true
                  errorEmail.innerHTML="Error de servidor, intentelo mas tarde"
             })
-            .then(response => {
-
-                isEmail=response.data.hasEmail
-
-                if(isEmail){
-                    errorEmail.innerHTML="email existente, ingrese uno nuevo"
-
-                    hasError=true;
-                }
-            });
+            console.log("Email existente: ", isEmail)
+            if(isEmail){
+                errorEmail.innerHTML="email existente, ingrese uno nuevo"
+                 hasError=true;
+            }
+            console.log("Error: " , hasError)
 
         if( !validateEmail (inputEmail.value) ){
             errorEmail.innerHTML="Por favor ingrese su email"

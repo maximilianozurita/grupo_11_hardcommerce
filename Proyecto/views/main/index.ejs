@@ -14,8 +14,7 @@
     <main class= "indexmain">
         <!--CARRUSEL PRODUCTOS-->
         <section class="contenedor-main-carrusel">
-            <a href="#" class="carrusel-productos__producto">
-                <a href="#">
+            <div class="carrusel-productos__producto">
                 <div class="carrusel-productos__imagen-carrusel">
                     <img src="/images/shop-2080-ti-1070@2x.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
                 </div>
@@ -25,7 +24,7 @@
                 <a href="#"  class="button-carrusel button-carrusel--LH">
                     <i class="fas fa-angle-left"></i>
                 </a>
-            </a>
+            </div>
         </section>
         <!---OFERTAS--->
         <section class="contenedor-seccion">
@@ -55,50 +54,19 @@
 
             </div>
         </section>
-        <!--SECCION CONTACTO-->
-        <section class="contenedor-seccion">
-            <p class="titulos-home"> Contacto </p>
-            <div class="contenedor-contacto">
-                <a href="#" class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/googlemaps.jpg"  class="forma-contacto__imagen" width="100%">
-                    </div>
-                    <p class="forma-contacto__descripcion">
-                        Av. Cazon 2530 Tigre
-                    </p>
-                </a>
-                <a href="#" class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/PC-Hora.jpg"  class="forma-contacto__imagen" width="100%">
-                    </div>
-                    <p class="forma-contacto__descripcion">
-                        Horarios de atencion: 8hs a 19hs
-                    </p>
-                </a>
-                <a href="#" class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/servicio-cliente.jpg"  class="forma-contacto__imagen" width="100%">
-                    </div>
-                    <div class="forma-contacto__descripcion">
-                        <p class="forma-contacto__email">E-mail: hardcomerce@gmail.com</p> 
-                        <p class="forma-contacto__cel">Cel/tel: 15374987365</p>
-                    </div>
-                </a>
-             </div>
-        </section>
         <!--SECCION DESTACADOS-->
         <section class="contenedor-seccion">
             <p class="titulos-home"> Destacados </p>
             <div class="contenedor-productos">
 
-                <% for(let i=0; i<productList.length; i++) {%>  
+                <% for(let i=0; i<productList.length; i++) {%>
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
                                     <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="100%">
                                 </div>
                                 <p class="producto__descripcion">
-                                    <%= productList[i].short_description  %> 
+                                    <%= productList[i].short_description  %>
                                 </p>
                                 <p class="producto__precio">
                                     $<%= productList[i].price %>
@@ -111,17 +79,46 @@
                                 <span class="button-agregar__body">Agregar</span>
                             </a>
                     </article>
-                 <% } %> 
+                 <% } %>
 
             </div>
         </section>
-        <!--SECCION marcas-->
- 
+        <!--SECCION CONTACTO-->
+        <section class="contenedor-seccion">
+            <p class="titulos-home"> Contacto </p>
+            <div class="contenedor-contacto">
+                <div class="forma-contacto">
+                    <div class="forma-contacto__contenedor-imagen">
+                        <img src="/images/googlemaps.jpg"  class="forma-contacto__imagen" width="100%">
+                    </div>
+                    <p class="forma-contacto__descripcion">
+                        Av. Cazon 2530 Tigre
+                    </p>
+                </div>
+                <div class="forma-contacto">
+                    <div class="forma-contacto__contenedor-imagen">
+                        <img src="/images/PC-Hora.jpg"  class="forma-contacto__imagen" width="100%">
+                    </div>
+                    <p class="forma-contacto__descripcion">
+                        Horarios de atencion: 8hs a 19hs
+                    </p>
+                </div>
+                <div class="forma-contacto">
+                    <div class="forma-contacto__contenedor-imagen">
+                        <img src="/images/servicio-cliente.jpg"  class="forma-contacto__imagen" width="100%">
+                    </div>
+                    <div class="forma-contacto__descripcion">
+                        <p class="forma-contacto__email">E-mail: hardcomerce@gmail.com</p> 
+                        <p class="forma-contacto__cel">Cel/tel: 15374987365</p>
+                    </div>
+                </div>
+             </div>
+        </section>
     </main>
 
     <footer class="main-footer">
         <%- include("../partials/footer") %>
     </footer>
-    
+
 </body>
 </html>

@@ -9,13 +9,13 @@ const productsController = {
                 {association: 'brand'}
             ]
         })
-
+        
         res.status(200).json({
             meta:{
                 status: "succes",
             },
             data:{
-                products: productList
+                product: productList
             }
         })
     },
@@ -49,6 +49,12 @@ const productsController = {
             ]
         });
 
+        const productMapped = productList.map(product =>{
+            const urlImage = "http://localhost:3000/api/products/"+product.images.url
+            product.setDataValue ("cacas", urlImage)
+            return product;
+        })   
+        
         res.status(200).json({
             meta:{
                 status: "succes",

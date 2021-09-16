@@ -14,6 +14,7 @@ const productsController = {
                 {association: 'brand'}
             ]
         });
+        
 
         res.render('products/listOfProducts',{productList})
 

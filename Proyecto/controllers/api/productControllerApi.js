@@ -12,16 +12,6 @@ const productsController = {
         })
 
 
-        const productsMapped = productList.map(product => {
-            product.images.forEach( images => {
-                const urlImage =  "http://localhost:3000"+images.url
-                images.setDataValue ("url", urlImage)
-                
-            });    
-            
-           return product
-        });
-
         res.status(200).json({
             meta:{
                 status: "succes",
@@ -61,18 +51,22 @@ const productsController = {
             ]
         });
 
-        const productMapped = productList.map(product =>{
-            const urlImage = "http://localhost:3000/api/products/"+product.images.url
-            product.setDataValue ("cacas", urlImage)
-            return product;
-        })   
+        const productsMapped = productList.map(product => {
+            product.images.forEach( images => {
+                const urlImage =  "http://localhost:3000"+images.url
+                images.setDataValue ("url", urlImage)
+                
+            });    
+            
+           return product
+        });
         
         res.status(200).json({
             meta:{
                 status: "succes",
             },
             data:{
-                product: productList
+                product: productsMapped
             }
         })
     }

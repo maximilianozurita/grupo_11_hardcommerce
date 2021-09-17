@@ -12,28 +12,31 @@
 
     <main>
         <div class="lista">
-            <div class="barra-de-clasificacion">
-                <div class="titulo-clasificacion">
-                    <p>Marcas:</p>
+            <div class="clasificaciones">
+                <div class="barra-de-clasificacion">
+                    <label for="titulo-clasificacion">Marcas</label>
+                    <select class="brand" id="brand" name="brand">
+                       <option value="Todo" >Todo</option>
+                       <%for(let i=0;i<brandToLoad.length;i++){%>
+                           <option class="<%= brandToLoad[i].name %> caja-clasificacion" value="<%= brandToLoad[i].name %>"><%= brandToLoad[i].name %></option>
+                        <% } %>
+                   </select>
+               </div>
+               <div class="barra-de-clasificacion">
+                    <label for="titulo-clasificacion">Categoria</label>
+                    <select class="category" id="category" name="category">
+                        <option value="Todo" >Todo</option>
+                        <%for(let i=0;i<categoryToLoad.length;i++){%>
+                            <option class="<%=categoryToLoad[i].info %> caja-clasificacion" value="<%= categoryToLoad[i].info %>"><%= categoryToLoad[i].info %></option>
+                         <% } %>
+                    </select>
                 </div>
-                <%for(let i=0;i<brandToLoad.length;i++){%>
-                <a href="#" class="caja-clasificacion">
-                    <p><%= brandToLoad[i].name %></p>
-                </a>
-                <% } %>
-                <div class="titulo-clasificacion">
-                    <p>Categorias:</p>
-                </div>
-                <%for(let i=0;i<categoryToLoad.length;i++){%>
-                    <a href="#" class="caja-clasificacion">
-                        <p><%= categoryToLoad[i].info %></p>
-                    </a>
-                <% } %>
+
             </div>
             <section class="contenedor-seccion">
                 <div class="contenedor-productos">
                     <%for(let i=0;i<productList.length;i++){ %>
-                        <article class="separar">
+                        <article class="separar" id="<%= productList[i].id%>">
                                 <div>
                                     <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                         <div class="producto__contenedor-imagen">
@@ -44,6 +47,8 @@
                                 <div class="comprarAgregar">
                                     <p class="producto__precio">
                                         <%= productList[i].name%>
+                                        <span class="span-brand"><%= productList[i].brand.name%></span>
+                                        <span class="span-category"><%= productList[i].category.info%></span>
                                     </p>
                                     <p class="producto__precio">
                                         <%= '$' + productList[i].price%>
@@ -64,3 +69,4 @@
 
 </body>
 </html>
+<script src="/JS/Filtro.js"></script>

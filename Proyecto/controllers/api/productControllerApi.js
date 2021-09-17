@@ -1,3 +1,4 @@
+const { setRandomFallback } = require("bcryptjs");
 const {Product, ImageProduct, Category, Brand}=require("../../database/models")
 
 const productsController = {
@@ -10,12 +11,23 @@ const productsController = {
             ]
         })
 
+
+        const productsMapped = productList.map(product => {
+            product.images.forEach( images => {
+                const urlImage =  "http://localhost:3000"+images.url
+                images.setDataValue ("url", urlImage)
+                
+            });    
+            
+           return product
+        });
+
         res.status(200).json({
             meta:{
                 status: "succes",
             },
             data:{
-                products: productList
+                products: productsMapped
             }
         })
     },

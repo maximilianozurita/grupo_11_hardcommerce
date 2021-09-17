@@ -1,7 +1,29 @@
 const { setRandomFallback } = require("bcryptjs");
 const {Product, ImageProduct, Category, Brand}=require("../../database/models")
+const { Op, where } = require('sequelize');
 
 const productsController = {
+     search: async (req, res) => {
+        const { name } = req.query
+
+        const productFound = await Product.findAndCountAll({
+            where: {
+                name: {
+                    [Op.like]: `%${name}%`
+                }
+            }
+        })
+
+        res.status(200).json({
+            meta: {
+                status: "success",
+                total: productFound.count
+            },
+            data: {
+                Products: productFound.rows
+            }
+        })
+    },
     listOfProducts: async (req, res) => {
         const productList = await Product.findAll({
             include:[

@@ -14,9 +14,10 @@ const productsController = {
                 {association: 'brand'}
             ]
         });
-        
+        const brandToLoad= await Brand.findAll()
+        const categoryToLoad= await Category.findAll()
 
-        res.render('products/listOfProducts',{productList})
+        res.render('products/listOfProducts',{productList,brandToLoad,categoryToLoad})
 
     },
     detail: async (req, res) => {

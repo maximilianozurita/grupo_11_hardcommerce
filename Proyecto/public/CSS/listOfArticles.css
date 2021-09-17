@@ -15,6 +15,11 @@ body
 {
     display: flex;
 }
+
+.caja-clasificacion{
+    text-decoration: none;
+    color: rgb(85, 85, 85);
+}
 .lista .barra-de-clasificacion .titulo-clasificacion p
 {
     font-weight: 900;
@@ -26,11 +31,12 @@ body
 }
 .lista .barra-de-clasificacion .caja-clasificacion p
 {
-    transition:all 1s;
+    transition:all 0s;
 }
 .lista .barra-de-clasificacion .caja-clasificacion p:hover
 {
     font-weight: 900;
+    color: black;
 }
 .lista .contenedor-seccion
 {
@@ -40,38 +46,61 @@ body
 .lista .contenedor-seccion .contenedor-productos
 {
     display: flex;
-    flex-direction: column;
     border-top: solid 1px rgb(218, 218, 218);
     border-bottom: solid 1px rgb(179, 179, 179);
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .separar
 {
-    display:flex;
-}
-.separar img
-{
+    display: flex;
+    flex-direction: column;
+    border: gray 1px solid;
+    border-radius: 6%;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    justify-content: space-around;
     width:200px;
+    transition: 0.7s;
 }
+
+.separar:hover{
+    box-shadow: 2px 2px 2px 2px rgb(70, 70, 70);
+}
+
 .comprarAgregar
 {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding: 10px;
 }
 .producto__descripcion
 {
     padding: 1%;
     color: rgba(0,0,0,0.7);
 }
+.producto__precio{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    text-align: left;
+}
 .producto__precio
 {
-    color: rgb(151, 151, 151);
+    color: rgb(32, 32, 32);
     opacity: 0.9;
+    font-weight: bolder;
+    text-align: left;
 }
 .producto__button-producto
 {
     text-decoration: none;
+}
+
+.producto__contenedor-imagen img{
+    padding: 20px;
 }
 .button-agregar
 {
@@ -108,6 +137,10 @@ body
 }
 @media (min-width:480px)
 {
+    .comprarAgregar
+    {
+    display: flex;
+    }
     .lista .contenedor-seccion
     {
         margin-top: 10px;

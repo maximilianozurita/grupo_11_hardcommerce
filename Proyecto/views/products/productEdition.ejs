@@ -39,21 +39,21 @@
                </select>
            </div>
            <div class="input-container">
-            <label for="brand">marca del producto</label>
-            <select class="brand" id="brand" name="brand">
-               <option value="<%= productToEdit.brand.id%>" selected="selected"><%= productToEdit.brand.name%></option>
-               <%brandToLoad.forEach(brand => { %>
-                   <option value=" <%= brand.id%> " > <%= brand.name%> </option>
-               <%})%>
-           </select>
-       </div>
+                <label for="brand">marca del producto</label>
+                <select class="brand" id="brand" name="brand">
+                   <option value="<%= productToEdit.brand.id%>" selected="selected"><%= productToEdit.brand.name%></option>
+                   <%brandToLoad.forEach(brand => { %>
+                       <option value=" <%= brand.id%> " > <%= brand.name%> </option>
+                   <%})%>
+                </select>
+            </div>
 
             <div class="input-container">
                <label for="price">Precio</label>
                <input type="text" size="5" id="price" name="price" required pattern="[0-9]+" required value="<%= productToEdit.price %>"/>
             </div>
 
-            <div>
+            <div class="input-container">
                <label for="quota">Cuotas</label>
                <select id="quota" name="quota">
                 <option value="<%= productToEdit.quota%>" selected="selected"><%= productToEdit.quota%></option>

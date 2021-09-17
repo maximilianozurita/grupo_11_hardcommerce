@@ -16,21 +16,33 @@
         <section class="contenedor-main-carrusel">
             <div class="carrusel-productos__producto">
                 <div class="carrusel-productos__imagen-carrusel">
+                    <img src="/images/arm-cortex.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
+                </div>
+                <div class="carrusel-productos__imagen-carrusel">
+                    <img src="/images/RTX-3090-Turkiye-fiyati.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
+                </div>
+                <div class="carrusel-productos__imagen-carrusel">
+                    <img src="/images/AMD-Radeon-RX-6800.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
+                </div>
+                <div class="carrusel-productos__imagen-carrusel">
                     <img src="/images/shop-2080-ti-1070@2x.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
                 </div>
-                <a href="#" class="button-carrusel button-carrusel--RH">
-                    <i class="fas fa-angle-right"></i>
-                </a>
-                <a href="#"  class="button-carrusel button-carrusel--LH">
-                    <i class="fas fa-angle-left"></i>
-                </a>
             </div>
         </section>
         <!---OFERTAS--->
         <section class="contenedor-seccion">
+            <div class="button-off-RH right "><i class="fas fa-angle-right"></i></div>
+            <div class="button-off-LH left"><i class="fas fa-angle-left"></i></div>
             <p class="titulos-home">Ofertas</p>
-            <div class="contenedor-productos">
-                <% for(let i=0; i<productList.length; i++) {%>
+            <div class="ofertas contenedor-productos">
+                <% let long;
+                if(productList.length<10){
+                    long= productList.length
+                }
+                else{
+                    long=10;
+                }
+                    for(let i=0; i<long; i++) {%>
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
@@ -51,15 +63,23 @@
                             </a>
                     </article>
                 <% } %>
-
             </div>
         </section>
         <!--SECCION DESTACADOS-->
         <section class="contenedor-seccion">
+            <div class="right button-dest-RH"><i class="fas fa-angle-right"></i></div>
+            <div class="left button-dest-LH"><i class="fas fa-angle-left"></i></div>
             <p class="titulos-home"> Destacados </p>
-            <div class="contenedor-productos">
+            <div class="destacados contenedor-productos">
 
-                <% for(let i=0; i<productList.length; i++) {%>
+                <%
+                if(productList.length<10){
+                    long= productList.length
+                }
+                else{
+                    long=10;
+                }
+                    for(let i=0; i<long; i++) {%>
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
@@ -80,7 +100,6 @@
                             </a>
                     </article>
                  <% } %>
-
             </div>
         </section>
         <!--SECCION CONTACTO-->
@@ -122,3 +141,4 @@
 
 </body>
 </html>
+<script src="/JS/IndexCarrusel.js"></script>

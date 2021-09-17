@@ -12,7 +12,7 @@
     display:flex;
     flex-direction: column;
     margin:auto;
-    border:solid 3px black;
+    border:solid 1.5px rgb(97, 97, 97);
     background-color:white;
     text-align: center;
     padding: 10px;

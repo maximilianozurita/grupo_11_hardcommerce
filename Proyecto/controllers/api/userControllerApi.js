@@ -32,7 +32,7 @@ const userController = {
     users: async (req, res ) => {
         try {
             const users = await User.findAndCountAll({
-                attributes: ["id","name","last_name","email","image"]
+                attributes: ["id","name","last_name","email","image","cell"]
             })
 
             const usersMapped = users.rows.map(user => {

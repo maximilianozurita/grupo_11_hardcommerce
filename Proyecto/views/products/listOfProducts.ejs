@@ -8,56 +8,32 @@
 <body>
     <header>
         <%- include ('../partials/header') %>
-    </header> 
+    </header>
 
     <main>
         <div class="lista">
             <div class="barra-de-clasificacion">
                 <div class="titulo-clasificacion">
-                    <p>Ordenar por:</p>
+                    <p>Filtra por marcas:</p>
                 </div>
-                <div class="caja-clasificacion">
-                    <p>Rango de precio</p>
+                <%for(let i=0;i<brandToLoad.length;i++){%>
+                <a href="#" class="caja-clasificacion">
+                    <p><%= brandToLoad[i].name %></p>
+                </a>
+                <% } %>
+                <div class="titulo-clasificacion">
+                    <p>Filtra por categorias:</p>
                 </div>
-                <div class="caja-clasificacion">
-                    <p>Envio gratis:</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Cantidad de cuotas</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Marcas</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Notebook</p>
-                </div>
-                <div class="caja-clasificacion"> 
-                    <p>Perifericos</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Placas de video</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Procesadores</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>memorias ram</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Motherboard</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Discos duros/SSD</p>
-                </div>
-                <div class="caja-clasificacion">
-                    <p>Monitores</p>
-                </div>
+                <%for(let i=0;i<categoryToLoad.length;i++){%>
+                    <a href="#" class="caja-clasificacion">
+                        <p><%= categoryToLoad[i].info %></p>
+                    </a>
+                <% } %>
             </div>
             <section class="contenedor-seccion">
                 <div class="contenedor-productos">
-                   
-                    <%for(let i=0;i<productList.length;i++){ %>  
-                        <article class="separar">      
+                    <%for(let i=0;i<productList.length;i++){ %>
+                        <article class="separar">
                                 <div>
                                     <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                         <div class="producto__contenedor-imagen">
@@ -67,26 +43,25 @@
                                 </div>
                                 <div class="comprarAgregar">
                                     <p class="producto__descripcion">
-                                        <%= productList[i].description  %>
+                                        <%=productList[1].product_description%>
                                     </p>
                                     <p class="producto__precio">
                                         <%= productList[i].price %>
                                     </p>
-                                    <a href="/products/Cart" class="button-agregar">
+                                    <!-- <a href="/products/Cart" class="button-agregar">
                                         <div class="button-agregar__contenedor-imagen">
                                             <i class="fas fa-shopping-cart"></i>
                                         </div>
                                         <div class="button-agregar__body">Agregar</div>
-                                    </a>
-                                    <a href="#" class="button-agregar">
+                                    </a> -->
+                                    <!-- <a href="#" class="button-agregar">
                                         <div class="button-agregar__contenedor-imagen">
                                         </div>
                                         <div class="button-agregar__body">Comprar</div>
-                                    </a>
+                                    </a> -->
                                 </div>
                         </article>
                     <% } %>
-                    
                 </div>
             </section>
         </div>

@@ -18,9 +18,20 @@ body
 }
 .contenedor-main-carrusel
 {
+    overflow: hidden;
     position: relative;
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 20%;
+    margin-right: 20%;
+    scroll-behavior: smooth;
+}
+.carrusel-productos__producto{
+    display: flex;
+    width: 400%;
+    transition: all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transform: translatex(0%);
+}
+.carrusel-productos__imagen-carrusel{
+    width: 50%
 }
 .carrusel-productos__imagen
 {
@@ -35,8 +46,23 @@ body
     75%{border: solid 2px rgb(255, 11, 3);}
     100%{borde: solid 2px rgb(115, 8, 255);}
 }
-.button-carrusel
+
+.contenedor-seccion
 {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    overflow: hidden;
+}
+.titulos-home
+{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+.left{
     font-size: 26px;
     background-color: white;
     padding: 1px;
@@ -45,48 +71,63 @@ body
     text-align: center;
     border-radius: 50%;
     color: blue;
-    display: none;
+    border: grey solid 1px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    z-index: 10000;
     transition: all 450ms;
 }
-.button-carrusel:hover
+.right{
+    font-size: 26px;
+    background-color: white;
+    padding: 1px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    color: blue;
+    border: grey solid 1px;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    z-index: 10000;
+    transition: all 450ms;
+}
+.left:hover
 {
     box-shadow: 1px 1px 1px 1px rgba(0, 36, 241, 0.5);
     border: solid 1px rgba(0, 36, 241, 0.7);
 }
-.button-carrusel--RH
+.right:hover
 {
-    position: absolute;
-    top: 40%;
-    Right: 0%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 36, 241, 0.5);
+    border: solid 1px rgba(0, 36, 241, 0.7);
 }
-.button-carrusel--LH
-{
-    position: absolute;
-    top: 40%;
-    Left: 0%;
-}
-.contenedor-seccion
-{
-    margin-top: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.titulos-home
-{
-    font-size: larger;
-    font-weight: bold;
-    color: rgb(105, 105, 105);
-}
+
 .contenedor-productos
 {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     position: relative;
     border-top: solid 1px rgb(218, 218, 218);
     border-bottom: solid 1px rgb(179, 179, 179);
+    scroll-behavior: smooth;
+    transition: all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    width: 200%;
 }
+
+.ofertas{
+    transform: translatex(0%);
+}
+
+.destacados{
+    transform: translatex(0%);
+}
+
 .producto
 {
+    width: 200%;
     display: flex;
     flex-direction: column;
     padding: 3px;
@@ -95,7 +136,7 @@ body
     justify-content: space-around;
     border: 1px solid rgb(151, 150, 150);
     border-radius: 6px;
-    max-width: 210px;
+    width: calc(100%/2);
 }
 .producto--oferta
 {

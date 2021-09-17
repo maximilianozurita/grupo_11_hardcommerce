@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     let inputBrand=document.querySelector("#brand");
     let inputPrice=document.querySelector("#price");
     let inputQuota=document.querySelector("#quota");
-    
+
     let inputArray=[
         inputName,
         inputProductDescription,
@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
         errorPrice,
         errorQuota
     ];
-    
+
     inputName.focus ();
 
     function resetError(){
@@ -51,83 +51,55 @@ window.addEventListener('load', () => {
     }
 
     function validateForm(e){
-        
+
         resetError()
 
         let hasError=false;
 
         if(inputName.value.length==0){
             errorName.innerHTML="Por favor ingrese un nombre de producto"
-         
-            if (!hasError) {
-                inputName.focus()
-        }
         hasError=true
-        
+
         }
         if(inputProductDescription.value.length==0){
             errorProductDescription.innerHTML="Por favor ingrese una descripcion de producto"
-            if (!hasError) {
-                inputProductDescription.focus()
-            }
-            
-            
+
             hasError=true;
         }
-        
+
         if(inputShortDescription.value.length==0){
             errorShortDescription.innerHTML="Por favor ingrese una descripcion corta de producto"
-            
-            if (!hasError) {
-                inputShortDescription.focus()
-            }
-            
+
             hasError=true;
         }
 
         if(inputStock.value.length==0){
             errorStock.innerHTML="Por favor ingrese una descripcion corta de producto"
-           
-           if (!hasError) {
-               inputStock.focus ()
-           }
+
             hasError=true;
         }
 
         if(inputCategory.value.length==0){
             errorCategory.innerHTML="Por favor seleccione una categoria"
-            if (!hasError) {
-                inputCategory.focus ()
-            }
-            
+
             hasError=true;
         }
 
         if(inputBrand.value.length==0){
             errorBrand.innerHTML="Por favor seleccione una marca"
-            
-            if (!hasError){
-                inputBrand.focus ()
-            }
-            
+
             hasError=true;
         }
 
         if(inputPrice.value.length==0){
             errorPrice.innerHTML="Por favor ingrese un precio"
-            
-            if (!hasError) {
-                inputPrice.focus ()
-            }
+
             hasError=true;
         }
 
         if(inputQuota.value.length==0){
             errorQuota.innerHTML="Por favor seleccione una cuota"
-            
-            if(!hasErrore) {
-                inputQuota.focus ()
-            }
+
             hasError=true;
         }
 

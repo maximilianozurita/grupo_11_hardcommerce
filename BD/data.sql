@@ -1,5 +1,3 @@
-
-
 INSERT INTO brands (name) VALUES ("Intel");
 INSERT INTO brands (name) VALUES ("AMD");
 INSERT INTO brands (name) VALUES ("asus");
@@ -42,12 +40,51 @@ INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/discoso
 INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/monitor1.png",2);
 
-INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Teclado","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",3);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",3);
 INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",3);
 
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Disco Solido","Producto usado", 8, 3999,12,"ultima generación",100,0,19);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/discosolido1.png",4);
 
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/monitor1.png",5);
 
-select * from products;
-select * from image_products;
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Teclado","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",6);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",6);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",6);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Disco Solido","Producto usado", 8, 3999,12,"ultima generación",100,0,19);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/discosolido1.png",7);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/monitor1.png",8);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Teclado","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",9);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",9);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",9);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Disco Solido","Producto usado", 8, 3999,12,"ultima generación",100,0,19);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/discosolido1.png",10);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/monitor1.png",11);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Teclado","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",12);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Disco Solido","Producto usado", 8, 3999,12,"ultima generación",100,0,19);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/discosolido1.png",13);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Monitor LG","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/monitor1.png",14);
+
+INSERT INTO products (name,product_description,category_id,price,quota,short_description,stock,sales,brand_id) VALUES ("Teclado","Producto usado", 8, 3999,12,"producto en oferta",100,0,12);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado1.png",15);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado2.png",15);
+INSERT INTO image_products (url,product_id) VALUES ("/images/imgProducts/teclado3.png",15);

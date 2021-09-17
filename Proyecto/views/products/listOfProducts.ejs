@@ -14,7 +14,7 @@
         <div class="lista">
             <div class="barra-de-clasificacion">
                 <div class="titulo-clasificacion">
-                    <p>Filtra por marcas:</p>
+                    <p>Marcas:</p>
                 </div>
                 <%for(let i=0;i<brandToLoad.length;i++){%>
                 <a href="#" class="caja-clasificacion">
@@ -22,7 +22,7 @@
                 </a>
                 <% } %>
                 <div class="titulo-clasificacion">
-                    <p>Filtra por categorias:</p>
+                    <p>Categorias:</p>
                 </div>
                 <%for(let i=0;i<categoryToLoad.length;i++){%>
                     <a href="#" class="caja-clasificacion">
@@ -42,23 +42,15 @@
                                     </a>
                                 </div>
                                 <div class="comprarAgregar">
+                                    <p class="producto__precio">
+                                        <%= productList[i].name%>
+                                    </p>
+                                    <p class="producto__precio">
+                                        <%= '$' + productList[i].price%>
+                                    </p>
                                     <p class="producto__descripcion">
                                         <%=productList[1].product_description%>
                                     </p>
-                                    <p class="producto__precio">
-                                        <%= productList[i].price %>
-                                    </p>
-                                    <!-- <a href="/products/Cart" class="button-agregar">
-                                        <div class="button-agregar__contenedor-imagen">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </div>
-                                        <div class="button-agregar__body">Agregar</div>
-                                    </a> -->
-                                    <!-- <a href="#" class="button-agregar">
-                                        <div class="button-agregar__contenedor-imagen">
-                                        </div>
-                                        <div class="button-agregar__body">Comprar</div>
-                                    </a> -->
                                 </div>
                         </article>
                     <% } %>

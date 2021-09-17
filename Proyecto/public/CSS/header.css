@@ -167,8 +167,68 @@ header
     display:flex;
     justify-content: center;
     height:56px;
-
+    position: relative;
 }
+
+.searchMenu .results{
+    z-index: 999999;
+    text-align: left;
+    padding: 10px;
+    color: black;
+    display: none;
+    position: absolute;
+    background: rgb(218, 218, 218);
+    padding: 20px;
+    top: 45px;
+    left: 559px;
+    width: 14%;
+    border-radius: 0 0 8% 8%;
+}
+.searchMenu .results .recent{
+    display: none;
+    color: black;
+    opacity: 0.8;
+    font-weight: bolder;
+}
+.searchMenu .results .recent .list{
+    color: rgb(53, 53, 53);
+    margin-top: 5px;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.searchMenu .results .list-results a{
+    display: block;
+}
+
+.searchMenu .results .list-results{
+    font-size: 14px;
+    background: #ccc;
+    display: none;
+}
+
+.searchMenu .results .list-results a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    text-align: left;
+    transition: 0.5;
+}
+.searchMenu .results .list-results a:hover{
+    font-weight: 900;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.searchMenu .results .loading{
+    display: none;
+}
+
+.searchMenu .results .recent{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .iconoSearch{
     position: absolute;
     padding:5px;

@@ -137,6 +137,10 @@ body
     border: 1px solid rgb(151, 150, 150);
     border-radius: 6px;
     width: calc(100%/2);
+    transition: 0.7s;
+}
+.producto:hover{
+    box-shadow: 2px 2px 2px 2px rgb(70, 70, 70);
 }
 .producto--oferta
 {

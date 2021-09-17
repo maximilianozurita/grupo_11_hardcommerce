@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 //--------------------Main Carrusel----------------------------//
     let mainCarruselPosition=0;
 
-    function contador(){
+    function carrusel(){
         const contenedorMainCarrusel=document.querySelector('.carrusel-productos__producto')
         mainCarruselPosition-=25;
         if(mainCarruselPosition<-75){
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         }
         contenedorMainCarrusel.style.transform='translateX('+mainCarruselPosition+'%)'
     }
-    setInterval(contador,4000);
+    setInterval(carrusel,4000);
 
 
 //---------------------Ofertas----------------------------------//

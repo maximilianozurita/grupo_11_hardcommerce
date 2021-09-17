@@ -14,8 +14,13 @@ body
 .lista
 {
     display: flex;
+    flex-direction: column;
 }
-
+.clasificaciones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .caja-clasificacion{
     text-decoration: none;
     color: rgb(85, 85, 85);
@@ -51,6 +56,9 @@ body
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+}
+.contenedor-productos span{
+   display: none;
 }
 .separar
 {

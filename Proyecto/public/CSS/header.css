@@ -180,8 +180,8 @@ header
     background: rgb(218, 218, 218);
     padding: 20px;
     top: 45px;
-    left: 559px;
-    width: 14%;
+    left: 64px;
+    width: 49%;
     border-radius: 0 0 8% 8%;
 }
 .searchMenu .results .recent{
@@ -373,6 +373,11 @@ header
     {
         font-size: 20px;
     }
+    .searchMenu .results{
+        top: 45px;
+        left: 559px;
+        width: 14%;
+    }
 
 }
 @media (min-width: 768px)
@@ -393,6 +398,7 @@ header
     {
         flex-direction: row;
     }
+
 
 }
 /*--------------------------------FIN HEADER QUERIES--------------------------------*/

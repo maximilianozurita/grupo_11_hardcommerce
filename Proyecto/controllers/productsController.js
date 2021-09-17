@@ -16,6 +16,7 @@ const productsController = {
         });
         const brandToLoad= await Brand.findAll()
         const categoryToLoad= await Category.findAll()
+        //res.json(productList[0].category.info)
 
         res.render('products/listOfProducts',{productList,brandToLoad,categoryToLoad})
 

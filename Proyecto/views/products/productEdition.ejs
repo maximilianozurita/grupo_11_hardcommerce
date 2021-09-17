@@ -33,7 +33,7 @@
                 <label for="category">Categoria del producto</label>
                 <select class="category" id="category" name="category">
                    <option value="<%= productToEdit.category.id%>" selected="selected"><%= productToEdit.category.info%></option>
-                   <%categorys.forEach(category => { %>
+                   <%categories.forEach(category => { %>
                        <option value=" <%= category.id%> " > <%= category.info%> </option>
                    <%})%>
                </select>

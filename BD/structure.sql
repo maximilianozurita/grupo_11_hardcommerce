@@ -7,7 +7,7 @@ CREATE TABLE users(id INT(10) NOT NULL AUTO_INCREMENT,
     image VARCHAR(60),
     PRIMARY KEY (id));
                      
-CREATE TABLE categorys(id INT(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE categories(id INT(10) NOT NULL AUTO_INCREMENT,
 	info VARCHAR(30),
     PRIMARY KEY(id));
 
@@ -26,7 +26,7 @@ CREATE TABLE products(id INT(10) NOT NULL AUTO_INCREMENT,
     sales INT(10),
     brand_id INT (30),
     PRIMARY KEY(id),
-    FOREIGN KEY(category_id) references categorys(id),
+    FOREIGN KEY(category_id) references categories(id),
     FOREIGN KEY (brand_id) references brands (id));
     
     CREATE TABLE image_products(id INT(10) NOT NULL AUTO_INCREMENT,

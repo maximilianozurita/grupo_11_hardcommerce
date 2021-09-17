@@ -112,9 +112,9 @@ const productsController = {
                     {association: 'brand'}
                 ]
             });
-        const categorys=await Category.findAll()
+        const categories=await Category.findAll()
         const brandToLoad=await Brand.findAll()
-        res.render("products/productEdition",{productToEdit,categorys,brandToLoad})
+        res.render("products/productEdition",{productToEdit,categories,brandToLoad})
     },
     update: async (req,res)=>{
         const idParams=req.params.id;

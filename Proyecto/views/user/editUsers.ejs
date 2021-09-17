@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="lastName">Ingrese su apellido</label>
-                    <input type="text" name="lastName" id="lastName" value= "<%= userToEdit.last_name %>" class="<%= (locals.errors && errors.lastName) ? 'input-error' : '' %> "/>
+                    <label for="last_name">Ingrese su apellido</label>
+                    <input type="text" name="last_name" id="last_name" value= "<%= userToEdit.last_name %>" class="<%= (locals.errors && errors.last_name) ? 'input-error' : '' %> "/>
 
                     <% if (locals.errors && errors.last_name) { %>
                         <p class='msg-error'><%= errors.last_name.msg %></p>

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     const config = {
         underscored: true, /* te busca en snake case las columnas */
         timestamps: false, /* no va a buscar las columnas de timestamps */
-        tableName: 'categorys'
+        tableName: 'categories'
     }
     
     const categoryModel = sequelize.define(alias, cols, config)

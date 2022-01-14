@@ -3,7 +3,6 @@
 <head>
     <title>Home</title>
     <!-- <link rel="stylesheet" href="/CSS/IndexStyle.css"> -->
-    <link rel="stylesheet" href="./css/styles.css">
     <%- include('../partials/head') %>
 </head>
 <body>
@@ -12,84 +11,129 @@
     <%- include ('../partials/header') %>
     </header>
 
-    <main class= "indexmain">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-        <!--CARRUSEL PRODUCTOS-->
-        <section class="contenedor-main-carrusel">
-            <div class="carrusel-productos__producto">
-                <div class="carrusel-productos__imagen-carrusel">
-                    <img src="/images/arm-cortex.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
-                </div>
-                <div class="carrusel-productos__imagen-carrusel">
-                    <img src="/images/RTX-3090-Turkiye-fiyati.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
-                </div>
-                <div class="carrusel-productos__imagen-carrusel">
-                    <img src="/images/AMD-Radeon-RX-6800.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
-                </div>
-                <div class="carrusel-productos__imagen-carrusel">
-                    <img src="/images/shop-2080-ti-1070@2x.jpg" alt="imagen-carrusel" class="carrusel-productos__imagen" width="100%">
+    <main class="container">
+        
+        <section class="row mt-3">
+            <div class="col">
+                <div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active d-block w-100">
+                            <img class="img-fluid" src="/images/carousel1.jpg" alt="">
+                        </div>
+                        <div class="carousel-item d-block w-100" data-bs-interval="5000">
+                            <img class="img-fluid" src="/images/carousel2.jpg" alt="" >
+                        </div>
+                        <div class="carousel-item d-block w-100">
+                            <img class="img-fluid" src="/images/carousel3.jpg" alt="">
+                        </div>
+                        <div class="carousel-item d-block w-100">
+                            <img class="img-fluid" src="/images/carousel2.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Controles -->
+                    <button 
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#mi-carousel"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+
+                    <button 
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#mi-carousel"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators">
+                        <button 
+                            type="button"
+                            class="active"
+                            data-bs-target="#mi-carousel"
+                            data-bs-slide-to="0"
+                            aria-label="Slide 1"
+                        ></button>
+                        <button 
+                            type="button"
+                            class=""
+                            data-bs-target="#mi-carousel"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"
+                        ></button>
+                        <button 
+                            type="button"
+                            class=""
+                            data-bs-target="#mi-carousel"
+                            data-bs-slide-to="2"
+                            aria-label="Slide 3"
+                        ></button>
+                        <button 
+                            type="button"
+                            class=""
+                            data-bs-target="#mi-carousel"
+                            data-bs-slide-to="3"
+                            aria-label="Slide 4"
+                        ></button>
+                    </div>
                 </div>
             </div>
         </section>
-        <!---OFERTAS--->
-        <section class="contenedor-seccion">
-            <div class="button-off-RH right "><i class="fas fa-angle-right"></i></div>
-            <div class="button-off-LH left"><i class="fas fa-angle-left"></i></div>
-            <p class="titulos-home">Ofertas</p>
-            <div class="ofertas contenedor-productos">
-                <% let long;
-                if(productList.length<10){
-                    long= productList.length
-                }
-                else{
-                    long=10;
-                }
-                    for(let i=0; i<long; i++) {%>
-                    <article class="producto producto--oferta">
-                            <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
-                                <div class="producto__contenedor-imagen">
-                                    <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="100%">
-                                </div>
-                                <p class="producto__descripcion">
-                                    <%= productList[i].short_description  %>
-                                </p>
-                                <p class="producto__precio">
-                                    $<%= productList[i].price %>
-                                </p>
+    
+        
+        <h2>Ofertas</h2>
+        <section class="row mt-3">
+
+            <div class="col-4">
+
+                  
+                <% 
+                    let long;
+                    if(productList.length<10){
+                        long = productList.length
+                    }
+                    else{
+                        long = 10;
+                    }
+
+                    for(let i=0; i<long ; i++){ %>
+                        
+                        <div class="card">
+                            
+                            <a href="/products/detail/<%= productList[i].id %>">
+                                <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="card-img-top">
                             </a>
-                            <a href="/products/cart" class="button-agregar">
-                                <div class="button-agregar__contenedor-imagen">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <span class="button-agregar__body">Agregar</span>
-                            </a>
-                    </article>
-                <% } %>
+                            <div class="card-body">
+                                
+                                    <p class="card-text">
+                                        <%= productList[i].short_description  %>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <p class="card-subtitle">
+                                        $<%= productList[i].price %>
+                                    </p>
+                                </a>
+                                <a class="btn btn-outline-primary">
+                                    Agregar
+                                </a>
+                            </div>
+                            
+                        </div>
+                        
+                <%  } %>        
+
             </div>
+
         </section>
-        <!--SECCION DESTACADOS-->
-        <section class="contenedor-seccion">
+        
+        <!-- <section class="contenedor-seccion">
             <div class="right button-dest-RH"><i class="fas fa-angle-right"></i></div>
             <div class="left button-dest-LH"><i class="fas fa-angle-left"></i></div>
             <p class="titulos-home"> Destacados </p>
@@ -106,7 +150,7 @@
                     <article class="producto producto--oferta">
                             <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
                                 <div class="producto__contenedor-imagen">
-                                    <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="100%">
+                                    <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="250" height="250">
                                 </div>
                                 <p class="producto__descripcion">
                                     <%= productList[i].short_description  %>
@@ -125,42 +169,46 @@
                  <% } %>
             </div>
         </section>
-        <!--SECCION CONTACTO-->
+        
         <section class="contenedor-seccion">
             <p class="titulos-home"> Contacto </p>
             <div class="contenedor-contacto">
+                
                 <div class="forma-contacto">
                     <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/googlemaps.jpg"  class="forma-contacto__imagen" width="100%">
+                        <img src="/images/googlemaps.jpg"  class="forma-contacto__imagen" width="250" height="250">
                     </div>
                     <p class="forma-contacto__descripcion">
                         Av. Cazon 2530 Tigre
                     </p>
                 </div>
+
                 <div class="forma-contacto">
                     <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/PC-Hora.jpg"  class="forma-contacto__imagen" width="100%">
+                        <img src="/images/PC-Hora.jpg"  class="forma-contacto__imagen" width="250" height="250">
                     </div>
                     <p class="forma-contacto__descripcion">
                         Horarios de atencion: 8hs a 19hs
                     </p>
                 </div>
+
                 <div class="forma-contacto">
                     <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/servicio-cliente.jpg"  class="forma-contacto__imagen" width="100%">
+                        <img src="/images/servicio-cliente.jpg"  class="forma-contacto__imagen" width="250" height="250">
                     </div>
                     <div class="forma-contacto__descripcion">
                         <p class="forma-contacto__email">E-mail: hardcomerce@gmail.com</p> 
                         <p class="forma-contacto__cel">Cel/tel: 15374987365</p>
                     </div>
                 </div>
-             </div>
-        </section>
-    </main>
 
-    <footer class="main-footer">
+             </div>
+            </section> -->
+       
+    </main>
+    <!-- <footer class="main-footer">
         <%- include("../partials/footer") %>
-    </footer>
+    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

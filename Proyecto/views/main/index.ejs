@@ -1,99 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <title>Home</title>
-    <!-- <link rel="stylesheet" href="/CSS/IndexStyle.css"> -->
     <%- include('../partials/head') %>
+
 </head>
+
 <body>
   
-    <header>
-    <%- include ('../partials/header') %>
-    </header>
-
-    <main class="container">
+    <div class="container-fluid">
         
-        <section class="row mt-3">
-            <div class="col">
-                <div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active d-block w-100">
-                            <img class="img-fluid" src="/images/carousel1.jpg" alt="">
-                        </div>
-                        <div class="carousel-item d-block w-100" data-bs-interval="5000">
-                            <img class="img-fluid" src="/images/carousel2.jpg" alt="" >
-                        </div>
-                        <div class="carousel-item d-block w-100">
-                            <img class="img-fluid" src="/images/carousel3.jpg" alt="">
-                        </div>
-                        <div class="carousel-item d-block w-100">
-                            <img class="img-fluid" src="/images/carousel2.jpg" alt="">
-                        </div>
-                    </div>
+        <header class="">
+            <%- include ('../partials/header') %>
+        </header>
 
-                    <!-- Controles -->
-                    <button 
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#mi-carousel"
-                        data-bs-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
+        <main class="">
+            
+           
+            <nav class="row mt-5">
+    
+                <div class="col ">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page">Ver todo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Discos duros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Procesadores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Placas de video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Motherboards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Memorias ram</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Monitores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Periféricos</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </nav>
+            
 
-                    <button 
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#mi-carousel"
-                        data-bs-slide="next"
-                    >
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-
-                    <!-- Indicadores -->
-                    <div class="carousel-indicators">
+            <section class="row mt-3">
+                <div class="col">
+                    <div class="carousel slide carousel-fade" id="mi-carousel" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active d-block w-100">
+                                <img class="img-fluid" src="/images/carousel1.jpg" alt="">
+                            </div>
+                            <div class="carousel-item d-block w-100" data-bs-interval="5000">
+                                <img class="img-fluid" src="/images/carousel2.jpg" alt="" >
+                            </div>
+                            <div class="carousel-item d-block w-100">
+                                <img class="img-fluid" src="/images/carousel3.jpg" alt="">
+                            </div>
+                            <div class="carousel-item d-block w-100">
+                                <img class="img-fluid" src="/images/carousel3.jpg" alt="">
+                            </div>
+                        </div>
+    
+                        <!-- Controles -->
                         <button 
+                            class="carousel-control-prev"
                             type="button"
-                            class="active"
                             data-bs-target="#mi-carousel"
-                            data-bs-slide-to="0"
-                            aria-label="Slide 1"
-                        ></button>
+                            data-bs-slide="prev"
+                        >
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+    
                         <button 
+                            class="carousel-control-next"
                             type="button"
-                            class=""
                             data-bs-target="#mi-carousel"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button 
-                            type="button"
-                            class=""
-                            data-bs-target="#mi-carousel"
-                            data-bs-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                        <button 
-                            type="button"
-                            class=""
-                            data-bs-target="#mi-carousel"
-                            data-bs-slide-to="3"
-                            aria-label="Slide 4"
-                        ></button>
+                            data-bs-slide="next"
+                        >
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+    
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators">
+                            <button 
+                                type="button"
+                                class="active"
+                                data-bs-target="#mi-carousel"
+                                data-bs-slide-to="0"
+                                aria-label="Slide 1"
+                            ></button>
+                            <button 
+                                type="button"
+                                class=""
+                                data-bs-target="#mi-carousel"
+                                data-bs-slide-to="1"
+                                aria-label="Slide 2"
+                            ></button>
+                            <button 
+                                type="button"
+                                class=""
+                                data-bs-target="#mi-carousel"
+                                data-bs-slide-to="2"
+                                aria-label="Slide 3"
+                            ></button>
+                            <button 
+                                type="button"
+                                class=""
+                                data-bs-target="#mi-carousel"
+                                data-bs-slide-to="3"
+                                aria-label="Slide 4"
+                            ></button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    
+            </section>
         
-        <h2>Ofertas</h2>
-        <section class="row mt-3">
-
-            <div class="col-4">
-
-                  
+            <!--OFERTAS-->
+            <section class="row mt-3">
+                <h2 class="text-primary">Ofertas (hacer esto con grid/img mismo w/h)</h2>
+                <!--con grid esto va quedar mejor cuando aumente la cantidad de productos-->
                 <% 
                     let long;
                     if(productList.length<10){
@@ -102,16 +138,17 @@
                     else{
                         long = 10;
                     }
-
-                    for(let i=0; i<long ; i++){ %>
-                        
-                        <div class="card">
-                            
-                            <a href="/products/detail/<%= productList[i].id %>">
-                                <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="card-img-top">
-                            </a>
-                            <div class="card-body">
+                
+                    for(let i=0; i<long ; i++){ 
+                %>                
+                        <div class="col-3 mx-auto">
+                            <div class="card border-primary">
                                 
+                                <a href="/products/detail/<%= productList[i].id %>">
+                                    <img src="<%= productList[i].images[0].url %>" width="400" height="300" alt="imagen-oferta" class="card-img-top">
+                                </a>
+                                <div class="card-body">
+                                    
                                     <p class="card-text">
                                         <%= productList[i].short_description  %>
                                         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -119,97 +156,99 @@
                                     <p class="card-subtitle">
                                         $<%= productList[i].price %>
                                     </p>
-                                </a>
-                                <a class="btn btn-outline-primary">
-                                    Agregar
-                                </a>
+                                    
+                                    <a class="btn btn-outline-primary">
+                                        Agregar
+                                    </a>
+                                </div>
+                                
                             </div>
-                            
-                        </div>
-                        
+                        </div>    
                 <%  } %>        
-
-            </div>
-
-        </section>
-        
-        <!-- <section class="contenedor-seccion">
-            <div class="right button-dest-RH"><i class="fas fa-angle-right"></i></div>
-            <div class="left button-dest-LH"><i class="fas fa-angle-left"></i></div>
-            <p class="titulos-home"> Destacados </p>
-            <div class="destacados contenedor-productos">
-
-                <%
-                if(productList.length<10){
-                    long= productList.length
-                }
-                else{
-                    long=10;
-                }
-                    for(let i=0; i<long; i++) {%>
-                    <article class="producto producto--oferta">
-                            <a href="/products/detail/<%= productList[i].id %>" class="producto__button-producto">
-                                <div class="producto__contenedor-imagen">
-                                    <img src="<%= productList[i].images[0].url %>" alt="imagen-oferta" class="producto__imagen" width="250" height="250">
+    
+            </section>
+            
+            <!--DESTACADOS-->
+            <section class="row mt-3">
+                <h2 class="text-primary">Destacados</h2>
+                <!--con grid esto va quedar mejor cuando aumente la cantidad de productos-->
+                <% 
+                    for(let i=0; i<long ; i++){ 
+                %>                
+                        <div class="col-3 mx-auto">
+                            <div class="card border-primary">
+                                
+                                <a href="/products/detail/<%= productList[i].id %>">
+                                    <img src="<%= productList[i].images[0].url %>" width="400" height="300" alt="imagen-oferta" class="card-img-top">
+                                    <!--img con mismo w-h en la bd-->
+                                </a>
+                                <div class="card-body">
+                                    
+                                    <p class="card-text">
+                                        <%= productList[i].short_description  %>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <p class="card-subtitle">
+                                        $<%= productList[i].price %>
+                                    </p>
+                                    
+                                    <a class="btn btn-outline-primary">
+                                        Agregar
+                                    </a>
                                 </div>
-                                <p class="producto__descripcion">
-                                    <%= productList[i].short_description  %>
-                                </p>
-                                <p class="producto__precio">
-                                    $<%= productList[i].price %>
-                                </p>
-                            </a>
-                            <a href="/products/cart" class="button-agregar">
-                                <div class="button-agregar__contenedor-imagen">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <span class="button-agregar__body">Agregar</span>
-                            </a>
-                    </article>
-                 <% } %>
-            </div>
-        </section>
-        
-        <section class="contenedor-seccion">
-            <p class="titulos-home"> Contacto </p>
-            <div class="contenedor-contacto">
+                                
+                            </div>
+                        </div>    
+                <%  } %>        
+    
+            </section>
+            
+            <!--REDES-->
+            <section class="row mt-3">
                 
-                <div class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/googlemaps.jpg"  class="forma-contacto__imagen" width="250" height="250">
-                    </div>
-                    <p class="forma-contacto__descripcion">
-                        Av. Cazon 2530 Tigre
-                    </p>
-                </div>
-
-                <div class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/PC-Hora.jpg"  class="forma-contacto__imagen" width="250" height="250">
-                    </div>
-                    <p class="forma-contacto__descripcion">
-                        Horarios de atencion: 8hs a 19hs
-                    </p>
-                </div>
-
-                <div class="forma-contacto">
-                    <div class="forma-contacto__contenedor-imagen">
-                        <img src="/images/servicio-cliente.jpg"  class="forma-contacto__imagen" width="250" height="250">
-                    </div>
-                    <div class="forma-contacto__descripcion">
-                        <p class="forma-contacto__email">E-mail: hardcomerce@gmail.com</p> 
-                        <p class="forma-contacto__cel">Cel/tel: 15374987365</p>
+                <h2 class="text-primary">Contacto</h2>
+                    
+                <div class="col-3 mx-auto">
+                    <div class="card">
+                        <img src="/images/googlemaps.jpg"  class="card-img-top" width="250" height="250">
+                    
+                        <p class="card-text">
+                            Av. Cazon 2530 Tigre
+                        </p>
                     </div>
                 </div>
 
-             </div>
-            </section> -->
-       
-    </main>
-    <!-- <footer class="main-footer">
-        <%- include("../partials/footer") %>
-    </footer> -->
+                <div class="col-3 mx-auto">
+                    <div class="card">
+                        <img src="/images/PC-Hora.jpg"  class="card-img-top" width="250" height="250">
+                    
+                        <p class="card-text">
+                            Horarios de atencion: 8hs a 19hs
+                        </p>
+                    </div>
+                </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                <div class="col-3 mx-auto">
+                    <div class="card">
+                        <img src="/images/servicio-cliente.jpg"  class="card-img-top" width="250" height="250">
+                    
+                        <div class="card-text">
+                            <p class="">E-mail: hardcomerce@gmail.com</p> 
+                            <p class="">Cel/tel: 15374987365</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </section>
+           
+        </main>
+    
+        <footer class="bg-light">
+            <%- include("../partials/footer") %>
+        </footer>
+
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

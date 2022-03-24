@@ -2,92 +2,112 @@
 <html lang="en">
 <head>
     <title>Registro</title>
-    <link rel="stylesheet" href="/CSS/register.css">
+    <!-- <link rel="stylesheet" href="/CSS/register.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <%- include('../partials/head') %>
 </head>
 <body>
-    <header>
-        <%- include ('../partials/header') %>
-    </header>
-    <main >
-        <div>
-            <h1>Registrarse</h1>
-            <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+    
+    <div class="container">
 
-                <div class="input-container">
-                    <label for="name">Ingrese su nombre</label>
-                    <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.name%>"/>
-                    <span class='msg-error msg-error-name'></span>
-                    <% if (locals.errors && errors.name) { %>
-                        <p class='msg-error'><%= errors.name.msg %></p>
-                    <% } %>
+        <header class="container-fluid">
+            <%- include ('../partials/header') %>
+        </header>
+        
+        <main class="container border-bottom border-top">
+            
+            <div class="row my-6 align-items-center justify-content-center bg-light">
+                
+                <div class="col-6 align-items-center justify-content-center">
+                    
+                    <h1 class="mb-4">Registrarse</h1>
+                    <form class="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Ingrese su nombre</label>
+                            <input type="text" name="name" id="name" class="form-control w-50" value="<%= locals.userToEdit && userToEdit.name%>"/>
+                            <!--class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>"-->
+                            <!-- <span class='msg-error msg-error-name'></span> 
+                            <% if (locals.errors && errors.name) { %>
+                                <p class='msg-error'><%= errors.name.msg %></p>
+                            <% } %>-->
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Ingrese su apellido</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control w-50"/>
+                            <!--class="<%= (locals.errors && errors.last_name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.last_name%>"-->
+                            <!-- <span class='msg-error msg-error-last_name'></span> -->
+                            <!-- <% if (locals.errors && errors.last_name) { %>
+                                <p class='msg-error'><%= errors.last_name.msg %></p>
+                            <% } %> -->
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Ingrese su email</label>
+                            <input type="text" name="email" id="email" class="form-control w-50" value="<%= locals.userToEdit && userToEdit.email%>"/>
+                            <!--class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"-->
+                            <!-- <span class='msg-error msg-error-email'></span>
+                            <% if (locals.errors && errors.email) { %>
+                                <p class='msg-error'><%= errors.email.msg %></p>
+                            <% } %> -->
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" name="password" id="password" class="form-control w-50" value="<%= locals.userToEdit && userToEdit.password%>"/>
+                            <!--class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"-->
+                            <!-- <span class='msg-error msg-error-password'></span>
+                            <% if (locals.errors && errors.password) { %>
+                                <p class='msg-error'><%= errors.password.msg %></p>
+                            <% } %> -->
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cell" class="form-label">Ingrese su número de celular</label>
+                            <input type="text" name="cell" id="cell" class="form-control w-50" value="<%= locals.userToEdit && userToEdit.cell%>"/>
+                            <!--class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"-->
+                            <!-- <span class='msg-error msg-error-cell'></span>
+                            <% if (locals.errors && errors.cell) { %>
+                                <p class='msg-error'><%= errors.cell.msg %></p>
+                            <% } %> -->
+
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Imágen</label>
+                            <input type="file"  name="image" id="image" class="form-control w-50"/>
+                            <!--class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>"-->
+                            <!-- <span class='msg-error msg-error-image'></span>
+                            <% if (locals.errors && errors.image) { %>
+                                <p class='msg-error'><%= errors.image.msg %></p>
+                            <% } %> -->
+
+                        </div>
+
+                        <div class="mb-3">
+                            <button type="summit" value="Registrarse" class="btn btn-primary">ENVIAR</button>
+                        </div>
+
+                    </form>
+
                 </div>
 
+            </div>
 
-                <div class="input-container">
-                    <label for="last_name">Ingrese su apellido</label>
-                    <input type="text" name="last_name" id="last_name" class="<%= (locals.errors && errors.last_name) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.last_name%>" />
-                    <span class='msg-error msg-error-last_name'></span>
+        </main>
 
-                    <% if (locals.errors && errors.last_name) { %>
-                        <p class='msg-error'><%= errors.last_name.msg %></p>
-                    <% } %>
-                </div>
+        <footer class="container-fluid">
+            <%- include("../partials/footer") %>
+        </footer>
 
-                <div class="input-container">
-                    <label for="email">Ingrese su email</label>
-                    <input type="text" name="email" id="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.email%>"/>
-                     <span class='msg-error msg-error-email'></span>
+    </div>
 
-                    <% if (locals.errors && errors.email) { %>
-                        <p class='msg-error'><%= errors.email.msg %></p>
-                    <% } %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-                </div>
-
-                <div class="input-container">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.password%>"/>
-                    <span class='msg-error msg-error-password'></span>
-
-                    <% if (locals.errors && errors.password) { %>
-                        <p class='msg-error'><%= errors.password.msg %></p>
-                    <% } %>
-
-                </div>
-
-                <div class="input-container">
-                    <label for="cell">Ingrese su número de celular</label>
-                    <input type="text" name="cell" id="cell" class="<%= (locals.errors && errors.cell) ? 'input-error' : '' %>" value="<%= locals.userToEdit && userToEdit.cell%>"/>
-                    <span class='msg-error msg-error-cell'></span>
-                    <% if (locals.errors && errors.cell) { %>
-                        <p class='msg-error'><%= errors.cell.msg %></p>
-                    <% } %>
-
-                </div>
-
-
-                <div class="input-container">
-                    <label for="image">Imágen</label>
-                    <input type="file"  name="image" id="image" />
-                    <span class='msg-error msg-error-image'></span>
-                    <% if (locals.errors && errors.image) { %>
-                        <p class='msg-error'><%= errors.image.msg %></p>
-                    <% } %>
-
-                </div>
-
-
-                <div class="input-container">
-                    <button type="summit" value="Registrarse">ENVIAR</button>
-                </div>
-
-            </form>
-        </div>
-    </main>
-    <footer class="main-footer">
-        <%- include("../partials/footer") %>
-    </footer>
 </body>
 </html>
-<script src="/JS/FormValidationNewUser.js"></script>
+<!-- <script src="/JS/FormValidationNewUser.js"></script> -->
